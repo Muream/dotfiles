@@ -7,6 +7,8 @@ if has("gui_running")
   set guioptions-=T                     " remove toolbar
   set guioptions-=r                     " remove right-hand scroll bar
   set guioptions-=L                     " remove left-hand scroll bar
+
+  " Change the font of the gvim
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_macvim")
@@ -30,14 +32,13 @@ set wildmenu			                " visual autocomplete for command menu
 " set lazyredraw			            " redraw only when we need to
 filetype indent on		                " load filetype-specific indent files
 
-
-" Spaces and tabs
-set tabstop=4 		    	                " number of visual spaces per Tab
-set softtabstop=4 	    	              " number of spaces in tab when editing
-set expandtab		    	                  " tabs are spaces
-
 " Searching
 set incsearch			                " search as charaters are entered
+
+" Spaces and tabs
+set tabstop=4			                " number of visual spaces per tab
+set softtabstop=4		                " number of spaces in tab when editing
+set expandtab			                " tabs are spaces
 
 " Folding
 set foldenable                          " enable folding
