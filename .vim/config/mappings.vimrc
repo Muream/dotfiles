@@ -11,3 +11,6 @@ nnoremap <C-H> <C-W><C-H>
 
 " Folding
 nnoremap <space> za
+
+" NERDTree
+noremap <leader>ne :NERDTreeToggle<CR>
