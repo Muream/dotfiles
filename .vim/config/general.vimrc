@@ -21,7 +21,10 @@ endif
 
 " Colors
 syntax enable                           " enable syntax highlighting
-colorscheme onedark              " colorscheme... obviously
+colorscheme Tomorrow-Night              " colorscheme... obviously
+set background=dark
+let base16colorspace=256
+set t_Co=256
 
 " Interface
 " hi Normal ctermbg=none
