@@ -12,5 +12,8 @@ nnoremap <C-H> <C-W><C-H>
 " Folding
 nnoremap <space> za
 
+"source ~/.vimrc
+nnoremap <leader>so :so ~/.vimrc<CR>
+
 " NERDTree
 noremap <leader>ne :NERDTreeToggle<CR>

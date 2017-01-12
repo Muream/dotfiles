@@ -1,5 +1,6 @@
 call plug#begin()
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
 Plug 'tmhedberg/SimpylFold'
 Plug 'scrooloose/nerdtree'

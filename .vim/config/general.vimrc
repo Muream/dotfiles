@@ -1,5 +1,6 @@
 " General
 set encoding=utf-8
+set autoread
 
 " GUI
 if has("gui_running")
@@ -20,25 +21,32 @@ endif
 
 " Colors
 syntax enable                           " enable syntax highlighting
-colorscheme Tomorrow-Night              " colorscheme... obviously
+colorscheme onedark              " colorscheme... obviously
 
 " Interface
-set number				                " show line numbers
-set relativenumber		                " use relative line numbers
-set cursorline			                " hightlight current line
-set showmatch			                " highlight matchin [{()}]
-set showcmd				                " show command in bottom bar
-set wildmenu			                " visual autocomplete for command menu
-" set lazyredraw			            " redraw only when we need to
-filetype indent on		                " load filetype-specific indent files
+" hi Normal ctermbg=none
+set number                              " show line numbers
+set relativenumber                      " use relative line numbers
+set cursorline                          " hightlight current line
+set showmatch                           " highlight matchin [{()}]
+set showcmd                             " show command in bottom bar
+set wildmenu                            " visual autocomplete for command menu
+" set lazyredraw                        " redraw only when we need to
+filetype indent on                      " load filetype-specific indent files
+" toggle invisible characters
+set list
+set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set showbreak=↪
 
 " Searching
-set incsearch			                " search as charaters are entered
+set incsearch                           " search as charaters are entered
+set ignorecase                          " case insensitive searching
+set smartcase                           "case-sensitive if search contains a capital letter
 
 " Spaces and tabs
-set tabstop=4			                " number of visual spaces per tab
-set softtabstop=4		                " number of spaces in tab when editing
-set expandtab			                " tabs are spaces
+set tabstop=4                           " number of visual spaces per tab
+set softtabstop=4                       " number of spaces in tab when editing
+set expandtab                           " tabs are spaces
 
 " Folding
 set foldenable                          " enable folding
