@@ -13,3 +13,5 @@ let g:session_directory = "~/.vim/sessions"
 let g:session_autoloadd = "yes"
 let g:session_autosave = "yes"
 
+"git gutter
+set updatetime=250

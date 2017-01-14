@@ -9,6 +9,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" resize splits
+nmap <silent> + :vertical resize +5<CR>
+nmap <silent> - :vertical resize -5<CR>
+nmap <silent> <leader>+ :resize +5<CR>
+nmap <silent> <leader>- :resize -5<CR>
+
 " Buffers act as tabs
 set hidden                                  " Don't lose changes when switching buffers
 " move the previous buffer

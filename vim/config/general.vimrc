@@ -22,8 +22,8 @@ endif
 " Colors
 syntax enable                           " enable syntax highlighting
 colorscheme Tomorrow-Night              " colorscheme... obviously
+let python_highlight_all=1
 set background=dark
-let base16colorspace=256
 set t_Co=256
 
 " Interface
