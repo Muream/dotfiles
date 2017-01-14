@@ -17,11 +17,10 @@ nmap <silent> <leader>- :resize -5<CR>
 
 " Buffers act as tabs
 set hidden                                  " Don't lose changes when switching buffers
-" move the previous buffer
+" navigate buffers
 nmap <leader>l :bnext<cr>
-" move the previous buffer
 nmap <leader>h :bprevious<cr>
-"close buffer
+"close current buffer
 nmap <leader>bq :bp <BAR> bd #<CR>
 
 " Folding
