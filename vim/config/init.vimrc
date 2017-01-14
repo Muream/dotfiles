@@ -8,7 +8,8 @@ Plug 'flazz/vim-colorschemes'               " lots of colorschemes
 
 Plug 'klen/python-mode'                     " python goodness, including better highlighting
 Plug 'tmhedberg/SimpylFold'                 " better python folding
-Plug 'davidhalter/jedi-vim'                 " jedi autocompletion for python
+Plug 'Valloric/YouCompleteMe'               " jedi autocompletion for python
+Plug 'ervandew/supertab'                    " use tab to autocomplete anytime
 
 Plug 'tpope/vim-fugitive'                   " git stuff inside vim
 Plug 'thinca/vim-quickrun'                  " execute whole/part of editing file
