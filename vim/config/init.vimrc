@@ -1,6 +1,7 @@
 call plug#begin()
 
 Plug 'scrooloose/nerdtree'                  " file manager
+Plug 'kien/ctrlp.vim'                       " fuzzy file search
 Plug 'bling/vim-airline'                    " cool status line
 Plug 'vim-airline/vim-airline-themes'       " themes for airline
 Plug 'flazz/vim-colorschemes'               " lots of colorschemes
