@@ -3,12 +3,11 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'                  " file manager
 Plug 'bling/vim-airline'                    " cool status line
 Plug 'vim-airline/vim-airline-themes'       " themes for airline
-
 Plug 'flazz/vim-colorschemes'               " lots of colorschemes
 
 Plug 'klen/python-mode'                     " python goodness, including better highlighting
 Plug 'tmhedberg/SimpylFold'                 " better python folding
-Plug 'Valloric/YouCompleteMe'               " jedi autocompletion for python
+Plug 'davidhalter/jedi-vim'                 " jedi autocompletion for python
 Plug 'ervandew/supertab'                    " use tab to autocomplete anytime
 
 Plug 'tpope/vim-fugitive'                   " git stuff inside vim
