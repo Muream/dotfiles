@@ -5,6 +5,7 @@ Plug 'kien/ctrlp.vim'                       " fuzzy file search
 Plug 'bling/vim-airline'                    " cool status line
 Plug 'vim-airline/vim-airline-themes'       " themes for airline
 Plug 'flazz/vim-colorschemes'               " lots of colorschemes
+Plug 'chriskempson/base16-vim'              " Base16 schemes
 
 Plug 'klen/python-mode'                     " python goodness, including better highlighting
 Plug 'tmhedberg/SimpylFold'                 " better python folding

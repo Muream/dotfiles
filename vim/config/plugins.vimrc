@@ -1,9 +1,10 @@
 " airline
 set laststatus=2                                    " airline always visible
 set noshowmode                                      " shows mode only in airline
-let g:airline_powerline_fonts = 1                   " use powerline fonts for more fancyness
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 
 " NERDTree
 autocmd vimenter * NERDTree                         " NERDTree open at startup

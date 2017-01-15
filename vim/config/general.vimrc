@@ -24,6 +24,10 @@ syntax enable                           " enable syntax highlighting
 colorscheme Tomorrow-Night              " colorscheme... obviously
 let python_highlight_all=1
 set background=dark
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 set t_Co=256
 
 " Interface
@@ -56,6 +60,10 @@ set foldenable                          " enable folding
 set foldlevelstart=99                   " open all folds by default
 set foldmethod=indent                   " fold based on indent level
 let g:SimplyFold_docstring_preview=1
+
+" Better Copy & Paste
+set pastetoggle=<F2>                    " proper intentation when pasting from outside of vim
+set clipboard=unnamed                   " uses system clipboard
 
 "python with virtualenv support
 py << EOF

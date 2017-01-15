@@ -18,10 +18,12 @@ nmap <silent> <leader>- :resize -5<CR>
 " Buffers act as tabs
 set hidden                                  " Don't lose changes when switching buffers
 " navigate buffers
-nmap <leader>l :bnext<cr>
-nmap <leader>h :bprevious<cr>
+nmap > :bnext<cr>
+nmap < :bprevious<cr>
 "close current buffer
 nmap <leader>bq :bp <BAR> bd #<CR>
+"create new buffer
+nmap <leader>bn :enew<CR>
 
 " Folding
 nnoremap <leader><space> za
