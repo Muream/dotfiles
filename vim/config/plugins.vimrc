@@ -18,3 +18,7 @@ let g:session_autosave = "yes"                      " automatially save session
 
 "git gutter
 set updatetime=250                                  " git gutter is fast
+
+" PyMode
+let g:pymode_rope = 0                               " Disable Rope
+let g:pymode_lint = 0                               " Disable syntax checking, we have syntastic for that

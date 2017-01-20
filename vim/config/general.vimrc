@@ -41,9 +41,6 @@ set wildmenu                            " visual autocomplete for command menu
 " set lazyredraw                        " redraw only when we need to
 filetype indent on                      " load filetype-specific indent files
 " toggle invisible characters
-set list
-set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-set showbreak=↪
 
 " Searching
 set incsearch                           " search as charaters are entered
