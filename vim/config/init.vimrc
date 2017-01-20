@@ -3,6 +3,7 @@
 if has('win32')
     set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
+
 call plug#begin()
 
 Plug 'scrooloose/nerdtree'                  " file manager
@@ -31,7 +32,7 @@ Plug 'airblade/vim-gitgutter'               " git diff in gutter
 
 " OS specific plugins
 if has('unix')
-Plug 'christoomey/vim-tmux-navigator'       " seamless navigation between vim splits and tmux
+	Plug 'christoomey/vim-tmux-navigator'       " seamless navigation between vim splits and tmux
 endif
 
 call plug#end()

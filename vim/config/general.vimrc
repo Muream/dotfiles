@@ -58,9 +58,15 @@ set foldlevelstart=99                   " open all folds by default
 set foldmethod=indent                   " fold based on indent level
 let g:SimplyFold_docstring_preview=1
 
+" splits
+set splitbelow
+set splitright
+
 " Better Copy & Paste
 set pastetoggle=<F2>                    " proper intentation when pasting from outside of vim
 set clipboard=unnamed                   " uses system clipboard
+
+set noswapfile
 
 "python with virtualenv support
 py << EOF
