@@ -19,7 +19,8 @@ Plug 'ervandew/supertab'                    " use tab to autocomplete anytime
 
 Plug 'tpope/vim-fugitive'                   " git stuff inside vim
 
-Plug 'scrooloose/nerdcommenter'             " easily comment stuff
+"Plug 'scrooloose/nerdcommenter'             " easily comment stuff
+Plug 'tpope/vim-commentary'                 " easily comment stuff
 Plug 'tpope/vim-surround'                   " surround text
 Plug 'yggdroot/indentline'                  " show indent guides
 Plug 'raimondi/delimitmate'                 " Automatically closes quotes, parenthesis, etc.
