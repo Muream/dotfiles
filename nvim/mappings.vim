@@ -1,4 +1,4 @@
-let mapleader = ","
+let mapleader = "\<space>"
 inoremap jk <esc>
 
 "split navigations
@@ -8,19 +8,24 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " tab navigation
-nmap <C-Tab> gt
-nmap <C-S-Tab> gT
+nnoremap <C-Tab> gt
+nnoremap <C-S-Tab> gT
+
+" navigate buffers
+nnoremap <leader>b :CtrlPBuffer<CR>
 
 " file navigation
 nnoremap j gj
 nnoremap k gk
 nnoremap G Gzz
-nnoremap <space> za
+nnoremap <leader>f za
 
-nnoremap <leader>w :w<cr>
+nnoremap <leader>w :w<CR>
 
 " tags navigation
 nnoremap <leader>t :CtrlPBufTag<CR>
 nnoremap <leader><leader>t :TagbarOpen fjc<CR>
 
 nnoremap <silent><leader><leader>f :NERDTree<CR>
+
+nnoremap <leader>r :so $MYVIMRC<CR>
