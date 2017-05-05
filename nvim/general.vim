@@ -6,6 +6,7 @@ set cursorline                  " highlight current line
 set showcmd                     " show command in botom bar
 set wildmenu                    " visual autocomplete for command menu
 set showmatch                   " highlight matching {[()]}
+set colorcolumn=81
 
 " toggle invisible characters
 set list
@@ -35,3 +36,7 @@ set autoread                    " autoreload files
 
 " buffers
 set hidden                      " don't lose changes when switching buffers
+
+" folds
+" set foldmethod=indent
+set foldlevel=99
