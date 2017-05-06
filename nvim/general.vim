@@ -6,12 +6,11 @@ set cursorline                  " highlight current line
 set showcmd                     " show command in botom bar
 set wildmenu                    " visual autocomplete for command menu
 set showmatch                   " highlight matching {[()]}
-set colorcolumn=81
+set colorcolumn=81              " highlight 81st column
 
 " toggle invisible characters
 set list
 set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-set showbreak=↪
 
 " searching
 set incsearch
