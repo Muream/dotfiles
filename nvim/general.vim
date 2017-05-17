@@ -6,7 +6,7 @@ set cursorline                  " highlight current line
 set showcmd                     " show command in botom bar
 set wildmenu                    " visual autocomplete for command menu
 set showmatch                   " highlight matching {[()]}
-set colorcolumn=81              " highlight 81st column
+set colorcolumn=80              " highlight 81st column
 
 " toggle invisible characters
 set list
@@ -19,6 +19,7 @@ set smartcase                   " except if contains capital letter
 set inccommand=nosplit
 
 " tabs and spaces
+filetype plugin indent on
 set tabstop=4                   " number of visual spaces per tab
 set softtabstop=4               " number of spaces in tab when editing
 set expandtab                   " tabs are spaces
@@ -28,7 +29,7 @@ set splitbelow                  " horizontal splits are created on the bottom
 set splitright                  " vertical splits are created on the far right
 
 " misc
-set clipboard=unnamedplus       " use system clipboard
+set clipboard=unnamed       " use system clipboard
 set noswapfile                  " don't create swapfiles
 filetype indent on              " indent based on filetype (?)
 set autoread                    " autoreload files
