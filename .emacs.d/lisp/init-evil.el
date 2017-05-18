@@ -1,4 +1,4 @@
-;; evil mode
+;; vim bindings in emacs
 (use-package evil
   :ensure t
   :config
