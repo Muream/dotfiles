@@ -1,13 +1,17 @@
-(use-package powerline
+;; colorscheme
+(use-package atom-one-dark-theme
   :ensure t
   :config
-  (powerline-default-theme))
+  (load-theme 'atom-one-dark t))
 
-(use-package powerline-evil
-  :ensure t)
+;; relative line numbering!
+(use-package linum-relative
+  :ensure t
+  :config
+  (linum-relative-on)
+  (global-linum-mode))
 
-(use-package atom-one-dark-theme
-  :ensure t)
+;; hide all the interface stuff
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
