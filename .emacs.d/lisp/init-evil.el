@@ -1,3 +1,12 @@
+;;; init-evil.el -- evil setup
+
+;;; Commentary:
+;; all things vim
+
+;;; Code:
+
+
+
 ;; vim bindings in emacs
 (use-package evil
   :ensure t
@@ -17,6 +26,11 @@
     :ensure t
     :config
     (global-evil-surround-mode))
+  (use-package evil-commentary
+    :ensure t
+    :config
+    (evil-commentary-mode))
 )
 
 (provide 'init-evil)
+;;; init-evil.el ends here

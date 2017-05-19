@@ -1,3 +1,12 @@
+;;; init-company.el -- company configuration
+
+;;; Commentary:
+;; autocompletion things
+
+;;; Code:
+
+
+
 (use-package company
   :ensure t
   :config
@@ -13,3 +22,4 @@
 )
 
 (provide 'init-company)
+;;; init-company.el ends here
