@@ -2,9 +2,8 @@ call plug#begin()
 " autocompletion
 " Plug 'davidhalter/jedi-vim'                                   " jedi autocompletion for python
 Plug 'ervandew/supertab'                                        " tab for autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   " async completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   " async auto-completion
 Plug 'zchee/deoplete-jedi'                                      " jedi backend for deoplete
-
 
 " utils
 Plug 'kien/ctrlp.vim'                                           " fuzzy file search
@@ -14,28 +13,16 @@ Plug 'raimondi/delimitmate'                                     " automatically 
 Plug 'neomake/neomake'                                          " asynchronous linting
 Plug 'Chiel92/vim-autoformat'                                   " format code
 Plug 'tmhedberg/SimpylFold'                                     " no bs python folding
+Plug 'craigemery/vim-autotag'                                   " auto-generate tags
 
 " pretty stuff
 Plug 'vim-python/python-syntax'                                 " advanced python syntax highlighting
 Plug 'Yggdroot/indentLine'                                      " indent guides
-" Plug 'vim-airline/vim-airline'                                  " cool status line
-" Plug 'vim-airline/vim-airline-themes'                           " airline themes
-Plug 'junegunn/rainbow_parentheses.vim'                         " color matching parenthesis
 
 " colorschemes
 Plug 'iCyMind/NeoSolarized'
 
 call plug#end()
-
-" " airline
-" set laststatus=2                                                " airline always visible
-" set noshowmode                                                  " shows mode only in airline
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline_left_sep=''
-" let g:airline_right_sep=''
-" let g:airline#extensions#taboo#enabled = 1
-" let g:airline_powerline_fonts = 1
 
 " supertab
 let g:SuperTabLongestHighlight= 1                               " select first item of the autocompletion
@@ -49,11 +36,13 @@ let g:ctrlp_show_hidden = 1
 
 " python syntax
 let python_highlight_all=1
-let g:python_version_3=1
+" let g:python_version_3=1
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#sources#jedi#python_path = 'C:/Program Files/Autodesk/Maya2016/bin/mayapy.exe'
+" let g:deoplete#sources#jedi#extra_path = ['D:/PERSONAL/mayaDevKit2016/pymel/extras/completion/py']
 
 " neomake
 autocmd! BufWritePost * Neomake
@@ -65,3 +54,5 @@ let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_space = 0
 
+" Autotags
+let g:autotagExcludeSuffixes = ['docs']
