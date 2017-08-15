@@ -1,4 +1,3 @@
-vim/plugged/*
-vim/sessions/*
-vim/autoload/*
+nvim/plugged/*
+nvim/sessions/*
 .netrwhist
