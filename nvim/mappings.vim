@@ -33,8 +33,6 @@ nnoremap <leader>sf :%s/\<<C-r><C-w>\>//g<left><left>
 nnoremap <leader>sl :s/\<<C-r><C-w>\>//g<left><left>
 " nnoremap <leader>ss :'<,'>s/\<<C-r><C-w>\>//g<left><left>
 
-" open NerdTree
-nnoremap <silent><leader><leader>f :NERDTree<CR>
 " open tagbar
 nnoremap <leader><leader>t :TagbarOpen fjc<CR>
 
@@ -48,3 +46,5 @@ nnoremap <leader><leader>r :!python %<CR>
 " nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>t :CtrlPBufTag<CR>
 nnoremap <C-p> :CtrlPMRUFiles<CR>
+
+map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>

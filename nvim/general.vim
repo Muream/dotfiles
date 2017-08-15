@@ -1,5 +1,7 @@
 " look & feel
-colorscheme base16-onedark
+set termguicolors
+set background=dark
+colorscheme NeoSolarized
 set number                      " show line numbers
 set relativenumber              " use relative line numbers
 set cursorline                  " highlight current line
@@ -29,7 +31,7 @@ set splitbelow                  " horizontal splits are created on the bottom
 set splitright                  " vertical splits are created on the far right
 
 " misc
-set clipboard=unnamed       " use system clipboard
+set clipboard=unnamed           " use system clipboard
 set noswapfile                  " don't create swapfiles
 filetype indent on              " indent based on filetype (?)
 set autoread                    " autoreload files
