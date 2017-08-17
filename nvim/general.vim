@@ -9,7 +9,7 @@ set showcmd                     " show command in botom bar
 set wildmenu                    " visual autocomplete for command menu
 set showmatch                   " highlight matching {[()]}
 set colorcolumn=80              " highlight 81st column
-let g:GuiFont="Consolas:h13"
+set so=5
 
 " toggle invisible characters
 set list

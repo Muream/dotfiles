@@ -11,8 +11,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <S-H> ^
-nnoremap <S-J> 5j
-nnoremap <S-K> 5k
+" nnoremap <S-J> 5j
+" nnoremap <S-K> 5k
 nnoremap <S-L> $
 
 " tab navigation
