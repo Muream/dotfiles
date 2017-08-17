@@ -1,7 +1,7 @@
 " look & feel
 set termguicolors
 set background=dark
-colorscheme NeoSolarized
+colorscheme onedark
 set number                      " show line numbers
 set relativenumber              " use relative line numbers
 set cursorline                  " highlight current line

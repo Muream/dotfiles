@@ -6,23 +6,24 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   " async auto-com
 Plug 'zchee/deoplete-jedi'                                      " jedi backend for deoplete
 
 " utils
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } " file drawer
 Plug 'kien/ctrlp.vim'                                           " fuzzy file search
 Plug 'tpope/vim-surround'                                       " surround anything with anything
 Plug 'tpope/vim-commentary'                                     " comment stuff like a boss
 Plug 'tpope/vim-obsession'                                      " auto update session files
 Plug 'dhruvasagar/vim-prosession'                               " easy switching betwin sessions and mode
 Plug 'raimondi/delimitmate'                                     " automatically close quotes, brackets, etc
-" Plug 'neomake/neomake'                                          " asynchronous linting
 Plug 'w0rp/ale'                                                 " asynchronous linting
 Plug 'Chiel92/vim-autoformat'                                   " format code
 Plug 'tmhedberg/SimpylFold'                                     " no bs python folding
 Plug 'craigemery/vim-autotag'                                   " auto-generate tags
+" Plug 'rargo/vim-tab'                                            " maintain different working directory in each tab
 
 " pretty stuff
 Plug 'vim-python/python-syntax'                                 " advanced python syntax highlighting
 Plug 'Yggdroot/indentLine'                                      " indent guides
-Plug 'vim-airline/vim-airline'                                " nice looking statusbar
-Plug 'vim-airline/vim-airline-themes'                         " themes for airline
+Plug 'vim-airline/vim-airline'                                  " nice looking statusbar
+Plug 'vim-airline/vim-airline-themes'                           " themes for airline
 
 " colorschemes
 Plug 'iCyMind/NeoSolarized'
@@ -63,9 +64,8 @@ let g:deoplete#sources#jedi#python_path = 'C:/Program Files/Autodesk/Maya2016/bi
 " autocmd! BufWritePost * Neomake
 
 " ale
-let g:ale_linters = {
-\   'python': ['flake8']
-\}
+let g:ale_linters = {'python': ['flake8']}
+let g:ale_sign_column_always=1
 
 " AutoFormat
 let g:formatdef_autopep8 = "'autopep8 - --ignore E501'"
@@ -79,3 +79,9 @@ let g:autotagExcludeSuffixes = ['docs']
 
 " ProSession
  let g:prosession_dir = '~/AppData/Local/nvim/sessions/'
+
+" NERDTree
+ nmap <silent> <leader>k :NERDTreeToggle<cr>
+let NERDTreeShowHidden=1
+let NERDTreeDirArrowExpandable = '▷'
+let NERDTreeDirArrowCollapsible = '▼'
