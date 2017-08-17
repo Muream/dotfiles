@@ -57,11 +57,6 @@ let python_highlight_all=1
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#show_docstring = 1
-let g:deoplete#sources#jedi#python_path = 'C:/Program Files/Autodesk/Maya2016/bin/mayapy.exe'
-" let g:deoplete#sources#jedi#extra_path = ['D:/PERSONAL/mayaDevKit2016/pymel/extras/completion/py']
-
-" neomake
-" autocmd! BufWritePost * Neomake
 
 " ale
 let g:ale_linters = {'python': ['flake8']}
