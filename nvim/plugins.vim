@@ -4,6 +4,7 @@ call plug#begin()
 Plug 'ervandew/supertab'                                        " tab for autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   " async auto-completion
 Plug 'zchee/deoplete-jedi'                                      " jedi backend for deoplete
+Plug 'zchee/deoplete-clang'                                     " clang backend for deoplete
 
 " utils
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } " file drawer
