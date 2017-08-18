@@ -17,7 +17,7 @@ Plug 'w0rp/ale'                                                 " asynchronous l
 Plug 'Chiel92/vim-autoformat'                                   " format code
 Plug 'tmhedberg/SimpylFold'                                     " no bs python folding
 Plug 'craigemery/vim-autotag'                                   " auto-generate tags
-" Plug 'rargo/vim-tab'                                            " maintain different working directory in each tab
+Plug 'sbdchd/neoformat'                                         " async code formatter
 
 " pretty stuff
 Plug 'vim-python/python-syntax'                                 " advanced python syntax highlighting
@@ -39,6 +39,7 @@ let g:airline#extensions#tabline#show_buffers = 1               " make sure the 
 let g:airline#extensions#tabline#tab_nr_type = 1                " display the number of the tab instead of the number of splits it contains
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_left_sep=''
+let g:airline#extensions#ale#enabled = 1                        " show linting errors in airline
 
 " supertab
 let g:SuperTabLongestHighlight= 1                               " select first item of the autocompletion
@@ -59,15 +60,18 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#show_docstring = 1
 
 " ale
-let g:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
 let g:ale_sign_column_always=1
 
-" AutoFormat
-let g:formatdef_autopep8 = "'autopep8 - --ignore E501'"
-let g:formatters_python = ['autopep8']
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_space = 0
+" Neoformat
+" let g:neoformat_python_autopep8 = {
+" \   'exe': 'autopep8',
+" \   'args': ['-s 4', '-E'],
+" \ }
+
+let g:neoformat_enabled_python = ['autopep8']
 
 " Autotags
 let g:autotagExcludeSuffixes = ['docs']
@@ -76,7 +80,6 @@ let g:autotagExcludeSuffixes = ['docs']
  let g:prosession_dir = '~/AppData/Local/nvim/sessions/'
 
 " NERDTree
- nmap <silent> <leader>k :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
 let NERDTreeDirArrowExpandable = '▷'
 let NERDTreeDirArrowCollapsible = '▼'

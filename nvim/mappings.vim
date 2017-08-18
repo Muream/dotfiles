@@ -22,7 +22,7 @@ nnoremap G Gzz
 nnoremap <space> za
 
 nnoremap <leader>w :w<CR>
-nnoremap <leader>f :Autoformat<CR>
+nnoremap <leader>f :Neoformat<CR>
 
 " substitute
 nnoremap <leader>sf :%s/\<<C-r><C-w>\>//g<left><left>
@@ -38,6 +38,7 @@ nnoremap <leader><leader>r :!python %<CR>
 " ctrlP mappings
 " nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>t :CtrlPBufTag<CR>
+nnoremap <leader><leader>t :CtrlPTag<CR>
 nnoremap <C-p> :CtrlP<CR>
 
 nnoremap <leader>k :NERDTreeToggle<CR>
