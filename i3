@@ -1,0 +1,1 @@
+/home/muream/.config/i3/
