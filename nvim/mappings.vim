@@ -11,10 +11,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
-" tab navigation
-nnoremap <C-Tab> gt
-nnoremap <C-S-Tab> gT
-
 " file navigation
 nnoremap j gj
 nnoremap k gk
@@ -22,23 +18,14 @@ nnoremap G Gzz
 nnoremap <space> za
 
 nnoremap <leader>w :w<CR>
-nnoremap <leader>f :Neoformat<CR>
-
-" substitute
-nnoremap <leader>sf :%s/\<<C-r><C-w>\>//g<left><left>
-nnoremap <leader>sl :s/\<<C-r><C-w>\>//g<left><left>
-" nnoremap <leader>ss :'<,'>s/\<<C-r><C-w>\>//g<left><left>
 
 "source vimrc
 nnoremap <leader>v :so $MYVIMRC<CR>
 
-" run python code
-nnoremap <leader><leader>r :!python %<CR>
+" fzf mappings
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>t :BTags<CR>
+nnoremap <leader><leader>t :Tags<CR>
+nnoremap <C-p> :Files<CR>
 
-" ctrlP mappings
-" nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>t :CtrlPBufTag<CR>
-nnoremap <leader><leader>t :CtrlPTag<CR>
-nnoremap <C-p> :CtrlP<CR>
-
-nnoremap <leader>k :NERDTreeToggle<CR>
+" nnoremap <leader>k :NERDTreeToggle<CR>
