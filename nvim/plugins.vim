@@ -21,7 +21,6 @@ Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}  " file d
 
 " VISUAL
 Plug 'joshdick/onedark.vim'                                             " one dark color scheme
-Plug 'yuttie/comfortable-motion.vim'                                    " smooth scrolling
 
 call plug#end()
 
