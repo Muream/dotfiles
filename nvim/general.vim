@@ -4,6 +4,7 @@ colorscheme onedark
 set relativenumber          " numbers relative to the current line
 set number                  " current line number is the real line number (not 0)
 set cursorline              " highlight current line
+set noshowmode
 
 " display invisible characters (tabs, trailing spaces, etc
 set list
@@ -26,5 +27,7 @@ set splitright              " vertical splits are created on the right
 set clipboard+=unnamed      " use system clipboard
 set noswapfile              " don't create swap files
 set autoread                " reload file when they are modified
-set hidden
-set nowrap
+set hidden                  " don't lose changes when switching buffers
+set nowrap                  " don't wrap long lines
+
+set foldlevel=99            " everything is unfolded by default

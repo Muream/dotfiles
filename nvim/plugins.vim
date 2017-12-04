@@ -17,10 +17,18 @@ Plug 'junegunn/fzf.vim'                                                 " fuzzy 
 Plug 'w0rp/ale'                                                         " async linting
 Plug 'tpope/vim-surround'                                               " quoting/parenthesizing made simple
 Plug 'tpope/vim-commentary'                                             " comment stuff out
+Plug 'tpope/vim-fugitive'                                               " git wrapper
+Plug 'tpope/vim-repeat'                                                 " dot commands for stuff like surround, comment, etc
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}  " file drawer
+Plug 'floobits/floobits-neovim'                                         " awesome pair programming tool
+Plug 'Raimondi/delimitMate'                                             " automatically close {[()]}
+Plug 'tmhedberg/SimpylFold'                                             " no BS python code folding
+
 
 " VISUAL
 Plug 'joshdick/onedark.vim'                                             " one dark color scheme
+Plug 'Yggdroot/indentLine'                                              " indent guides
+Plug 'itchyny/lightline.vim'                                            " status line
 
 call plug#end()
 
@@ -37,3 +45,13 @@ let b:ale_linters = ['pylint']
 let NERDTreeShowHidden=1
 let NERDTreeDirArrowExpandable = '▷'
 let NERDTreeDirArrowCollapsible = '▼'
+
+" lightline
+let g:lightline = {
+        \'colorscheme': 'one',
+        \}
+
+" indent line
+let g:indentLine_char = '│'
+" let g:indentLine_leadingSpaceEnabled = 1
+" let g:indentLine_leadingSpaceChar = '·'
