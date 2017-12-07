@@ -32,6 +32,8 @@ Plug 'itchyny/lightline.vim'                                            " status
 
 call plug#end()
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
 
 " supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
