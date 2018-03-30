@@ -26,8 +26,9 @@ set splitright              " vertical splits are created on the right
 " misc
 set clipboard+=unnamed      " use system clipboard
 set noswapfile              " don't create swap files
-set autoread                " reload file when they are modified
+set autoread                " reload files on change
 set hidden                  " don't lose changes when switching buffers
 set nowrap                  " don't wrap long lines
 
 set foldlevel=99            " everything is unfolded by default
+
