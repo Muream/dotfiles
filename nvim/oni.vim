@@ -11,12 +11,16 @@ set nowrap                          " lines don't wrap
 set incsearch                       " search as we type
 set ignorecase                      " case insensitive searching
 set smartcase                       " case sensitive if caps in search
-set inccommand="nosplit"
+set inccommand=nosplit
+set clipboard=unnamed
 
 " Mappings
 let mapleader = ","
 inoremap jk <esc>l
-inoremap j<S-k> <esc>l
+
+inoremap jK <esc>l
+inoremap Jk <esc>l
+inoremap JK <esc>l
 nnoremap <esc> :nohls<CR>
 
 nnoremap j gj
@@ -30,12 +34,11 @@ nnoremap <C-,> :bprev<CR>
 " Plugins
 call plug#begin('~/AppData/Roaming/Oni/plugins')
 Plug 'tpope/vim-surround'
-Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/colorizer'
 Plug 'tmhedberg/simpylfold'
-Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
+
