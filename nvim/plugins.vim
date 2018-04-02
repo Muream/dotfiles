@@ -38,6 +38,8 @@ Plug 'ap/vim-buftabline'                                                " buffer
 
 call plug#end()
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
 
 " deoplete
 let g:deoplete#sources#jedi#extra_path = [
