@@ -33,12 +33,8 @@ nnoremap <C-,> :bprev<CR>
 
 " Plugins
 call plug#begin('~/AppData/Roaming/Oni/plugins')
-Plug 'tpope/vim-surround'
-Plug 'vim-scripts/colorizer'
-Plug 'tmhedberg/simpylfold'
+Plug 'vim-scripts/colorizer'                        " color the background of well... colors
+Plug 'tpope/vim-fugitive'                           " A git wrapper so amazing it should be illegal
+Plug 'tpope/vim-rhubarb'                            " :Gbrowse works with github
+Plug 'airblade/vim-gitgutter'                       " show git 'diff' in the gutter
 call plug#end()
-
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-
