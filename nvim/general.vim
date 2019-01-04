@@ -25,6 +25,7 @@ set splitright              " vertical splits are created on the right
 
 " misc
 set clipboard+=unnamed      " use system clipboard
+set inccommand=nosplit
 set noswapfile              " don't create swap files
 set autoread                " reload files on change
 set hidden                  " don't lose changes when switching buffers
@@ -32,3 +33,4 @@ set nowrap                  " don't wrap long lines
 
 set foldlevel=99            " everything is unfolded by default
 
+cd C:/Users/Muream/Documents/maya/2018/scripts/icarus

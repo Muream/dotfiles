@@ -1,3 +1,22 @@
+" Fetch vim-plug if it is not installed.
+" Could not use variables in the curl call,
+" so made two separate blocks.
+if has('win32')
+    if empty(glob('C:/Users/Muream/AppData/Local/nvim/autoload/plug.vim'))
+        echo 'Fetching plug.vim...'
+        silent !curl -fLo C:/Users/Muream/AppData/Local/nvim/autoload/plug.vim --create-dirs
+            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+else
+    if empty(glob('~/.config/nvim/autoload/plug.vim'))
+        echo 'Fetching plug.vim...'
+        silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+endif
+
 call plug#begin()
 
 " UTILS
@@ -17,34 +36,32 @@ Plug 'tpope/vim-surround'                                               " quotin
 Plug 'tpope/vim-commentary'                                             " comment stuff out
 Plug 'tpope/vim-fugitive'                                               " git wrapper
 Plug 'tpope/vim-repeat'                                                 " dot commands for stuff like surround, comment, etc
+Plug 'wellle/targets.vim'                                               " moar text objects
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}  " file drawer
 Plug 'Raimondi/delimitMate'                                             " automatically close {[()]}
 Plug 'tmhedberg/SimpylFold'                                             " no BS python code folding
 Plug 'ludovicchabant/vim-gutentags'                                     " Easy tag management
-Plug 'majutsushi/tagbar'                                                " An outliner for all the tags/symbols in the file
 
 Plug 'junegunn/fzf'                                                     " fuzzy file search and more
 Plug 'junegunn/fzf.vim'                                                 " fuzzy file search and more
-Plug 'jremmen/vim-ripgrep'                                               " fast search
-Plug 'itchyny/lightline.vim'                                            " status line
+Plug 'jremmen/vim-ripgrep'                                              " fast search
+Plug 'mileszs/ack.vim'
+
+Plug 'airblade/vim-gitgutter'
 
 " VISUAL
 Plug 'joshdick/onedark.vim'                                             " one dark color scheme
-Plug 'chriskempson/base16-vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'danilo-augusto/vim-afterglow'
 Plug 'Yggdroot/indentLine'                                              " indent guides
-Plug 'ap/vim-buftabline'                                                " buffers listed in the tabline
+Plug 'vim-airline/vim-airline'                                          " Status bar
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
+" airline
+let g:airline#extensions#tabline#enabled = 1
 
 " deoplete
-let g:deoplete#sources#jedi#extra_path = [
-    \"D:/PERSONAL/mayaDevKit2016/pymel/extras/completion/py"
-\]
+let g:deoplete#enable_at_startup = 1
 
 " supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -59,18 +76,12 @@ let NERDTreeShowHidden=1
 let NERDTreeDirArrowExpandable = '▷'
 let NERDTreeDirArrowCollapsible = '▼'
 
-" lightline
-let g:lightline = {
-        \'colorscheme': 'one',
-        \}
-
 " indent line
 let g:indentLine_char = '│'
-" let g:indentLine_leadingSpaceEnabled = 1
-" let g:indentLine_leadingSpaceChar = '·'
 
 " gutentags
 let g:gutentags_project_root = ['tags']
 
 " ripgrep
-let g:rg_binary = 'D:/PERSONAL/software/ripgrep-0.8.1-x86_64-pc-windows-msvc/rg.exe'
+let g:rg_binary = 'C:/ProgramData/chocolatey/lib/ripgrep/tools/rg.exe'
+let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
