@@ -32,5 +32,3 @@ set hidden                  " don't lose changes when switching buffers
 set nowrap                  " don't wrap long lines
 
 set foldlevel=99            " everything is unfolded by default
-
-cd C:/Users/Muream/Documents/maya/2018/scripts/icarus
