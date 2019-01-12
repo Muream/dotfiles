@@ -32,3 +32,9 @@ set hidden                  " don't lose changes when switching buffers
 set nowrap                  " don't wrap long lines
 
 set foldlevel=99            " everything is unfolded by default
+
+set completeopt-=preview
+
+if has('nvim') || exists('g:GuiLoaded')
+    Guifont Monaco:h11
+endif
