@@ -29,6 +29,8 @@ Plug 'wellle/targets.vim'                                               " Moar t
 Plug 'junegunn/fzf'                                                     " fuzzy file search and more
 Plug 'junegunn/fzf.vim'                                                 " fuzzy file search and more
 
+Plug 'airblade/vim-gitgutter'
+
 " VISUAL
 Plug 'vim-airline/vim-airline'                                          " fancy status bar
 Plug 'vim-airline/vim-airline-themes'                                   " themes for airline

@@ -37,3 +37,7 @@ set linebreak               " don't cut in the middle of a word wen wrapping
 set foldlevel=99            " everything is unfolded by default
 
 set diffopt+=vertical       " vertical diff, used for git fugitive
+
+if has('nvim') || exists('g:GuiLoaded')
+    Guifont Monaco:h11
+endif
