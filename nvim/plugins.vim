@@ -10,9 +10,6 @@ call plug#begin()
 
 " UTILS
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-" Plug 'ervandew/supertab'                                                " Perform insert mode completions with Tab
-Plug 'w0rp/ale'                                                         " async linting
-
 Plug 'tpope/vim-surround'                                               " quoting/parenthesizing made simple
 Plug 'tpope/vim-commentary'                                             " comment stuff out
 Plug 'tpope/vim-repeat'                                                 " dot commands for stuff like surround, comment, etc
@@ -32,20 +29,21 @@ Plug 'junegunn/fzf.vim'                                                 " fuzzy 
 Plug 'airblade/vim-gitgutter'
 
 " VISUAL
-Plug 'vim-airline/vim-airline'                                          " fancy status bar
-Plug 'vim-airline/vim-airline-themes'                                   " themes for airline
+Plug 'Guzzii/python-syntax'
 Plug 'joshdick/onedark.vim'                                             " one dark color scheme
 Plug 'Yggdroot/indentLine'                                              " indent guides
-Plug 'junegunn/goyo.vim'                                                " distraction free writing
-Plug 'junegunn/limelight.vim'                                           " highlight only the current paragraph
+Plug 'vim-airline/vim-airline'                                          " Status bar
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'                                           " Glyphs for various plugins
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/limelight.vim'                                           " highlight only the current paragraph
+Plug 'junegunn/goyo.vim'                                                " distraction free writing
 
 call plug#end()
 
-" ale
-let g:ale_sign_column_always=1
-let g:ale_lint_on_text_changed='always'
-let b:ale_linters=['pylint']
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " NERDTree
 let NERDTreeShowHidden=1
@@ -61,6 +59,9 @@ let g:indentLine_setConceal = 0
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
 
+" python-syntax
+let python_highlight_all = 1
+let python_version_2 = 1
 " gitgutter
 set updatetime=10
 

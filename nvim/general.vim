@@ -19,6 +19,7 @@ set inccommand=nosplit      " in buffer substitute preview
 filetype plugin indent on
 set tabstop=4               " number of visual spaces per tab (tab length)
 set softtabstop=4           " number of spaces in tab when editing
+set shiftwidth=4            " when indenting with >
 set expandtab               " insert spaces with tab
 set shiftwidth=4            " when indenting with '>', use 4 spaces width
 
@@ -38,6 +39,4 @@ set foldlevel=99            " everything is unfolded by default
 
 set diffopt+=vertical       " vertical diff, used for git fugitive
 
-if has('nvim') || exists('g:GuiLoaded')
-    Guifont Monaco:h11
-endif
+autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
