@@ -25,6 +25,7 @@ Plug 'wellle/targets.vim'                                               " Moar t
 
 Plug 'junegunn/fzf'                                                     " fuzzy file search and more
 Plug 'junegunn/fzf.vim'                                                 " fuzzy file search and more
+Plug 'mileszs/ack.vim'
 
 Plug 'airblade/vim-gitgutter'
 
@@ -38,6 +39,7 @@ Plug 'ryanoasis/vim-devicons'                                           " Glyphs
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/limelight.vim'                                           " highlight only the current paragraph
 Plug 'junegunn/goyo.vim'                                                " distraction free writing
+Plug 'ryanoasis/vim-devicons'                                           " Glyphs for various plugins
 
 call plug#end()
 
@@ -62,8 +64,6 @@ let g:airline_powerline_fonts=1
 " python-syntax
 let python_highlight_all = 1
 let python_version_2 = 1
-" gitgutter
-set updatetime=10
 
 "LSP
 let g:LanguageClient_serverCommands = {
