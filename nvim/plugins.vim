@@ -35,7 +35,6 @@ Plug 'joshdick/onedark.vim'                                             " one da
 Plug 'Yggdroot/indentLine'                                              " indent guides
 Plug 'vim-airline/vim-airline'                                          " Status bar
 Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/limelight.vim'                                           " highlight only the current paragraph
 Plug 'junegunn/goyo.vim'                                                " distraction free writing
 Plug 'ryanoasis/vim-devicons'                                           " Glyphs for various plugins
@@ -63,14 +62,3 @@ let g:airline_powerline_fonts=1
 " python-syntax
 let python_highlight_all = 1
 let python_version_2 = 1
-
-<<<<<<< Updated upstream
-"LSP
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['/usr/bin/pyls'],
-    \ }
-=======
-" python-syntax
-let python_highlight_all = 1
-let python_version_2 = 1
->>>>>>> Stashed changes
