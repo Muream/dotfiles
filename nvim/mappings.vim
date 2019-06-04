@@ -38,3 +38,5 @@ nnoremap <leader>f :NERDTreeFind<CR>
 " Tagbar
 nnoremap <F8> :TagbarToggle<CR>
 
+" coc 
+nmap <leader>f <Plug>(coc-format)
