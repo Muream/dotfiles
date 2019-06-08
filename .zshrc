@@ -107,9 +107,11 @@ export EDITOR='nvim'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 
 # FZF
-export FZF_DEFAULT_OPTS="--preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --theme=TwoDark --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"
+export FZF_DEFAULT_OPTS="--preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --theme=TwoDark --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500' --bind ctrl-k:preview-up --bind ctrl-j:preview-down"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git/*'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

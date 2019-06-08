@@ -30,13 +30,16 @@ Plug 'wellle/targets.vim'                                               " Moar t
 
 " MISC
 Plug 'majutsushi/tagbar'                                                " An outliner for all the tags/symbols in the file
-Plug 'sheerun/vim-polyglot'                                             " A collection of language packs for Vim
 Plug 'airblade/vim-gitgutter'                                           " Git diff in the gutter
 
+" Languages
+Plug 'sheerun/vim-polyglot'                                             " A collection of language packs for Vim
+Plug 'plasticboy/vim-markdown'
 
 " VISUAL
 Plug 'Guzzii/python-syntax'                                             " better syntax highlight for python
-Plug 'joshdick/onedark.vim'                                             " one dark color scheme
+" Plug 'joshdick/onedark.vim'                                             " one dark color scheme
+Plug 'rakr/vim-one'
 Plug 'Yggdroot/indentLine'                                              " indent guides
 Plug 'vim-airline/vim-airline'                                          " Status bar
 Plug 'vim-airline/vim-airline-themes'
@@ -49,6 +52,7 @@ call plug#end()
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme='one'
 
 " NERDTree
 let NERDTreeShowHidden=1
@@ -60,10 +64,10 @@ let g:indentLine_char='│'
 let g:indentLine_faster = 1
 let g:indentLine_setConceal = 0
 
-" airline
-let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts=1
-
 " python-syntax
 let python_highlight_all = 1
 let python_version_2 = 1
+
+" FZF
+" escape closes the fzf window
+autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>

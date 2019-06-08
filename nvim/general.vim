@@ -1,5 +1,6 @@
 set termguicolors
-colorscheme onedark
+colorscheme one
+set background=dark
 
 set relativenumber          " numbers relative to the current line
 set number                  " current line number is the real line number (not 0)
@@ -40,3 +41,21 @@ set foldlevel=99            " everything is unfolded by default
 set diffopt+=vertical       " vertical diff, used for git fugitive
 
 autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
+
+" fix the terminal colors. This matches the onedark theme
+let g:terminal_color_0  = '#2e3436'
+let g:terminal_color_1  = '#cc0000'
+let g:terminal_color_2  = '#4e9a06'
+let g:terminal_color_3  = '#c4a000'
+let g:terminal_color_4  = '#3465a4'
+let g:terminal_color_5  = '#75507b'
+let g:terminal_color_6  = '#0b939b'
+let g:terminal_color_7  = '#d3d7cf'
+let g:terminal_color_8  = '#555753'
+let g:terminal_color_9  = '#ef2929'
+let g:terminal_color_10 = '#8ae234'
+let g:terminal_color_11 = '#fce94f'
+let g:terminal_color_12 = '#729fcf'
+let g:terminal_color_13 = '#ad7fa8'
+let g:terminal_color_14 = '#00f5e9'
+let g:terminal_color_15 = '#eeeeec'

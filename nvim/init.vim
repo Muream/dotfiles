@@ -7,6 +7,6 @@ else
     let g:python3_host_prog = '/home/muream/.virtualenvs/neovim3/bin/python'
 endif
 
-source ~/Projects/dotfiles/nvim/mappings.vim
-source ~/Projects/dotfiles/nvim/plugins.vim
-source ~/Projects/dotfiles/nvim/general.vim
+source ~/projects/dotfiles/nvim/mappings.vim
+source ~/projects/dotfiles/nvim/plugins.vim
+source ~/projects/dotfiles/nvim/general.vim
