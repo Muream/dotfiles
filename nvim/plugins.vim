@@ -1,10 +1,19 @@
-" auto install vim plug
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    echo 'Fetching plug.vim...'
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if has('win32')
+    if empty(glob('C:/Users/muream/AppData/Local/nvim/autoload/plug.vim'))
+        echo 'Fetching plug.vim...'
+        silent !curl -fLo C:/Users/muream/AppData/Local/nvim/autoload/plug.vim --create-dirs
+            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+else
+    if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+        echo 'Fetching plug.vim...'
+        silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
 endif
+
 
 call plug#begin()
 
@@ -54,15 +63,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='one'
 
-" NERDTree
-let NERDTreeShowHidden=1
-let NERDTreeDirArrowExpandable='▷'
-let NERDTreeDirArrowCollapsible='▼'
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 " indent line
 let g:indentLine_char='│'
 let g:indentLine_faster = 1
-let g:indentLine_setConceal = 0
+" let g:indentLine_setConceal = 0
 
 " python-syntax
 let python_highlight_all = 1
