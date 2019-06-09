@@ -10,3 +10,4 @@ endif
 source ~/projects/dotfiles/nvim/mappings.vim
 source ~/projects/dotfiles/nvim/plugins.vim
 source ~/projects/dotfiles/nvim/general.vim
+source ~/projects/dotfiles/nvim/coc.vim
