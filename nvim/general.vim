@@ -1,5 +1,5 @@
 set termguicolors
-colorscheme one
+colorscheme onedark
 set background=dark
 
 set relativenumber          " numbers relative to the current line

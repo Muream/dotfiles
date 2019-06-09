@@ -1,0 +1,8 @@
+{
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "/usr/bin/black",
+    "python.autoComplete.extraPaths": [
+        "/home/muream/projects/muream-maya-toolkit",
+        "/home/muream/maya/scripts"
+    ]
+}

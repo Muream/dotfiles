@@ -47,8 +47,7 @@ Plug 'plasticboy/vim-markdown'
 
 " VISUAL
 Plug 'Guzzii/python-syntax'                                             " better syntax highlight for python
-" Plug 'joshdick/onedark.vim'                                             " one dark color scheme
-Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'                                             " one dark color scheme
 Plug 'Yggdroot/indentLine'                                              " indent guides
 Plug 'vim-airline/vim-airline'                                          " Status bar
 Plug 'vim-airline/vim-airline-themes'
@@ -58,11 +57,15 @@ Plug 'ryanoasis/vim-devicons'                                           " Glyphs
 
 call plug#end()
 
+" coc
+" fix slow linting
+set updatetime=300
+
+
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='one'
-
+" let g:airline_theme='one'
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
