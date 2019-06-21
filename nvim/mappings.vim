@@ -25,18 +25,7 @@ nnoremap <C-,> :bprev<CR>
 "source vimrc
 nnoremap <leader>v :so $MYVIMRC<CR>
 
-" fzf mappings
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>t :BTags<CR>
-nnoremap <leader><leader>t :Tags<CR>
-nnoremap <C-p> :Files<CR>
-
 " NERDTree
 nnoremap <leader>k :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 
-" Tagbar
-nnoremap <F8> :TagbarToggle<CR>
-
-" coc 
-nmap <leader>f <Plug>(coc-format)

@@ -2,8 +2,10 @@
     "python.jediEnabled": false,
     "python.formatting.provider": "black",
     "python.formatting.blackPath": "/usr/bin/black",
+    "python.formatting.blackArgs": ["--skip-string-normalization"],
     "python.autoComplete.extraPaths": [
         "/home/muream/projects/muream-maya-toolkit",
         "/home/muream/maya/scripts"
-    ]
+    ],
+    "coc.preferences.formatOnSaveFiletypes": ["json", "python"]
 }
