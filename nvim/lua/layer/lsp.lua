@@ -15,6 +15,7 @@ function layer.init_config()
     vim.cmd("set completeopt=menuone,noinsert,noselect")
     vim.cmd("set shortmess+=c")
     vim.cmd("inoremap <silent><expr> <c-n> completion#trigger_completion()") -- couldn't seem to do that with vim.api.nvim_set_keymap ?
+    vim.cmd("let g:completion_trigger_character = ['.', '::']")
 
     -- lsp
     keybind.bind_function(edit_mode.NORMAL, "<leader>ls", user_stop_all_clients, nil)
