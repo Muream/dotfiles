@@ -1,7 +1,5 @@
 --- Plugin management with vim-plug
--- @module config.plug
-local log = require("config.log")
-
+-- @module core.plug
 local plug = {}
 
 local PLUGIN_DIR = "~/.local/share/nvim/plugged"

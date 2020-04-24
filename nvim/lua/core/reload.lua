@@ -1,5 +1,5 @@
 --- Stuff to help with reloading Lua modules
--- @module config.reload
+-- @module core.reload
 
 local reload = {}
 
@@ -23,9 +23,9 @@ end
 --- Unloads modules from this user config
 --
 -- <br>
--- This unloads modules prefixed with `config.` or `layer.`.
+-- This unloads modules prefixed with `core.` or `layer.`.
 function reload.unload_user_modules()
-  reload.unload_modules("config") -- Unload config core
+  reload.unload_modules("core") -- Unload config core
   reload.unload_modules("layer") -- Unload layers
 end
 

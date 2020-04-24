@@ -1,9 +1,9 @@
 --- Layer management
--- @module config.layer
+-- @module core.layer
 
-local plug = require("config.plug")
-local reload = require("config.reload")
-local log = require("config.log")
+local plug = require("core.plug")
+local reload = require("core.reload")
+local log = require("core.log")
 
 local layer = {}
 

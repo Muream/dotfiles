@@ -1,5 +1,5 @@
 --- Edit modes
--- @module config.edit_mode
+-- @module core.edit_mode
 
 local edit_mode = {}
 

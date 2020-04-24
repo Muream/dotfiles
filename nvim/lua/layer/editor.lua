@@ -1,8 +1,9 @@
-local plug  =  require("config.plug")
--- local keybind  =  require("config.keybind")
-local edit_mode  =  require("config.edit_mode")
+local plug  =  require("core.plug")
+-- local keybind  =  require("core.keybind")
+local edit_mode  =  require("core.edit_mode")
 
 local layer  =  {}
+
 
 function layer.register_plugins()
     plug.add_plugin("sheerun/vim-polyglot")     -- A bunch of languages
@@ -13,8 +14,6 @@ end
 
 
 function layer.init_config()
-
-
     --- Key Bindings
     -- set leader
     vim.g.mapleader  =  " "
@@ -45,29 +44,28 @@ function layer.init_config()
 
     --- General settings
     -- Default indentation rules
-    vim.o.tabstop = 4
-    vim.o.softtabstop = 4
-    vim.o.shiftwidth = 4
-    vim.o.expandtab = true
-    vim.o.autoindent = true
-    vim.o.smartindent = true
+    vim.cmd("set tabstop=4")
+    vim.cmd("set softtabstop=4")
+    vim.cmd("set shiftwidth=4")
+    vim.cmd("set expandtab")
+    vim.cmd("set autoindent")
+    vim.cmd("set smartindent")
 
-    -- searching
-    vim.o.ignorecase = true                 -- case insensitive search
-    vim.o.smartcase = true                  -- case sensitive when using capital letters
-    vim.o.inccommand = "nosplit"            -- in buffer substitute preview
+    -- searchset ing
+    vim.cmd("set ignorecase")                   -- case insensitive search
+    vim.cmd("set smartcase")                    -- case sensitive when using capital letters
+    vim.cmd("set inccommand=nosplit")           -- in buffer substitute preview
 
-    -- split directions
-    vim.o.splitbelow = true
-    vim.o.splitright = true
+    -- split set directions
+    vim.cmd("set splitbelow")
+    vim.cmd("set splitright")
 
     -- misc
-    vim.o.clipboard = "unnamedplus"
-    vim.o.wrap = false                      -- don't wrap long lines
-    vim.o.swapfile = false                  -- don't create swap files
-    vim.o.autoread = true                   -- reload files on change
-    vim.o.hidden = true                     -- don't lose changes when switching buffers
-    vim.o.mouse = "a"                       -- enable mouse support
+    vim.cmd("set clipboard+=unnamedplus")
+    vim.cmd("set nowrap")                         -- don't wrap long lines
+    vim.cmd("set swapfile")                     -- don't create swap files
+    vim.cmd("set autoread")                     -- reload files on change
+    vim.cmd("set hidden")                       -- don't lose changes when switching buffers
+    vim.cmd("set mouse=a")                      -- enable mouse support
 end
-
 return layer

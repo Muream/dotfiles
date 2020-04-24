@@ -1,5 +1,5 @@
 --- Log helpers
--- @module config.log
+-- @module core.log
 
 local log = {}
 

@@ -1,7 +1,7 @@
 project = "nvim_config"
 description = "Muream's Neovim config files"
 file = {
-  "./config",
+  "./core",
   "./layer",
 }
 no_summary = false
