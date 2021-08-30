@@ -66,7 +66,6 @@ return require('packer').startup(function()
         end
     }
 
-    use 'kabouzeid/nvim-lspinstall'
     use{
         'glepnir/lspsaga.nvim',
         config = function()
@@ -107,11 +106,13 @@ return require('packer').startup(function()
     -------------------------
     -- Autocomplete
     -------------------------
+    use 'onsails/lspkind-nvim'
     use {
         'hrsh7th/nvim-cmp',
         requires = {'hrsh7th/cmp-nvim-lsp'},
         config = function()
             local cmp = require('cmp')
+            local lspkind = require('lspkind')
             cmp.setup{
                 mapping = {
                     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -128,6 +129,12 @@ return require('packer').startup(function()
                         behavior = cmp.ConfirmBehavior.Replace,
                         select = true,
                     },
+                },
+                formatting = {
+                    format = function(entry, vim_item)
+                      vim_item.kind = lspkind.presets.default[vim_item.kind]
+                      return vim_item
+                    end
                 },
                 sources = {
                     { name = 'nvim_lsp' },

@@ -23,23 +23,26 @@ vim.api.nvim_set_keymap(edit_mode.NORMAL, "<C-L>", "<C-W><C-L>", { noremap  =  t
 vim.api.nvim_set_keymap(edit_mode.NORMAL, "<leader>v", ":so $MYVIMRC<CR>", { noremap  =  true })
 
 -- LSP
-vim.api.nvim_set_keymap(edit_mode.NORMAL, "K", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", { noremap  =  true })
+---- builtin lsp
 vim.api.nvim_set_keymap(edit_mode.NORMAL, 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {noremap = true})
 vim.api.nvim_set_keymap(edit_mode.NORMAL, 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true})
 vim.api.nvim_set_keymap(edit_mode.NORMAL, 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {noremap = true})
-vim.api.nvim_set_keymap(edit_mode.NORMAL, '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {noremap = true})
-vim.api.nvim_set_keymap(edit_mode.NORMAL, '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', {noremap = true})
-vim.api.nvim_set_keymap(edit_mode.NORMAL, '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', {noremap = true})
-vim.api.nvim_set_keymap(edit_mode.NORMAL, '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', {noremap = true})
-vim.api.nvim_set_keymap(edit_mode.NORMAL, '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', {noremap = true})
-vim.api.nvim_set_keymap(edit_mode.NORMAL, '<space>rn', "<cmd>lua require('lspsaga.rename').rename()<CR>", {noremap = true})
-vim.api.nvim_set_keymap(edit_mode.NORMAL, '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', {noremap = true})
-vim.api.nvim_set_keymap(edit_mode.NORMAL, 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', {noremap = true})
-vim.api.nvim_set_keymap(edit_mode.NORMAL, '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', {noremap = true})
+vim.api.nvim_set_keymap(edit_mode.NORMAL, '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', {noremap = true})
+vim.api.nvim_set_keymap(edit_mode.NORMAL, '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', {noremap = true})
+vim.api.nvim_set_keymap(edit_mode.NORMAL, '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', {noremap = true})
+vim.api.nvim_set_keymap(edit_mode.NORMAL, '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', {noremap = true})
+vim.api.nvim_set_keymap(edit_mode.NORMAL, '<leader>rn', "<cmd>lua require('lspsaga.rename').rename()<CR>", {noremap = true})
+vim.api.nvim_set_keymap(edit_mode.NORMAL, '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', {noremap = true})
+vim.api.nvim_set_keymap(edit_mode.NORMAL, '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', {noremap = true})
 vim.api.nvim_set_keymap(edit_mode.NORMAL, '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = true})
 vim.api.nvim_set_keymap(edit_mode.NORMAL, ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', {noremap = true})
-vim.api.nvim_set_keymap(edit_mode.NORMAL, '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', {noremap = true})
-vim.api.nvim_set_keymap(edit_mode.NORMAL, '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', {noremap = true})
+vim.api.nvim_set_keymap(edit_mode.NORMAL, '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', {noremap = true})
+vim.api.nvim_set_keymap(edit_mode.NORMAL, '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', {noremap = true})
+---- lspsaga
+vim.api.nvim_set_keymap(edit_mode.NORMAL, "K", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", { noremap  =  true })
+vim.api.nvim_set_keymap(edit_mode.INSERT, '<C-k>', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", {noremap = true})
+vim.api.nvim_set_keymap(edit_mode.NORMAL, 'gr', "<cmd>lua require('lspsaga.rename').rename()<CR>", {noremap = true})
+
 
 -- Telescope
 vim.api.nvim_set_keymap(edit_mode.NORMAL, "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", { noremap  =  true })
