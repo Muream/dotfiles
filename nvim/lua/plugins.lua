@@ -135,6 +135,7 @@ return require('packer').startup(function()
             require("indent_blankline").setup {
                 char = "│",
             }
+            vim.cmd [[highlight IndentBlanklineChar guifg=#373b41  blend=nocombine]]
         end
     }
     use {
