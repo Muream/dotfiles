@@ -12,9 +12,7 @@
 
 
 # Dependencies
-- [fzf](https://github.com/junegunn/fzf)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [bat](https://github.com/sharkdp/bat)
+- [ripgrep](https://github.com/BurntSushi/ripgrep) (for Telescope)
 
 # Font
 I'm currently using [Fira Code Regular](https://github.com/tonsky/FiraCode)
