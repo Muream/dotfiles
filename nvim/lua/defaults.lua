@@ -8,6 +8,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
+vim.opt.laststatus = 2
 
 -- Indentation
 vim.opt.expandtab = true

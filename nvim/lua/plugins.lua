@@ -27,6 +27,10 @@ return require('packer').startup(function()
         end
     }
     use {
+      'romgrk/barbar.nvim',
+      requires = {'kyazdani42/nvim-web-devicons'}
+    }
+    use {
         'hoob3rt/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
         config = function()
@@ -44,6 +48,12 @@ return require('packer').startup(function()
     use 'tpope/vim-surround' 
     use 'tpope/vim-commentary' 
     use 'tpope/vim-repeat' 
+    use {
+        'windwp/nvim-autopairs',
+        config = function()
+            require('nvim-autopairs').setup{}
+        end
+    }
 
     -------------------------
     -- LSP
@@ -139,6 +149,7 @@ return require('packer').startup(function()
             }
         end
     }
+    use 'nvim-treesitter/playground'
 
     -------------------------
     -- Telescope
@@ -150,7 +161,15 @@ return require('packer').startup(function()
             'kyazdani42/nvim-web-devicons'
          }
      }
-     
+
+    -------------------------
+    -- Nvim Tree
+    -------------------------
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = 'kyazdani42/nvim-web-devicons'
+    }
+
     -------------------------
     -- Git
     -------------------------
