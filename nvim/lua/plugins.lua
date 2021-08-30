@@ -7,15 +7,47 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function()
-    -- Packer can manage itself
+    -------------------------
+    -- Packer
+    -------------------------
     use 'wbthomason/packer.nvim'
 
-    -- Tim Pope goodness
+    -------------------------
+    -- Look and Feel
+    -------------------------
+    use 'tjdevries/colorbuddy.vim' 
+    use 'RRethy/nvim-base16' 
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        config = function()
+            require("indent_blankline").setup {
+                char = "│",
+            }
+            vim.cmd [[highlight IndentBlanklineChar guifg=#373b41  blend=nocombine]]
+        end
+    }
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        config = function()
+            require('lualine').setup {
+                options = {
+                    theme = 'powerline'
+            }
+        }
+        end
+    }
+
+    -------------------------
+    -- Editing
+    -------------------------
     use 'tpope/vim-surround' 
     use 'tpope/vim-commentary' 
     use 'tpope/vim-repeat' 
 
-    ------------------------- LSP -------------------------
+    -------------------------
+    -- LSP
+    -------------------------
     use {
         'neovim/nvim-lspconfig',
         config = function()
@@ -62,7 +94,9 @@ return require('packer').startup(function()
         end
     }
 
-    ------------------------- Autocomplete -------------------------
+    -------------------------
+    -- Autocomplete
+    -------------------------
     use {
         'hrsh7th/nvim-cmp',
         requires = {'hrsh7th/cmp-nvim-lsp'},
@@ -92,7 +126,9 @@ return require('packer').startup(function()
         end
     }
 
-    ------------------------- TreeSitter ----------------------
+    -------------------------
+    -- TreeSitter 
+    -------------------------
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
@@ -104,7 +140,9 @@ return require('packer').startup(function()
         end
     }
 
-    ------------------------- TreeSitter ----------------------
+    -------------------------
+    -- Telescope
+    -------------------------
     use {
         'nvim-telescope/telescope.nvim', 
          requires = { 
@@ -113,7 +151,9 @@ return require('packer').startup(function()
          }
      }
      
-    ------------------------- Git ----------------------
+    -------------------------
+    -- Git
+    -------------------------
     use 'TimUntersberger/neogit'
     use {
         'lewis6991/gitsigns.nvim',
@@ -126,28 +166,5 @@ return require('packer').startup(function()
 
     }
 
-    ------------------------- Misc. --------------------
-    use 'tjdevries/colorbuddy.vim' 
-    use 'RRethy/nvim-base16' 
-    use {
-        'lukas-reineke/indent-blankline.nvim',
-        config = function()
-            require("indent_blankline").setup {
-                char = "│",
-            }
-            vim.cmd [[highlight IndentBlanklineChar guifg=#373b41  blend=nocombine]]
-        end
-    }
-    use {
-        'hoob3rt/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true},
-        config = function()
-            require('lualine').setup {
-                options = {
-                    theme = 'powerline'
-            }
-        }
-        end
-    }
 end)
 
