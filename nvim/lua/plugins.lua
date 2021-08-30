@@ -114,6 +114,7 @@ return require('packer').startup(function()
      }
      
     ------------------------- Git ----------------------
+    use 'TimUntersberger/neogit'
     use {
         'lewis6991/gitsigns.nvim',
         requires = {
@@ -134,6 +135,17 @@ return require('packer').startup(function()
             require("indent_blankline").setup {
                 char = "│",
             }
+        end
+    }
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        config = function()
+            require('lualine').setup {
+                options = {
+                    theme = 'powerline'
+            }
+        }
         end
     }
 end)
