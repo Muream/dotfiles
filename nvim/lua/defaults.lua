@@ -10,6 +10,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
 vim.opt.laststatus = 2
+vim.opt.pumheight = 20
 
 -- Indentation
 vim.opt.expandtab = true
