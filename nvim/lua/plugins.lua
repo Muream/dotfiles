@@ -113,7 +113,7 @@ return require('packer').startup(function()
         config = function()
             local cmp = require('cmp')
             local lspkind = require('lspkind')
-            cmp.setup{
+            cmp.setup {
                 mapping = {
                     ['<C-p>'] = cmp.mapping.select_prev_item(),
                     ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -191,6 +191,13 @@ return require('packer').startup(function()
             require('gitsigns').setup()
         end
 
+    }
+
+    use {
+        'vim-test/vim-test',
+        config = function()
+            vim.g["test#strategy"] = "neovim"
+        end
     }
 
 end)

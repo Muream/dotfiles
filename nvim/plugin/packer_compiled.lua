@@ -138,7 +138,7 @@ _G.packer_plugins = {
     path = "C:\\Users\\loic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\nq\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\14highlight\1\0\1\venable\2\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\n‹\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vindent\1\0\1\venable\2\14highlight\1\0\1\venable\2\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "C:\\Users\\loic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter"
   },
@@ -173,14 +173,15 @@ _G.packer_plugins = {
   ["vim-surround"] = {
     loaded = true,
     path = "C:\\Users\\loic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround"
+  },
+  ["vim-test"] = {
+    config = { "\27LJ\2\n6\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\vneovim\18test#strategy\6g\bvim\0" },
+    loaded = true,
+    path = "C:\\Users\\loic\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-test"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\nq\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\14highlight\1\0\1\venable\2\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
 -- Config for: formatter.nvim
 time([[Config for formatter.nvim]], true)
 try_loadstring("\27LJ\2\n‡\1\0\0\a\0\a\1\0145\0\0\0004\1\3\0006\2\1\0009\2\2\0029\2\3\0026\4\1\0009\4\4\0049\4\5\4)\6\0\0B\4\2\0A\2\0\0?\2\0\0=\1\6\0L\0\2\0\targs\22nvim_buf_get_name\bapi\16fnameescape\afn\bvim\1\0\2\bexe\nblack\nstdin\1\3€€À™\4D\0\0\2\0\3\0\0045\0\0\0005\1\1\0=\1\2\0L\0\2\0\targs\1\2\0\0\18--emit=stdout\1\0\2\bexe\frustfmt\nstdin\2€\1\1\0\6\0\n\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0004\4\3\0003\5\3\0>\5\1\4=\4\5\0034\4\3\0003\5\6\0>\5\1\4=\4\a\3=\3\t\2B\0\2\1K\0\1\0\rfiletype\1\0\0\trust\0\vpython\1\0\0\0\nsetup\14formatter\frequire\0", "config", "formatter.nvim")
@@ -197,6 +198,10 @@ time([[Config for indent-blankline.nvim]], false)
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\2\n:\0\2\4\1\3\0\a-\2\0\0009\2\1\0029\2\2\0029\3\0\0018\2\3\2=\2\0\1L\1\2\0\1À\fdefault\fpresets\tkind‰\4\1\0\n\0 \0?6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0005\4\25\0005\5\6\0009\6\4\0009\6\5\6B\6\1\2=\6\a\0059\6\4\0009\6\b\6B\6\1\2=\6\t\0059\6\4\0009\6\n\6)\büÿB\6\2\2=\6\v\0059\6\4\0009\6\n\6)\b\4\0B\6\2\2=\6\f\0059\6\4\0009\6\r\6B\6\1\2=\6\14\0059\6\4\0009\6\15\6B\6\1\2=\6\16\0059\6\4\0009\6\17\0065\b\20\0009\t\18\0009\t\19\t=\t\21\bB\6\2\2=\6\22\0059\6\4\0009\6\17\0065\b\23\0009\t\18\0009\t\19\t=\t\21\bB\6\2\2=\6\24\5=\5\4\0045\5\27\0003\6\26\0=\6\28\5=\5\29\0044\5\3\0005\6\30\0>\6\1\5=\5\31\4B\2\2\0012\0\0€K\0\1\0\fsources\1\0\1\tname\rnvim_lsp\15formatting\vformat\1\0\0\0\1\0\0\n<Tab>\1\0\1\vselect\2\t<CR>\rbehavior\1\0\1\vselect\2\fReplace\20ConfirmBehavior\fconfirm\n<C-e>\nclose\14<C-Space>\rcomplete\n<C-f>\n<C-d>\16scroll_docs\n<C-n>\21select_next_item\n<C-p>\1\0\0\21select_prev_item\fmapping\nsetup\flspkind\bcmp\frequire\0", "config", "nvim-cmp")
 time([[Config for nvim-cmp]], false)
+-- Config for: vim-test
+time([[Config for vim-test]], true)
+try_loadstring("\27LJ\2\n6\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\vneovim\18test#strategy\6g\bvim\0", "config", "vim-test")
+time([[Config for vim-test]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 try_loadstring("\27LJ\2\nq\0\0\3\0\5\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0004\2\0\0B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\4\0009\0\3\0004\2\0\0B\0\2\1K\0\1\0\18rust_analyzer\nsetup\fpyright\14lspconfig\frequire\0", "config", "nvim-lspconfig")
@@ -213,6 +218,10 @@ time([[Config for nvim-autopairs]], false)
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\n_\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\1\ntheme\14powerline\nsetup\flualine\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\n‹\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vindent\1\0\1\venable\2\14highlight\1\0\1\venable\2\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
 if should_profile then save_profiles() end
 
 end)
