@@ -1,2 +1,4 @@
 $documents = [System.Environment]::GetFolderPath("MyDocuments")
-New-Item -ItemType SymbolicLink -Path $PROFILE -Value (Get-Item ".\Powershell\Microsoft.PowerShell_profile.ps1").FullName
+New-Item -Force -ItemType SymbolicLink -Path $PROFILE -Value (Get-Item ".\Powershell\Microsoft.PowerShell_profile.ps1").FullName
+New-Item -Force -ItemType SymbolicLink -Path $HOME\AppData\Local\nvim -Value (Get-Item ".\nvim").FullName
+
