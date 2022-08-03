@@ -1,4 +1,3 @@
-require('plugins')
-require('options')
-require('mappings')
-
+require('muream.plugins')
+require('muream.options')
+require('muream.mappings')
