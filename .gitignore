@@ -1,4 +1,5 @@
 nvim/plugged/*
 nvim/sessions/*
+nvim/plugin/*
 .netrwhist
 tags
