@@ -2,8 +2,8 @@ M = {}
 
 M.setup = function()
     local wk = require("which-key")
-    -- Config
 
+    -- Config
     wk.setup({
         window = {
             border = "single"
@@ -11,13 +11,14 @@ M.setup = function()
     })
 
     -- Keymap
+    --- Let's only register groups here
+    --- Mappings are defined within each plugin config and should provide a description.
     wk.register({
         ["<leader>"] = {
-            f = { "<cmd>Telescope find_files<cr>", " Files Picker" },
-            s = { "<cmd>Telescope lsp_document_symbols<cr>", " Symbols Picker" },
-            S = { "<cmd>Telescope lsp_workspace_symbols<cr>", " Workspace Symbols Picker" },
-            b = { "<cmd>Telescope buffers<cr>", " Buffers Picker" },
-            v = { require("muream.utils.reload").reload_config, "Reload config" },
+            f = { "Find" },
+            d = { "Diagnostics" },
+            g = { "Go!" },
+            t = { "Tree" },
         }
     })
 end

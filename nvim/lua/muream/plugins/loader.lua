@@ -5,18 +5,6 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.cmd "packadd packer.nvim"
 end
 
--- Source this file and run PackerCompile anytime it is saved.
-local group = vim.api.nvim_create_augroup("packer_user_config", { clear = true })
-vim.api.nvim_create_autocmd(
-    "BufWritePost",
-    {
-        pattern = "loader.lua",
-        command = "source <afile> | PackerCompile",
-        group = group,
-    }
-)
-
-
 return require("packer").startup {
     function(use)
         -- Packer
@@ -24,7 +12,8 @@ return require("packer").startup {
 
         use {
             "nvim-telescope/telescope.nvim",
-            requires = require("muream.plugins.telescope").requires
+            requires = require("muream.plugins.telescope").requires,
+            setup = require("muream.plugins.telescope").setup
         }
 
         use {
@@ -65,7 +54,17 @@ return require("packer").startup {
             end
         }
         use "nvim-lua/lsp-status.nvim"
+        use {
+            "glepnir/lspsaga.nvim",
+            branch = "main",
+            config = function()
+                local saga = require("lspsaga")
 
+                saga.init_lsp_saga({
+                    -- your configuration
+                })
+            end,
+        }
         -- Tree Sitter
         use {
             "nvim-treesitter/nvim-treesitter",
@@ -94,8 +93,8 @@ return require("packer").startup {
             config = require("muream.plugins.comment").setup
         }
         use {
-            "AndrewRadev/splitjoin.vim",
-            config = require("muream.plugins.splitjoin").setup
+            'AckslD/nvim-trevJ.lua',
+            config = require("muream.plugins.trevj").setup
         }
 
         -- Git

@@ -5,7 +5,11 @@ M.requires = {
 }
 
 M.setup = function()
-    require("trouble").setup()
+    require("trouble").setup({
+        auto_preview = false,
+    })
+
+    vim.keymap.set("n", "<leader>dt", "<cmd>TroubleToggle<cr>", { noremap = true, desc = "Toggle Diagnostics" })
 end
 
 return M
