@@ -18,17 +18,26 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local on_attach = function(client, bufnr)
+    -- LSP Saga
     vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = 0, desc = "Hover Documentation [LSP]" })
+    vim.keymap.set("n", "<C-v><C-.>", "<cmd> Lspsaga code_action<cr>", { silent = true })
+    vim.keymap.set("n", "<F2>", "<cmd> Lspsaga rename<cr>", { silent = true })
+
+    -- Go To
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0, desc = "Go To Definition [LSP]" })
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0, desc = "Go To Declaration [LSP]" })
-    vim.keymap.set("n", "gi", vim.lsp.buf.declaration, { buffer = 0, desc = "Go To Implementation [LSP]" })
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0, desc = "Go To Implementation [LSP]" })
     vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0, desc = "Go to Type Definition [LSP]" })
+
+    -- Diagnostics
     vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, { buffer = 0 })
     vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, { buffer = 0 })
     vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<CR>", { buffer = 0 })
-    vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", { buffer = 0, desc = "Rename Symbol [LSP]" })
+
+    -- actions
     vim.keymap.set("n", "gf", vim.lsp.buf.formatting_sync, { buffer = 0, desc = "Format Document [LSP]" })
 
+    -- Format on save autocmd
     if client.supports_method("textDocument/formatting") then
         vim.api.nvim_clear_autocmds({ group = lsp_augroup, buffer = bufnr })
         vim.api.nvim_create_autocmd("BufWritePre", {
