@@ -1,18 +1,24 @@
 # Installation
 
-## Neovim
+## Prerequisites
+### General
+- [Neovim](neovim.io)
+- [Starship](starship.io)
 
-- Clone the repo wherever you want
-- Copy or symlink `dotfiles/nvim` to `~/.config/nvim` on Linux or `~/AppData/local/nvim` on Windows
-- the neovim config is written 100% in lua, heavily based on [CratedCart's config](https://gitlab.com/CraftedCart/dotfiles)
+### Linux
+- Zsh (Linux)
 
-## ZSH
-- Install [Oh my zsh](https://github.com/robbyrussell/oh-my-zsh)
-- Copy or symlink `dotfiles/.zshrc` to `~/.zshrc`
+### Windows
+- Windows Terminal (Windows)
+- Powershel 7 (Windows)
 
+## Linux Installation
+```bash
+./install.sh
+```
 
-# Dependencies
-- [ripgrep](https://github.com/BurntSushi/ripgrep) (for Telescope)
+## Windows Installation
+```powershell
+./install.ps1
+```
 
-# Font
-I'm currently using [Fira Code Regular](https://github.com/tonsky/FiraCode)
