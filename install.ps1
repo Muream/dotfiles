@@ -13,3 +13,6 @@ New-Item -Force -ItemType SymbolicLink -Path $PROFILE -Value (Get-Item ".\Powers
 ## Neovim
 New-Item -Force -ItemType SymbolicLink -Path $HOME\AppData\Local\nvim -Value (Get-Item ".\nvim").FullName
 
+## LazyGit
+New-Item -Force -ItemType SymbolicLink -Path "$env:APPDATA\lazygit\config.yml"  -Value (Get-Item ".\lazygit\config.yml").FullName
+
