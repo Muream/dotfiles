@@ -5,7 +5,7 @@ M.requires = {
 }
 
 M.setup = function()
-    require("lualine").setup()
+    require("lualine").setup({})
 end
 
 return M
