@@ -104,23 +104,34 @@ return require("packer").startup {
         })
 
         -- Look and Feel
+
+        -- use {
+        --     "navarasu/onedark.nvim",
+        --     config = function()
+        --         require("onedark").setup({
+        --             style = "warmer",
+        --             term_colors = true, -- Change terminal color as per the selected theme style
+        --             code_style = {
+        --                 comments = "none",
+        --                 keywords = "none",
+        --                 functions = "none",
+        --                 strings = "none",
+        --                 variables = "none"
+        --             },
+        --         })
+        --         require("onedark").load()
+        --     end
+        -- }
+
         use {
-            "navarasu/onedark.nvim",
+            "Shatur/neovim-ayu",
             config = function()
-                require("onedark").setup({
-                    style = "darker",
-                    term_colors = true, -- Change terminal color as per the selected theme style
-                    code_style = {
-                        comments = "none",
-                        keywords = "none",
-                        functions = "none",
-                        strings = "none",
-                        variables = "none"
-                    },
-                })
-                require("onedark").load()
+                local ayu = require("ayu")
+                ayu.setup({})
+                ayu.colorscheme()
             end
         }
+
         use "lukas-reineke/indent-blankline.nvim"
         use {
             "nvim-lualine/lualine.nvim",
@@ -132,17 +143,6 @@ return require("packer").startup {
             requires = require("muream.plugins.barbar").requires,
             config = require("muream.plugins.barbar").setup
         }
-        use {
-            "folke/zen-mode.nvim",
-            config = function()
-                require("zen-mode").setup()
-            end
-        }
-
-        -- use {
-        --     "norcalli/nvim-colorizer.lua",
-        --     config = require("muream.plugins.colorizer").setup,
-        -- }
 
     end,
     config = {
