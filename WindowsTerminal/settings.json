@@ -105,6 +105,8 @@
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "profiles": {
         "defaults": {
+            "padding": "0",
+            "scrollbarState": "hidden",
             "bellStyle": "none",
             "colorScheme": "One Half Dark",
             "font": {
