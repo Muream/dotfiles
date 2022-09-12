@@ -33,6 +33,12 @@ M.setup = function()
         "<cmd>Telescope buffers<cr>",
         { noremap = true, desc = "Buffers" }
     )
+    vim.keymap.set(
+        "n",
+        "<leader>fh",
+        "<cmd>Telescope help_tags<cr>",
+        { noremap = true, desc = "Help Tags" }
+    )
 end
 
 return M
