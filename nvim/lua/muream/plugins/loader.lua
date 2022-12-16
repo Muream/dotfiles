@@ -1,9 +1,15 @@
--- automatically install packer
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    vim.fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-    vim.cmd "packadd packer.nvim"
-end
+-- local ensure_packer = function()
+--     local fn = vim.fn
+--     local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+--     if fn.empty(fn.glob(install_path)) > 0 then
+--         fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+--         vim.cmd [[packadd packer.nvim]]
+--         return true
+--     end
+--     return false
+-- end
+--
+-- local packer_bootstrap = ensure_packer()
 
 return require("packer").startup {
     function(use)
@@ -36,11 +42,6 @@ return require("packer").startup {
 
 
         -- LSP
-        use "neovim/nvim-lspconfig" -- Configurations for Nvim LSP
-        use {
-            "jose-elias-alvarez/null-ls.nvim", -- General LSP for linting and formatting not supported by other LSPs
-            config = require("muream.plugins.null-ls").setup
-        }
         use {
             "williamboman/mason.nvim",
             config = function()
@@ -52,6 +53,11 @@ return require("packer").startup {
             config = function()
                 require("mason-lspconfig").setup()
             end
+        }
+        use "neovim/nvim-lspconfig" -- Configurations for Nvim LSP
+        use {
+            "jose-elias-alvarez/null-ls.nvim", -- General LSP for linting and formatting not supported by other LSPs
+            config = require("muream.plugins.null-ls").setup
         }
         use "nvim-lua/lsp-status.nvim"
         use {
@@ -144,6 +150,9 @@ return require("packer").startup {
             config = require("muream.plugins.barbar").setup
         }
 
+        -- if packer_bootstrap then
+        --     require('packer').sync()
+        -- end
     end,
     config = {
         display = {
