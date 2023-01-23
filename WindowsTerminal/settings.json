@@ -1,51 +1,50 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": [
+    "actions": 
+    [
         {
-            "command": {
-                "action": "resizePane",
-                "direction": "down"
-            },
-            "keys": "alt+shift+j"
-        },
-        {
-            "command": {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "keys": "alt+h"
-        },
-        {
-            "command": {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "keys": "alt+j"
-        },
-        {
-            "command": {
-                "action": "splitPane",
-                "split": "right",
-                "splitMode": "duplicate"
-            },
-            "keys": "alt+plus"
-        },
-        {
-            "command": {
+            "command": 
+            {
                 "action": "resizePane",
                 "direction": "left"
             },
             "keys": "alt+shift+h"
         },
         {
-            "command": {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command": 
+            {
                 "action": "scrollDown"
             },
             "keys": "alt+e"
         },
         {
-            "command": {
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "down"
+            },
+            "keys": "alt+shift+j"
+        },
+        {
+            "command": "togglePaneZoom",
+            "keys": "alt+m"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "alt+h"
+        },
+        {
+            "command": 
+            {
                 "action": "splitPane",
                 "size": 0.25,
                 "split": "down",
@@ -54,106 +53,131 @@
             "keys": "alt+minus"
         },
         {
-            "command": {
+            "command": 
+            {
                 "action": "scrollUp"
             },
             "keys": "alt+y"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "alt+j"
         },
         {
             "command": "closePane",
             "keys": "alt+w"
         },
         {
-            "command": {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+plus"
+        },
+        {
+            "command": 
+            {
                 "action": "resizePane",
                 "direction": "right"
             },
             "keys": "alt+shift+l"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": {
+            "command": 
+            {
                 "action": "moveFocus",
                 "direction": "right"
             },
             "keys": "alt+l"
         },
         {
-            "command": {
+            "command": 
+            {
                 "action": "moveFocus",
                 "direction": "up"
             },
             "keys": "alt+k"
         },
         {
-            "command": {
+            "command": 
+            {
                 "action": "resizePane",
                 "direction": "up"
             },
             "keys": "alt+shift+k"
-        },
-        {
-            "command": "togglePaneZoom",
-            "keys": "alt+m"
         }
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "profiles": {
-        "defaults": {
-            "padding": "0",
-            "scrollbarState": "hidden",
+    "profiles": 
+    {
+        "defaults": 
+        {
             "bellStyle": "none",
-            "colorScheme": "One Half Dark",
-            "font": {
+            "colorScheme": "Campbell",
+            "font": 
+            {
                 "face": "CaskaydiaCove NF",
-                "size": 13
-            }
+                "size": 13.0
+            },
+            "padding": "0",
+            "scrollbarState": "hidden"
         },
-        "list": [
+        "list": 
+        [
             {
                 "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe -nologo",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
                 "name": "PowerShell",
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
-                "name": "Ubuntu",
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "source": "Windows.Terminal.Wsl",
-                "icon": "https://assets.ubuntu.com/v1/49a1a858-favicon-32x32.png"
+                "hidden": false,
+                "icon": "https://assets.ubuntu.com/v1/49a1a858-favicon-32x32.png",
+                "name": "Ubuntu",
+                "source": "Windows.Terminal.Wsl"
             },
             {
-                "name": "Command Prompt",
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}"
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "name": "Command Prompt"
             },
             {
-                "name": "Git Bash",
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": false,
+                "name": "Git Bash",
                 "source": "Git"
             },
             {
-                "name": "Nushell",
                 "guid": "{aab79973-318f-43b6-a9bc-b4096493753f}",
+                "hidden": false,
+                "name": "Nushell",
                 "source": "nu"
             },
             {
-                "name": "Developer Command Prompt for VS 2022",
                 "guid": "{847b1374-617e-5049-872f-0109354283ae}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "name": "Developer PowerShell for VS 2022",
                 "guid": "{4e2661d5-7770-5cd6-a3fc-b1e9c04231f4}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
-    "schemes": [
+    "schemes": 
+    [
         {
             "background": "#0C0C0C",
             "black": "#0C0C0C",
@@ -361,5 +385,6 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "themes": []
 }
