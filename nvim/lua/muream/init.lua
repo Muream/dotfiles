@@ -1,3 +1,3 @@
 require("muream.remap")
 require("muream.settings")
-require("muream.packer")
+require("muream.lazy")
