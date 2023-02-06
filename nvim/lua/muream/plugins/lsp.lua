@@ -1,48 +1,48 @@
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 return {
     {
-        'VonHeikemen/lsp-zero.nvim',
+        "VonHeikemen/lsp-zero.nvim",
         dependencies = {
-            { 'neovim/nvim-lspconfig' },
-            { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' },
+            { "neovim/nvim-lspconfig" },
+            { "williamboman/mason.nvim" },
+            { "williamboman/mason-lspconfig.nvim" },
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-nvim-lua' },
+            { "hrsh7th/nvim-cmp" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "saadparwaiz1/cmp_luasnip" },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-nvim-lua" },
 
             -- Snippets
-            { 'L3MON4D3/LuaSnip' },
-            { 'rafamadriz/friendly-snippets' },
+            { "L3MON4D3/LuaSnip" },
+            { "rafamadriz/friendly-snippets" },
         },
         config = function()
             ----
-            local lsp = require('lsp-zero')
+            local lsp = require("lsp-zero")
 
             -------- Initial lsp config
-            lsp.preset('recommended')
+            lsp.preset("recommended")
 
             -------- pre installed lsp providers
             lsp.ensure_installed({
-                'sumneko_lua',
-                'rust_analyzer',
-                'pyright',
+                "sumneko_lua",
+                "rust_analyzer",
+                "pyright",
             })
 
             -------- Completion hotkeys
             local cmp = require("cmp")
             local cmp_mappings = lsp.defaults.cmp_mappings({
-                ['<C-Space>'] = cmp.mapping.complete(),
-                ['<C-e>'] = cmp.mapping.abort(),
+                ["<C-Space>"] = cmp.mapping.complete(),
+                ["<C-e>"] = cmp.mapping.abort(),
             })
 
             -------- disable completion with tab
-            cmp_mappings['<Tab>'] = cmp.mapping.confirm()
-            cmp_mappings['<S-Tab>'] = nil
+            cmp_mappings["<Tab>"] = cmp.mapping.confirm()
+            cmp_mappings["<S-Tab>"] = nil
 
 
             lsp.setup_nvim_cmp({

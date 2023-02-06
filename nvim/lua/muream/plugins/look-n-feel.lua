@@ -15,7 +15,7 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     {
         "lukas-reineke/virt-column.nvim",
-        config=function()
+        config = function()
             require("virt-column").setup({ char = "│" })
             vim.cmd.highlight("VirtColumn guifg=#383838 gui=nocombine")
         end
@@ -24,7 +24,7 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        config=function()
+        config = function()
             require("gitsigns").setup()
         end,
     },
@@ -40,11 +40,14 @@ return {
     {
         "romgrk/barbar.nvim",
 
+        lazy = false,
         keys = {
-            {"<A-p>", "<cmd>BufferNext<cr>"},
-            {"<A-n>", "<cmd>BufferPrevious<cr>"},
+            { "<A-p>", "<cmd>BufferNext<cr>" },
+            { "<A-n>", "<cmd>BufferPrevious<cr>" },
         },
-        config = true,
+        config = function()
+            require("bufferline").setup()
+        end,
     },
 
     {

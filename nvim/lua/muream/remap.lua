@@ -20,11 +20,10 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Maintain cursor position when joining lines
-vim.keymap.set("n", "J", "mzJ`z") 
+vim.keymap.set("n", "J", "mzJ`z")
 
 --  Split Navigation
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>", { noremap = true })
 vim.keymap.set("n", "<C-J>", "<C-W><C-J>", { noremap = true })
 vim.keymap.set("n", "<C-K>", "<C-W><C-K>", { noremap = true })
 vim.keymap.set("n", "<C-L>", "<C-W><C-L>", { noremap = true })
-

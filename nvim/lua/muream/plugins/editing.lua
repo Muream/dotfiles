@@ -3,7 +3,7 @@ return {
     "tpope/vim-repeat",
     {
         "numToStr/Comment.nvim",
-        config= function()
+        config = function()
             require("Comment").setup({
                 -- ignores empty lines
                 ignore = '^$'
