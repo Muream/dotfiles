@@ -32,6 +32,13 @@ return {
                 "rust_analyzer",
                 "pyright",
             })
+            lsp.configure('rust_analyzer', {
+                settings = {
+                    checkOnSave = {
+                        command = "cargo clippy"
+                    },
+                }
+            })
 
             -------- Completion hotkeys
             local cmp = require("cmp")
