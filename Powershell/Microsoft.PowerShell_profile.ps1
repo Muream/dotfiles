@@ -10,6 +10,7 @@ Import-Module Terminal-Icons    # Add Icons to files and folders
 
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 Set-PSReadLineOption -BellStyle Visual
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 
 # --- Keybinds -------------------------------------------------------------------------
 #
