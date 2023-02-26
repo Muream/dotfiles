@@ -1,18 +1,19 @@
 return {
     {
-        "RRethy/nvim-base16",
+        "bluz71/vim-moonfly-colors",
+        name = "moonfly",
+        priority = 1000,
         config = function()
-            require("base16-colorscheme").setup({
-                base00 = "#151515", base01 = "#242424", base02 = "#383838", base03 = "#969896",
-                base04 = "#b4b7b4", base05 = "#c5c8c6", base06 = "#e0e0e0", base07 = "#ffffff",
-                base08 = "#cc6666", base09 = "#de935f", base0A = "#f0c674", base0B = "#b5bd68",
-                base0C = "#8abeb7", base0D = "#81a2be", base0E = "#b294bb", base0F = "#a3685a"
-            })
-            vim.cmd.highlight("VertSplit guifg=#383838")
-        end,
+            vim.g.moonflyTransparent = true
+            vim.cmd.colorscheme("moonfly")
+            vim.api.nvim_set_hl(0, "VertSplit", { bg = "none", fg = "#444444" })
+            vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "#111111" })
+            vim.opt.fillchars = vim.opt.fillchars + "eob: " + "vert:▎"
+        end
     },
 
     "lukas-reineke/indent-blankline.nvim",
+
     {
         "lukas-reineke/virt-column.nvim",
         config = function()
@@ -48,6 +49,7 @@ return {
         config = function()
             require("bufferline").setup()
         end,
+
     },
 
     {

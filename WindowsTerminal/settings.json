@@ -7,13 +7,9 @@
             "command": 
             {
                 "action": "resizePane",
-                "direction": "left"
+                "direction": "down"
             },
-            "keys": "alt+shift+h"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "keys": "alt+shift+j"
         },
         {
             "command": 
@@ -26,21 +22,20 @@
             "command": 
             {
                 "action": "resizePane",
-                "direction": "down"
+                "direction": "left"
             },
-            "keys": "alt+shift+j"
+            "keys": "alt+shift+h"
         },
         {
-            "command": "togglePaneZoom",
-            "keys": "alt+m"
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "left"
+                "action": "scrollUp"
             },
-            "keys": "alt+h"
+            "keys": "alt+y"
         },
         {
             "command": 
@@ -55,9 +50,14 @@
         {
             "command": 
             {
-                "action": "scrollUp"
+                "action": "moveFocus",
+                "direction": "left"
             },
-            "keys": "alt+y"
+            "keys": "alt+h"
+        },
+        {
+            "command": "togglePaneZoom",
+            "keys": "alt+m"
         },
         {
             "command": 
@@ -74,19 +74,19 @@
         {
             "command": 
             {
+                "action": "resizePane",
+                "direction": "right"
+            },
+            "keys": "alt+shift+l"
+        },
+        {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "right",
                 "splitMode": "duplicate"
             },
             "keys": "alt+plus"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "right"
-            },
-            "keys": "alt+shift+l"
         },
         {
             "command": 
@@ -151,35 +151,16 @@
                 "name": "Command Prompt"
             },
             {
-                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
-                "name": "Git Bash",
-                "source": "Git"
-            },
-            {
-                "guid": "{aab79973-318f-43b6-a9bc-b4096493753f}",
-                "hidden": false,
-                "name": "Nushell",
-                "source": "nu"
-            },
-            {
-                "guid": "{847b1374-617e-5049-872f-0109354283ae}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{4e2661d5-7770-5cd6-a3fc-b1e9c04231f4}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
+                "name": "Windows PowerShell"
             }
         ]
     },
     "schemes": 
     [
         {
-            "background": "#0C0C0C",
+            "background": "#181818",
             "black": "#0C0C0C",
             "blue": "#0037DA",
             "brightBlack": "#767676",

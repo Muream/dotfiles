@@ -15,6 +15,15 @@ return {
             { "hrsh7th/cmp-nvim-lsp" },
             { "hrsh7th/cmp-nvim-lua" },
 
+            -- Improved LSP UI
+            {
+                "jinzhongjia/LspUI.nvim",
+                event = "VeryLazy",
+                config = function()
+                    require("LspUI").setup()
+                end
+            },
+
             -- Snippets
             { "L3MON4D3/LuaSnip" },
             { "rafamadriz/friendly-snippets" },
@@ -28,7 +37,6 @@ return {
 
             -------- pre installed lsp providers
             lsp.ensure_installed({
-                "sumneko_lua",
                 "rust_analyzer",
                 "pyright",
             })
@@ -61,6 +69,7 @@ return {
                 local opts = { buffer = bufnr, remap = false }
 
                 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, opts)
+                vim.keymap.set("n", "C-.", "CodeActionMenu", opts)
 
                 if client.supports_method("textDocument/formatting") then
                     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -83,7 +92,6 @@ return {
         "jose-elias-alvarez/null-ls.nvim",
         dependencies = { "jayp0521/mason-null-ls.nvim" },
         config = function()
-
             local mason_nullls = require("mason-null-ls")
             mason_nullls.setup({
                 ensure_installed = {

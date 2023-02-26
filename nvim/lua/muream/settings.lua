@@ -45,4 +45,4 @@ vim.opt.cursorline = true -- Highlight current line
 vim.opt.laststatus = 3 -- Global status line instead of per split.
 vim.opt.timeoutlen = 500 -- Instant response from things like which-key, completion, etc
 vim.opt.termguicolors = true -- Good colors
-vim.cmd.colorscheme("slate")
+vim.opt.cmdheight = 0
