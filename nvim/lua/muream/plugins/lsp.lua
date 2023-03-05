@@ -17,10 +17,22 @@ return {
 
             -- Improved LSP UI
             {
-                "jinzhongjia/LspUI.nvim",
-                event = "VeryLazy",
+                "glepnir/lspsaga.nvim",
+                event = "BufRead",
                 config = function()
-                    require("LspUI").setup()
+                    require("lspsaga").setup({})
+                end,
+                dependencies = {
+                    { "nvim-tree/nvim-web-devicons" },
+                    --Please make sure you install markdown and markdown_inline parser
+                    { "nvim-treesitter/nvim-treesitter" }
+                }
+            },
+            {
+                "folke/trouble.nvim",
+                dependencies = { "nvim-tree/nvim-web-devicons" },
+                config = function()
+                    require("trouble").setup({})
                 end
             },
 
@@ -33,7 +45,10 @@ return {
             local lsp = require("lsp-zero")
 
             -------- Initial lsp config
-            lsp.preset("recommended")
+            lsp.preset({
+                name = "recommended",
+                set_lsp_keymaps = false,
+            })
 
             -------- pre installed lsp providers
             lsp.ensure_installed({
@@ -49,14 +64,14 @@ return {
             })
 
             -------- Completion hotkeys
-            local cmp = require("cmp")
+            local cmpa = require("cmp")
             local cmp_mappings = lsp.defaults.cmp_mappings({
-                ["<C-Space>"] = cmp.mapping.complete(),
-                ["<C-e>"] = cmp.mapping.abort(),
+                ["<C-Space>"] = cmpa.mapping.complete(),
+                ["<C-e>"] = cmpa.mapping.abort(),
             })
 
             -------- disable completion with tab
-            cmp_mappings["<Tab>"] = cmp.mapping.confirm()
+            cmp_mappings["<Tab>"] = cmpa.mapping.confirm()
             cmp_mappings["<S-Tab>"] = nil
 
 
@@ -69,7 +84,19 @@ return {
                 local opts = { buffer = bufnr, remap = false }
 
                 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, opts)
-                vim.keymap.set("n", "C-.", "CodeActionMenu", opts)
+                vim.keymap.set("n", "C-.", ":LspSaga code_action<cr>", opts)
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+                vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+                vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
+                vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+                vim.keymap.set("n", "<Ctrl-k>", vim.lsp.buf.signature_help, opts)
+                vim.keymap.set("n", "<F2>", ":Lspsaga rename<cr>", opts)
+                vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, opts)
+                vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
+                vim.keymap.set("n", "[d", ":Lspsaga diagnostic_jump_prev<cr>", opts)
+                vim.keymap.set("n", "]d", ":Lspsaga diagnostic_jump_next<cr>", opts)
 
                 if client.supports_method("textDocument/formatting") then
                     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
