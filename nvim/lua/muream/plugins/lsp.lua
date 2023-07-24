@@ -4,13 +4,13 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = {
             "nvim-cmp",
+
             -- Automatically install LSPs to stdpath for neovim
-            { "mason.nvim" },
+             "mason.nvim" ,
             "williamboman/mason-lspconfig.nvim",
 
             -- Useful status updates for LSP
-            -- NOTE: `opts = {}` is the same as calling `require("fidget").setup({})`
-            { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+            "fidget.nvim",
 
             -- Additional lua configuration, makes nvim stuff amazing!
             { "folke/neodev.nvim", config = true },
@@ -20,7 +20,6 @@ return {
             vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded", })
 
             local on_attach = function(client, bufnr)
-
                 local nmap = function(keys, func, desc)
                     if desc then
                         desc = 'LSP: ' .. desc
@@ -164,4 +163,10 @@ return {
             }
         }
     },
+    {
+        "j-hui/fidget.nvim",
+        tag = "legacy",
+        event = "LspAttach",
+        opts = {},
+    }
 }
