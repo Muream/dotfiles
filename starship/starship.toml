@@ -1,4 +1,5 @@
-"$schema" = 'https://starship.rs/config-schema.json'
-
-"format" = "$all"
-
+[os]
+disabled = false
+format = "$symbol "
+symbols.Ubuntu = ""
+symbols.Windows = ""

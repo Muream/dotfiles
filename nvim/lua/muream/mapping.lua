@@ -19,6 +19,9 @@ vim.keymap.set("n", "k", "gk", { noremap = true })
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- center the cursor when going to the end of the buffer
+vim.keymap.set("n", "G", "Gzz")
+
 -- Maintain cursor position when joining lines
 vim.keymap.set("n", "J", "mzJ`z")
 

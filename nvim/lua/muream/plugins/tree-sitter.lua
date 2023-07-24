@@ -2,62 +2,66 @@ return {
     {
         -- Highlight, edit, and navigate code
         "nvim-treesitter/nvim-treesitter",
-        build = function()
-            pcall(require("nvim-treesitter.install").update { with_sync = true })
-        end,
-        config = function()
-            -- A list of parser names, or "all"
-            require "nvim-treesitter.configs".setup {
-                ensure_installed = { "c", "lua", "rust", "python" },
+        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects", "nvim-treesitter/playground" },
+        build = ":TSUpdate",
+        opts = {
+            ensure_installed = {
+                "c",
+                "cpp",
+                "json",
+                "jsonc",
+                "lua",
+                "markdown",
+                "markdown_inline",
+                "python",
+                "regex",
+                "rust",
+                "toml",
+                "vim",
+                "vimdoc",
+            },
 
-                -- Install parsers synchronously (only applied to `ensure_installed`)
-                sync_install = false,
+            -- Install parsers synchronously (only applied to `ensure_installed`)
+            sync_install = false,
 
-                -- Automatically install missing parsers when entering buffer
-                -- Recommendation: set to false if you don"t have `tree-sitter` CLI installed locally
-                auto_install = true,
+            -- Automatically install missing parsers when entering buffer
+            auto_install = true,
 
-                indent = true,
+            indent = { enable = true },
+            highlight = { enable = true },
 
-                highlight = {
-                    -- `false` will disable the whole extension
+            textobjects = {
+                select = {
                     enable = true,
-
-                    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-                    -- Set this to `true` if you depend on "syntax" being enabled (like for indentation).
-                    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-                    -- Instead of true it can also be a list of languages
-                    additional_vim_regex_highlighting = false,
-                },
-            }
-
-            vim.opt.foldmethod = "expr"
-            vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
-        end
-    },
-    {
-        -- Additional text objects via treesitter
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter"
-        },
-        config = function()
-            require("nvim-treesitter.configs").setup({
-                textobjects = {
-                    select = {
-                        enable = true,
-                        keymaps = {
-                            ["af"] = "@function.outer",
-                            ["if"] = "@function.inner",
-                            ["ac"] = "@class.outer",
-                            ["ic"] = "@class.inner",
-                            ["aa"] = "@parameter.outer",
-                            ["ia"] = "@parameter.inner",
-                        }
+                    lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+                    keymaps = {
+                        ["aa"] = "@parameter.outer",
+                        ["ia"] = "@parameter.inner",
+                        ["ac"] = "@class.outer",
+                        ["ic"] = "@class.inner",
+                        ["af"] = "@function.outer",
+                        ["if"] = "@function.inner",
                     }
                 }
-            })
-        end
-    }
+            },
+            swap = {
+                enable = true,
+                swap_next = { ['<leader>a'] = '@parameter.inner' },
+                swap_previous = { ['<leader>A'] = '@parameter.inner' },
+            },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = '<c-space>',
+                    node_incremental = '<c-space>',
+                    scope_incremental = '<c-s>',
+                    node_decremental = '<M-space>',
+                },
+            },
+            playground = { enable = true },
+        },
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
+        end,
+    },
 }

@@ -1,152 +1,167 @@
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 return {
     {
-        "VonHeikemen/lsp-zero.nvim",
+        -- LSP Configuration & Plugins
+        "neovim/nvim-lspconfig",
         dependencies = {
-            { "neovim/nvim-lspconfig" },
-            { "williamboman/mason.nvim" },
-            { "williamboman/mason-lspconfig.nvim" },
+            "nvim-cmp",
+            -- Automatically install LSPs to stdpath for neovim
+            { "mason.nvim" },
+            "williamboman/mason-lspconfig.nvim",
 
-            -- Autocompletion
-            { "hrsh7th/nvim-cmp" },
-            { "hrsh7th/cmp-buffer" },
-            { "hrsh7th/cmp-path" },
-            { "saadparwaiz1/cmp_luasnip" },
-            { "hrsh7th/cmp-nvim-lsp" },
-            { "hrsh7th/cmp-nvim-lua" },
+            -- Useful status updates for LSP
+            -- NOTE: `opts = {}` is the same as calling `require("fidget").setup({})`
+            { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 
-            -- Improved LSP UI
-            {
-                "glepnir/lspsaga.nvim",
-                event = "BufRead",
-                config = function()
-                    require("lspsaga").setup({})
-                end,
-                dependencies = {
-                    { "nvim-tree/nvim-web-devicons" },
-                    --Please make sure you install markdown and markdown_inline parser
-                    { "nvim-treesitter/nvim-treesitter" }
-                }
-            },
-            {
-                "folke/trouble.nvim",
-                dependencies = { "nvim-tree/nvim-web-devicons" },
-                config = function()
-                    require("trouble").setup({})
-                end
-            },
-
-            -- Snippets
-            { "L3MON4D3/LuaSnip" },
-            { "rafamadriz/friendly-snippets" },
+            -- Additional lua configuration, makes nvim stuff amazing!
+            { "folke/neodev.nvim", config = true },
         },
         config = function()
-            ----
-            local lsp = require("lsp-zero")
+            -- Add borders to the hover popup
+            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded", })
 
-            -------- Initial lsp config
-            lsp.preset({
-                name = "recommended",
-                set_lsp_keymaps = false,
-            })
+            local on_attach = function(client, bufnr)
 
-            -------- pre installed lsp providers
-            lsp.ensure_installed({
-                "rust_analyzer",
-                "pyright",
-            })
-            lsp.configure('rust_analyzer', {
-                settings = {
-                    checkOnSave = {
-                        command = "cargo clippy"
-                    },
-                }
-            })
-
-            -------- Completion hotkeys
-            local cmpa = require("cmp")
-            local cmp_mappings = lsp.defaults.cmp_mappings({
-                ["<C-Space>"] = cmpa.mapping.complete(),
-                ["<C-e>"] = cmpa.mapping.abort(),
-            })
-
-            -------- disable completion with tab
-            cmp_mappings["<Tab>"] = cmpa.mapping.confirm()
-            cmp_mappings["<S-Tab>"] = nil
-
-
-            lsp.setup_nvim_cmp({
-                mapping = cmp_mappings
-            })
-
-            -------- on attach hotkeys
-            lsp.on_attach(function(client, bufnr)
-                local opts = { buffer = bufnr, remap = false }
-
-                vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, opts)
-                vim.keymap.set("n", "C-.", ":LspSaga code_action<cr>", opts)
-                vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-                vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-                vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
-                vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-                vim.keymap.set("n", "<Ctrl-k>", vim.lsp.buf.signature_help, opts)
-                vim.keymap.set("n", "<F2>", ":Lspsaga rename<cr>", opts)
-                vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, opts)
-                vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
-                vim.keymap.set("n", "[d", ":Lspsaga diagnostic_jump_prev<cr>", opts)
-                vim.keymap.set("n", "]d", ":Lspsaga diagnostic_jump_next<cr>", opts)
-
-                if client.supports_method("textDocument/formatting") then
-                    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-                    vim.api.nvim_create_autocmd("BufWritePre", {
-                        group = augroup,
-                        buffer = bufnr,
-                        callback = function()
-                            vim.lsp.buf.format({ bufnr = bufnr })
-                        end,
-                    })
+                local nmap = function(keys, func, desc)
+                    if desc then
+                        desc = 'LSP: ' .. desc
+                    end
+                    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
                 end
-            end)
+                nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+                nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+                nmap("<leader>fm", vim.lsp.buf.format, "[F]or[m]at")
 
-            -------- Apply config
-            lsp.setup()
+                nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+                nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+                nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+
+                nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+                nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+
+                vim.keymap.set("n", "gl", vim.diagnostic.open_float)
+                -- vim.keymap.set("n", "[d", ":Lspsaga diagnostic_jump_prev<cr>")
+                -- vim.keymap.set("n", "]d", ":Lspsaga diagnostic_jump_next<cr>")
+            end
+
+            local servers = {
+                pyright = {},
+                rust_analyzer = {},
+                ruff_lsp = {},
+
+                lua_ls = {
+                    Lua = {
+                        workspace = { checkThirdParty = false },
+                        telemetry = { enable = false },
+                    },
+                },
+            }
+
+            -- nvim-cmp supports additional completion capabilities, so broadcast that to skrvers
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+
+            -- Ensure the servers above are installed
+            local mason_lspconfig = require 'mason-lspconfig'
+
+            mason_lspconfig.setup {
+                ensure_installed = vim.tbl_keys(servers),
+            }
+
+            mason_lspconfig.setup_handlers {
+                function(server_name)
+                    require('lspconfig')[server_name].setup {
+                        capabilities = capabilities,
+                        on_attach = on_attach,
+                        settings = servers[server_name],
+                    }
+                end,
+            }
         end
     },
+    {
+        -- Autocompletion
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            -- Adds LSP completion capabilities
+            'hrsh7th/cmp-nvim-lsp',
 
+            -- Snippet Engine & its associated nvim-cmp source
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
+
+            -- Adds a number of user-friendly snippets
+            'rafamadriz/friendly-snippets',
+        },
+        config = function()
+            local luasnip = require("luasnip")
+            require('luasnip.loaders.from_vscode').lazy_load()
+            luasnip.config.setup({})
+
+            local cmp = require("cmp")
+            cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        luasnip.lsp_expand(args.body)
+                    end
+                },
+                sources = {
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
+                },
+                mapping = cmp.mapping.preset.insert({
+                    ["<C-n>"] = cmp.mapping.select_next_item(),
+                    ["<C-p>"] = cmp.mapping.select_prev_item(),
+                    ["<C-Space>"] = cmp.mapping.complete({}),
+
+                    -- Tab is used both to confirm the completion
+                    -- Or to jump within a snippet
+                    ["<Tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.confirm({
+                                behavior = cmp.ConfirmBehavior.replace,
+                                select = true,
+                            })
+                        elseif luasnip.expand_or_locally_jumpable() then
+                            luasnip.expand_or_jump()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                    -- Shift Tab just goes back in the current snippet
+                    ['<S-Tab>'] = cmp.mapping(function(fallback)
+                        if luasnip.locally_jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                })
+            })
+        end,
+    },
     {
         "jose-elias-alvarez/null-ls.nvim",
-        dependencies = { "jayp0521/mason-null-ls.nvim" },
-        config = function()
-            local mason_nullls = require("mason-null-ls")
-            mason_nullls.setup({
-                ensure_installed = {
-                    -- Opt to list sources here, when available in mason.
-                    "black",
-                    "isort",
-                },
-                automatic_installation = false,
-                automatic_setup = true,
-            })
-
-            require("null-ls").setup({
-                on_attach = function(client, bufnr)
-                    if client.supports_method("textDocument/formatting") then
-                        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-                        vim.api.nvim_create_autocmd("BufWritePre", {
-                            group = augroup,
-                            buffer = bufnr,
-                            callback = function()
-                                vim.lsp.buf.format({ bufnr = bufnr })
-                            end,
-                        })
-                    end
-                end
-            })
-
-            mason_nullls.setup_handlers()
+        dependencies = { "nvim-lspconfig", "mason.nvim" },
+        opts = function()
+            local null_ls = require("null-ls")
+            return {
+                sources = {
+                    null_ls.builtins.formatting.black,
+                }
+            }
         end
     },
-    "j-hui/fidget.nvim", -- Useful status updates for LSP
+    {
+        "williamboman/mason.nvim",
+        cmd = "Mason",
+        build = { ":MasonUpdate" },
+        opts = {
+            ensure_installed = {
+                "stylua",
+                "black",
+                "ruff_lsp",
+            }
+        }
+    },
 }
