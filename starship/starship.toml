@@ -1,5 +1,5 @@
 [os]
 disabled = false
 format = "$symbol "
-symbols.Ubuntu = ""
-symbols.Windows = ""
+symbols.Ubuntu = ""
+symbols.Windows = ""

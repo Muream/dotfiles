@@ -133,7 +133,7 @@
                 "face": "CaskaydiaCove NF",
                 "size": 13.0
             },
-            "padding": "0",
+            "padding": "8, 8, 8, 8",
             "scrollbarState": "hidden"
         },
         "list": 
