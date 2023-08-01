@@ -46,6 +46,7 @@ return {
                 pyright = {},
                 rust_analyzer = {},
                 ruff_lsp = {},
+                ocamllsp = {},
 
                 lua_ls = {
                     Lua = {
