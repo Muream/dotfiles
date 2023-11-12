@@ -26,3 +26,5 @@ eval "$(pyenv init -)"
 
 # pipx
 export PATH="$PATH:/home/muream/.local/bin"
+
+eval "$(opam env)"
