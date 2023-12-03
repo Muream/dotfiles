@@ -2,7 +2,10 @@ return {
     {
         -- Highlight, edit, and navigate code
         "nvim-treesitter/nvim-treesitter",
-        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects", "nvim-treesitter/playground" },
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            "nvim-treesitter/playground",
+        },
         build = ":TSUpdate",
         opts = {
             ensure_installed = {
@@ -19,6 +22,7 @@ return {
                 "toml",
                 "vim",
                 "vimdoc",
+                "ocaml",
             },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
