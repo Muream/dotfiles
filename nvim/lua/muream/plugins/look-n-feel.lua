@@ -13,7 +13,13 @@ return {
         end,
     },
 
-    "lukas-reineke/indent-blankline.nvim",
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {
+            scope = { enabled = false },
+        },
+    },
 
     {
         "lukas-reineke/virt-column.nvim",
