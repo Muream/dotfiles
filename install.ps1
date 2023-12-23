@@ -15,3 +15,6 @@ New-Item -Force -ItemType Junction -Path $HOME\AppData\Local\nvim -Value (Get-It
 ## LazyGit
 New-Item -Force -ItemType HardLink -Path "$env:APPDATA\lazygit\config.yml"  -Value (Get-Item ".\lazygit\config.yml").FullName
 
+## Autohotkey
+New-Item -Force -ItemType SymbolicLink -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\better_virtual_desktops.ahk"  -Value (Get-Item ".\autohotkey\better_virtual_desktops.ahk").FullName
+
