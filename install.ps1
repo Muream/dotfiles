@@ -18,3 +18,9 @@ New-Item -Force -ItemType HardLink -Path "$env:APPDATA\lazygit\config.yml"  -Val
 ## Autohotkey
 New-Item -Force -ItemType SymbolicLink -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\better_virtual_desktops.ahk"  -Value (Get-Item ".\autohotkey\better_virtual_desktops.ahk").FullName
 
+## WHKD
+New-Item -Force -ItemType HardLink -Path $HOME\.config\whkdrc  -Value (Get-Item ".\whkd\whkdrc").FullName
+
+
+## YASB
+New-Item -Force -ItemType Junction -Path $HOME\.yasb -Value (Get-Item ".\yasb").FullName
