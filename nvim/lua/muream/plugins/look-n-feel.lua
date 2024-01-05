@@ -26,7 +26,7 @@ return {
         config = function()
             require("virt-column").setup({ char = "│" })
             vim.cmd.highlight("VirtColumn guifg=#383838 gui=nocombine")
-        end
+        end,
     },
 
     {
@@ -39,6 +39,6 @@ return {
         "norcalli/nvim-colorizer.lua",
         config = function()
             require("colorizer").setup()
-        end
-    }
+        end,
+    },
 }

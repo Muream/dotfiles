@@ -1,5 +1,5 @@
 vim.filetype.add({
     extension = {
-        hx = 'haxe',
+        hx = "haxe",
     },
 })

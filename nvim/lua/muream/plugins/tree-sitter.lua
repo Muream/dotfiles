@@ -1,6 +1,5 @@
-
 -- the Haxe parser isn't available to auto install
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 parser_config.haxe = {
     install_info = {
         url = "https://github.com/vantreeseba/tree-sitter-haxe",
@@ -13,11 +12,22 @@ parser_config.haxe = {
 
 return {
     {
+        "nvim-treesitter/nvim-treesitter-context",
+        opts = {
+            enable = true,
+            mode = "topline",
+            multiline_threshold = 1, -- Maximum number of lines to show for a single context
+            trim_scope = "inner",
+            separator = "-",
+        },
+    },
+    {
         -- Highlight, edit, and navigate code
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
             "nvim-treesitter/playground",
+            "nvim-treesitter/nvim-treesitter-context",
         },
         build = ":TSUpdate",
         opts = {
@@ -59,21 +69,21 @@ return {
                         ["ic"] = "@class.inner",
                         ["af"] = "@function.outer",
                         ["if"] = "@function.inner",
-                    }
-                }
+                    },
+                },
             },
             swap = {
                 enable = true,
-                swap_next = { ['<leader>a'] = '@parameter.inner' },
-                swap_previous = { ['<leader>A'] = '@parameter.inner' },
+                swap_next = { ["<leader>a"] = "@parameter.inner" },
+                swap_previous = { ["<leader>A"] = "@parameter.inner" },
             },
             incremental_selection = {
                 enable = true,
                 keymaps = {
-                    init_selection = '<c-space>',
-                    node_incremental = '<c-space>',
-                    scope_incremental = '<c-s>',
-                    node_decremental = '<M-space>',
+                    init_selection = "<c-space>",
+                    node_incremental = "<c-space>",
+                    scope_incremental = "<c-s>",
+                    node_decremental = "<M-space>",
                 },
             },
             playground = { enable = true },

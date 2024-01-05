@@ -1,10 +1,10 @@
 return {
     {
         "Glench/Vim-Jinja2-Syntax",
-        ft = "jinja"
+        ft = "jinja",
     },
     {
         "timmyjose-projects/lox.vim",
-        ft = "lox"
-    }
+        ft = "lox",
+    },
 }

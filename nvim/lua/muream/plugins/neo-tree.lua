@@ -16,5 +16,5 @@ return {
         window = {
             width = 35,
         },
-    }
+    },
 }

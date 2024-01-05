@@ -17,18 +17,20 @@ return {
         },
         config = function()
             -- Add borders to the hover popup
-            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded", })
+            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
-            local on_attach = function(client, bufnr)
+            local on_attach = function(_, bufnr)
                 local nmap = function(keys, func, desc)
                     if desc then
-                        desc = 'LSP: ' .. desc
+                        desc = "LSP: " .. desc
                     end
-                    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+                    vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
                 end
                 nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
                 nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-                nmap("<leader>fm", vim.lsp.buf.format, "[F]or[m]at")
+                nmap("<leader>fm", function()
+                    require("conform").format({ bufnr = bufnr, lsp_fallback = true })
+                end, "[F]or[m]at")
 
                 nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
                 nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
@@ -44,8 +46,8 @@ return {
 
             local servers = {
                 pyright = {},
-                rust_analyzer = {},
                 ruff_lsp = {},
+                rust_analyzer = {},
 
                 lua_ls = {
                     Lua = {
@@ -57,18 +59,17 @@ return {
 
             -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
             local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
+            capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
             -- Windows fails to install the haxe language server properly
             if vim.fn.has("Windows_NT") then
                 -- We manually configure it on windows, expecting it to be installed
                 -- manually installed
-                require("lspconfig").haxe_language_server.setup {
+                require("lspconfig").haxe_language_server.setup({
                     cmd = { "node", "C:/Users/muream/tools/haxe-language-server/bin/server.js" },
                     capabilities = capabilities,
                     on_attach = on_attach,
-                }
+                })
             else
                 -- otherwise just register it so that mason_lspconfig automatically installs it
                 servers.haxe_language_server = {}
@@ -76,41 +77,40 @@ return {
                 servers.ocamllsp = {}
             end
 
-
             -- Ensure the servers above are installed
-            local mason_lspconfig = require 'mason-lspconfig'
-            mason_lspconfig.setup {
+            local mason_lspconfig = require("mason-lspconfig")
+            mason_lspconfig.setup({
                 ensure_installed = vim.tbl_keys(servers),
-            }
+            })
 
-            mason_lspconfig.setup_handlers {
+            mason_lspconfig.setup_handlers({
                 function(server_name)
-                    require('lspconfig')[server_name].setup {
+                    require("lspconfig")[server_name].setup({
                         capabilities = capabilities,
                         on_attach = on_attach,
                         settings = servers[server_name],
-                    }
+                    })
                 end,
-            }
-        end
+            })
+        end,
     },
     {
         -- Autocompletion
-        'hrsh7th/nvim-cmp',
+        "hrsh7th/nvim-cmp",
         dependencies = {
             -- Adds LSP completion capabilities
-            'hrsh7th/cmp-nvim-lsp',
+            "hrsh7th/cmp-nvim-lsp",
 
             -- Snippet Engine & its associated nvim-cmp source
-            'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip',
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
 
             -- Adds a number of user-friendly snippets
-            'rafamadriz/friendly-snippets',
+            "rafamadriz/friendly-snippets",
         },
         config = function()
             local luasnip = require("luasnip")
-            require('luasnip.loaders.from_vscode').lazy_load()
+            require("luasnip.loaders.from_vscode").lazy_load()
             luasnip.config.setup({})
 
             local cmp = require("cmp")
@@ -118,7 +118,7 @@ return {
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
-                    end
+                    end,
                 },
                 sources = {
                     { name = "nvim_lsp" },
@@ -144,28 +144,49 @@ return {
                         end
                     end, { "i", "s" }),
                     -- Shift Tab just goes back in the current snippet
-                    ['<S-Tab>'] = cmp.mapping(function(fallback)
+                    ["<S-Tab>"] = cmp.mapping(function(fallback)
                         if luasnip.locally_jumpable(-1) then
                             luasnip.jump(-1)
                         else
                             fallback()
                         end
                     end, { "i", "s" }),
-                })
+                }),
             })
         end,
     },
     {
-        "jose-elias-alvarez/null-ls.nvim",
-        dependencies = { "nvim-lspconfig", "mason.nvim" },
-        opts = function()
-            local null_ls = require("null-ls")
-            return {
-                sources = {
-                    null_ls.builtins.formatting.black,
-                }
-            }
-        end
+        "stevearc/conform.nvim",
+        opts = {
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_fallback = true,
+            },
+            formatters_by_ft = {
+                lua = { "stylua" },
+                ocaml = { "ocamlformat" },
+                rust = { "rustfmt" },
+            },
+        },
+    },
+    {
+        "mfussenegger/nvim-lint",
+        opts = {
+            events = { "BufWritePost", "BufReadPost", "InsertLeave" },
+            linters_by_ft = {
+                lua = { "selene" },
+            },
+        },
+        config = function(_, opts)
+            local lint = require("lint")
+            lint.linters_by_ft = opts.linters_by_ft
+
+            vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+                callback = function()
+                    require("lint").try_lint()
+                end,
+            })
+        end,
     },
     {
         "williamboman/mason.nvim",
@@ -174,15 +195,15 @@ return {
         opts = {
             ensure_installed = {
                 "stylua",
-                "black",
-                "ruff_lsp",
-            }
-        }
+                "ocamlformat",
+                "rustfmt",
+            },
+        },
     },
     {
         "j-hui/fidget.nvim",
         tag = "legacy",
         event = "LspAttach",
         opts = {},
-    }
+    },
 }
