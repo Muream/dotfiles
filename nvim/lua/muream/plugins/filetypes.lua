@@ -7,4 +7,9 @@ return {
         "timmyjose-projects/lox.vim",
         ft = "lox",
     },
+    {
+        "LhKipp/nvim-nu",
+        -- build = ":TSInstall nu",
+    },
+    "lark-parser/vim-lark-syntax",
 }
