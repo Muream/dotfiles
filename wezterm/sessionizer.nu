@@ -1,5 +1,6 @@
 def sessionizer [] {
     let folders = [~/projects ~/projects/proxy-ta-mere ~/projects/holistic-coders]
+        | filter {|el| path exists }
         | each { ls $in --long
             | where type == dir
             | get name
