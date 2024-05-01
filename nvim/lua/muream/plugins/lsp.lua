@@ -48,6 +48,7 @@ return {
                 pyright = {},
                 ruff_lsp = {},
                 rust_analyzer = {},
+                ols = {},
 
                 lua_ls = {
                     Lua = {
@@ -55,7 +56,9 @@ return {
                         telemetry = { enable = false },
                     },
                 },
+                jsonls = {},
             }
+            require("lspconfig").gleam.setup({})
 
             -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
             local capabilities = vim.lsp.protocol.make_client_capabilities()
