@@ -8,7 +8,22 @@ config = wezterm.config_builder()
 config.default_prog = { "nu" }
 
 -- General Theme
-config.color_scheme = "catppuccin-mocha"
+--- The Theme is set automatically based on the system theme
+-- wezterm.gui is not available to the mux server, so take care to
+-- do something reasonable when this config is evaluated by the mux
+local function get_appearance()
+    if wezterm.gui then
+        return wezterm.gui.get_appearance()
+    end
+    return "Dark"
+end
+
+if get_appearance() == "Dark" then
+    config.color_scheme = "Catppuccin Mocha"
+else
+    config.color_scheme = "Catppuccin Latte"
+end
+
 -- config.font = wezterm.font("CaskaydiaCove NF")
 config.font = wezterm.font("CaskaydiaCove Nerd Font")
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
@@ -21,21 +36,6 @@ config.adjust_window_size_when_changing_font_size = false
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
-
-config.colors = {
-    tab_bar = {
-        background = "#181825",
-        active_tab = {
-            bg_color = "#89b4fa",
-            fg_color = "#1e1e2e",
-            intensity = "Bold",
-        },
-        inactive_tab = {
-            bg_color = "#1e1e2e",
-            fg_color = "#cdd6f4",
-        },
-    },
-}
 
 -- Keymap
 config.leader = { key = "b", mods = "CTRL" }

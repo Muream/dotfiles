@@ -58,21 +58,21 @@ bar:
       default_workspace_background: "transparent"
     - type: "window title"
   components_center:
-    - type: "weather"
-      latitude: 45.78191334042887
-      longitude: 4.825558081884412
-      label: " {temperature_celsius}°C"
-      label_sun: "󰖙 {temperature_celsius}°C"
-      label_moon: "󰖔 {temperature_celsius}°C"
-      label_cloud_moon: "󰼱 {temperature_celsius}°C"
-      label_cloud_sun: "󰖕 {temperature_celsius}°C"
-      label_cloud_moon_rain: "󰖖 {temperature_celsius}°C"
-      label_cloud_sun_rain: "󰼳 {temperature_celsius}°C"
-      label_cloud_rain: "󰖖 {temperature_celsius}°C"
-      label_snow_flake: "󰖘 {temperature_celsius}°C"
-      label_thunderstorm: "󰖓 {temperature_celsius}°C"
-      label_cloud: " {temperature_celsius}°C"
-      margin: "0px 10px 0px 0px"
+    # - type: "weather"
+    #   latitude: 45.78191334042887
+    #   longitude: 4.825558081884412
+    #   label: " {temperature_celsius}°C"
+    #   label_sun: "󰖙 {temperature_celsius}°C"
+    #   label_moon: "󰖔 {temperature_celsius}°C"
+    #   label_cloud_moon: "󰼱 {temperature_celsius}°C"
+    #   label_cloud_sun: "󰖕 {temperature_celsius}°C"
+    #   label_cloud_moon_rain: "󰖖 {temperature_celsius}°C"
+    #   label_cloud_sun_rain: "󰼳 {temperature_celsius}°C"
+    #   label_cloud_rain: "󰖖 {temperature_celsius}°C"
+    #   label_snow_flake: "󰖘 {temperature_celsius}°C"
+    #   label_thunderstorm: "󰖓 {temperature_celsius}°C"
+    #   label_cloud: " {temperature_celsius}°C"
+    #   margin: "0px 10px 0px 0px"
     - type: "clock"
       # Documentation on formatting date/time string:
       # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
