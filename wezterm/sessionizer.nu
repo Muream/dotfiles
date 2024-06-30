@@ -15,11 +15,23 @@ def sessionizer [] {
         return
     }
 
-    let basename = $selected | path basename
+    let tab_id = wezterm cli list --format json 
+        | from json
+        | where {|el| ($selected | str replace "\\" "/" --all)  in $el.cwd}
+        | try {first} catch {{tab_id: null}}
+        | get tab_id
 
-    let id = wezterm cli spawn --cwd $selected
+    if $tab_id == null {
+        # Switch to a new tab
+        let basename = $selected | path basename
+        let id = wezterm cli spawn --cwd $selected
+        wezterm cli set-tab-title $basename --pane-id $id
+    } else {
+        # switch to an existing tab
+        wezterm cli activate-tab --tab-id $tab_id
+    }
 
-    wezterm cli set-tab-title $basename --pane-id $id
+
 }
 
 sessionizer
