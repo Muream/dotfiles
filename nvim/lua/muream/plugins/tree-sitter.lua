@@ -1,14 +1,23 @@
 -- the Haxe parser isn't available to auto install
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
 parser_config.haxe = {
+    filetype = "haxe",
     install_info = {
         url = "https://github.com/vantreeseba/tree-sitter-haxe",
-        files = { "src/parser.c" },
-        -- optional entries:
         branch = "main",
+        files = { "src/parser.c" },
     },
-    filetype = "haxe",
 }
+
+-- parser_config.odin = {
+--     filetype = "odin",
+--     install_info = {
+--         url = "https://github.com/tree-sitter-grammars/tree-sitter-odin",
+--         branch = "main",
+--         files = { "src/parser.c" },
+--     },
+-- }
 
 return {
     {
@@ -91,5 +100,8 @@ return {
         config = function(_, opts)
             require("nvim-treesitter.configs").setup(opts)
         end,
+    },
+    {
+        "HiPhish/rainbow-delimiters.nvim",
     },
 }
