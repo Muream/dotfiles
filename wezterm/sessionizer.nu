@@ -1,6 +1,7 @@
 def sessionizer [] {
     let folders = [~/projects ~/projects/proxy-ta-mere ~/projects/holistic-coders]
-        | filter {|el| path exists }
+        | each { $in | path expand }
+        | filter { $in | path exists }
         | each { ls $in --long
             | where type == dir
             | get name
@@ -30,8 +31,6 @@ def sessionizer [] {
         # switch to an existing tab
         wezterm cli activate-tab --tab-id $tab_id
     }
-
-
 }
 
 sessionizer
