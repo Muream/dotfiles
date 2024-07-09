@@ -22,10 +22,10 @@ general:
 
 gaps:
   # Gap between adjacent windows.
-  inner_gap: "20px"
+  inner_gap: "5px"
 
-  # Gap between windows and the screen edge.
-  outer_gap: "20px"
+  # Add more spacing at the top to leave room for Zebar
+  outer_gap: '10px'
 
 # Highlight active/inactive windows with a colored border.
 # ** Exclusive to Windows 11 due to API limitations.
@@ -42,18 +42,20 @@ bar:
   height: "30px"
   position: "top"
   opacity: 1.0
-  background: "#1e1e2e88"
-  foreground: "#cdd6f4"
+  # foreground: "#cdd6f4"
+  foreground: "#4c4f69"
+  # background: "#1e1e2e"
+  background: "#dce0e8"
   font_family: "CaskaydiaCove Nerd Font"
   font_size: "15px"
   padding: "4px 6px"
   offset_x: 12
   offset_y: 12
-  border_radius: 6
-  border_color: "#343A41"
+  border_radius: 5
   components_left:
     - type: "workspaces"
-      focused_workspace_background: "#585b70"
+      # focused_workspace_background: "#585b70" # Dark
+      focused_workspace_background: "#acb0be" # Light
       displayed_workspace_background: "#00000033"
       default_workspace_background: "transparent"
     - type: "window title"
