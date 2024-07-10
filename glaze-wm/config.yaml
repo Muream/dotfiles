@@ -1,3 +1,65 @@
+# -------------------------------------------------------------------------------------
+#                                       THEMES
+# -------------------------------------------------------------------------------------
+# # Latte
+# rosewater: &rosewater "#dc8a78"
+# flamingo: &flamingo "#dd7878"
+# pink: &pink "#ea76cb"
+# mauve: &mauve "#8839ef"
+# red: &red "#d20f39"
+# maroon: &maroon "#e64553"
+# peach: &peach "#fe640b"
+# yellow: &yellow "#df8e1d"
+# green: &green "#40a02b"
+# teal: &teal "#179299"
+# sky: &sky "#04a5e5"
+# sapphire: &sapphire "#209fb5"
+# blue: &blue "#1e66f5"
+# lavender: &lavender "#7287fd"
+# text: &text "#4c4f69"
+# subtext1: &subtext1 "#5c5f77"
+# subtext0: &subtext0 "#6c6f85"
+# overlay2: &overlay2 "#7c7f93"
+# overlay1: &overlay1 "#8c8fa1"
+# overlay0: &overlay0 "#9ca0b0"
+# surface2: &surface2 "#acb0be"
+# surface1: &surface1 "#bcc0cc"
+# surface0: &surface0 "#ccd0da"
+# base: &base "#eff1f5"
+# mantle: &mantle "#e6e9ef"
+# crust: &crust "#dce0e8"
+
+# Mocha
+rosewater: &rosewater "#f5e0dc"
+flamingo: &flamingo "#f2cdcd"
+pink: &pink "#f5c2e7"
+mauve: &mauve "#cba6f7"
+red: &red "#f38ba8"
+maroon: &maroon "#eba0ac"
+peach: &peach "#fab387"
+yellow: &yellow "#f9e2af"
+green: &green "#a6e3a1"
+teal: &teal "#94e2d5"
+sky: &sky "#89dceb"
+sapphire: &sapphire "#74c7ec"
+blue: &blue "#89b4fa"
+lavender: &lavender "#b4befe"
+text: &text "#cdd6f4"
+subtext1: &subtext1 "#bac2de"
+subtext0: &subtext0 "#a6adc8"
+overlay2: &overlay2 "#9399b2"
+overlay1: &overlay1 "#7f849c"
+overlay0: &overlay0 "#6c7086"
+surface2: &surface2 "#585b70"
+surface1: &surface1 "#45475a"
+surface0: &surface0 "#313244"
+base: &base "#1e1e2e"
+mantle: &mantle "#181825"
+crust: &crust "#11111b"
+
+# -------------------------------------------------------------------------------------
+#                                       CONFIG
+# -------------------------------------------------------------------------------------
 general:
   # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: false
@@ -32,20 +94,17 @@ gaps:
 focus_borders:
   active:
     enabled: true
-    color: "#89b4fa"
+    color: *blue
 
   inactive:
     enabled: false
-    color: "#ff0000"
 
 bar:
   height: "30px"
   position: "top"
   opacity: 1.0
-  # foreground: "#cdd6f4"
-  foreground: "#4c4f69"
-  # background: "#1e1e2e"
-  background: "#dce0e8"
+  foreground: *text
+  background: *base
   font_family: "CaskaydiaCove Nerd Font"
   font_size: "15px"
   padding: "4px 6px"
@@ -54,31 +113,16 @@ bar:
   border_radius: 5
   components_left:
     - type: "workspaces"
-      # focused_workspace_background: "#585b70" # Dark
-      focused_workspace_background: "#acb0be" # Light
-      displayed_workspace_background: "#00000033"
+      focused_workspace_background: *surface1
+      displayed_workspace_background: *surface0
       default_workspace_background: "transparent"
+      padding: "0 8 0 0"
     - type: "window title"
   components_center:
-    # - type: "weather"
-    #   latitude: 45.78191334042887
-    #   longitude: 4.825558081884412
-    #   label: " {temperature_celsius}°C"
-    #   label_sun: "󰖙 {temperature_celsius}°C"
-    #   label_moon: "󰖔 {temperature_celsius}°C"
-    #   label_cloud_moon: "󰼱 {temperature_celsius}°C"
-    #   label_cloud_sun: "󰖕 {temperature_celsius}°C"
-    #   label_cloud_moon_rain: "󰖖 {temperature_celsius}°C"
-    #   label_cloud_sun_rain: "󰼳 {temperature_celsius}°C"
-    #   label_cloud_rain: "󰖖 {temperature_celsius}°C"
-    #   label_snow_flake: "󰖘 {temperature_celsius}°C"
-    #   label_thunderstorm: "󰖓 {temperature_celsius}°C"
-    #   label_cloud: " {temperature_celsius}°C"
-    #   margin: "0px 10px 0px 0px"
     - type: "clock"
       # Documentation on formatting date/time string:
       # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
-      time_formatting: "hh:mm tt"
+      time_formatting: "ddd d MMM - hh:mm tt"
   components_right:
     # - type: "system tray"
     # - type: "tiling direction"
@@ -87,33 +131,50 @@ bar:
     #   background: "#ffffff33"
     #   margin: "0 4px"
     #   padding: "0 8px"
-    - type: "binding mode"
-      background: "#ffffff33"
-      margin: "0 4px 0 0"
-      padding: "0 8px"
-    - type: "network"
-      label_no_internet: "NC"
-      label_ethernet: "Eth"
-      label_wifi_strength_0: "WiFi: 0%"
-      label_wifi_strength_25: "WiFi: 25%"
-      label_wifi_strength_50: "WiFi: 50%"
-      label_wifi_strength_75: "WiFi: 75%"
-      label_wifi_strength_100: "WiFi: 100%"
-      padding: "0 8px"
     - type: "volume"
       label_low: "󰕿"
       label_medium: "󰖀"
       label_high: "󰕾"
       label_mute: "󰝟"
-    - type: "battery"
-      label_draining: "{battery_level}% 󱟞"
-      label_power_saver: "{battery_level}% (power saver)"
-      label_charging: "{battery_level}% 󰂄"
-      padding: "0 8px"
-    - type: "clock"
-      # Documentation on formatting date/time string:
-      # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
-      time_formatting: "dd/MM/yyyy"
+      padding: "0 5"
+    - type: "weather"
+      latitude: 52.290346
+      longitude: -1.535499
+      label: " {temperature_celsius}°C"
+      label_sun: "󰖙 {temperature_celsius}°C"
+      label_moon: "󰖔 {temperature_celsius}°C"
+      label_cloud_moon: "󰼱 {temperature_celsius}°C"
+      label_cloud_sun: "󰖕 {temperature_celsius}°C"
+      label_cloud_moon_rain: "󰖖 {temperature_celsius}°C"
+      label_cloud_sun_rain: "󰼳 {temperature_celsius}°C"
+      label_cloud_rain: "󰖖 {temperature_celsius}°C"
+      label_snow_flake: "󰖘 {temperature_celsius}°C"
+      label_thunderstorm: "󰖓 {temperature_celsius}°C"
+      label_cloud: " {temperature_celsius}°C"
+      padding: "0 5"
+    # - type: "binding mode"
+    #   background: "#ffffff33"
+    #   margin: "0 4px 0 0"
+    #   padding: "0 8px"
+    # - type: "network"
+    #   label_no_internet: "NC"
+    #   label_ethernet: "Eth"
+    #   label_wifi_strength_0: "WiFi: 0%"
+    #   label_wifi_strength_25: "WiFi: 25%"
+    #   label_wifi_strength_50: "WiFi: 50%"
+    #   label_wifi_strength_75: "WiFi: 75%"
+    #   label_wifi_strength_100: "WiFi: 100%"
+    #   padding: "0 8px"
+    # - type: "battery"
+    #   label_draining: "{battery_level}% 󱟞"
+    #   label_power_saver: "{battery_level}% (power saver)"
+    #   label_charging: "{battery_level}% 󰂄"
+    #   padding: "0 8px"
+    # - type: "clock"
+    #   # Documentation on formatting date/time string:
+    #   # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
+    #   time_formatting: "hh:mm tt"
+    #   padding: "0 5"
 
 workspaces:
   - name: "1"
@@ -275,9 +336,9 @@ keybindings:
   - command: "move workspace left"
     binding: "Alt+A"
   - command: "move workspace right"
-    binding: "Alt+F"
-  - command: "move workspace up"
     binding: "Alt+D"
+  - command: "move workspace up"
+    binding: "Alt+W"
   - command: "move workspace down"
     binding: "Alt+S"
 
