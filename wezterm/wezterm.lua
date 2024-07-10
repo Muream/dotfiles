@@ -8,7 +8,7 @@ config = wezterm.config_builder()
 config.default_prog = { "nu" }
 
 -- General Theme
---- The Theme is set automatically based on the system theme
+
 -- wezterm.gui is not available to the mux server, so take care to
 -- do something reasonable when this config is evaluated by the mux
 local function get_appearance()
@@ -18,15 +18,19 @@ local function get_appearance()
     return "Dark"
 end
 
-if get_appearance() == "Dark" then
-    config.color_scheme = "Catppuccin Mocha"
-else
-    config.color_scheme = "Catppuccin Latte"
+-- Return the relevant colorscheme based on the system theme
+local function scheme_from_appearance(appearance)
+    if appearance:find("Dark") then
+        return "Catppuccin Mocha"
+    else
+        return "Catppuccin Latte"
+    end
 end
 
--- config.font = wezterm.font("CaskaydiaCove NF")
+-- Set the theme based on the system theme
+config.color_scheme = scheme_from_appearance(get_appearance())
+
 config.font = wezterm.font("CaskaydiaCove Nerd Font")
--- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- General Options
 config.adjust_window_size_when_changing_font_size = false
