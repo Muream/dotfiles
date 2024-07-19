@@ -30,7 +30,9 @@ end
 -- Set the theme based on the system theme
 config.color_scheme = scheme_from_appearance(get_appearance())
 
+config.max_fps = 144
 config.font = wezterm.font("CaskaydiaCove Nerd Font")
+config.font_size = 14.0
 
 -- General Options
 config.adjust_window_size_when_changing_font_size = false
