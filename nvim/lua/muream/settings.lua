@@ -47,3 +47,4 @@ vim.opt.laststatus = 3 -- Global status line instead of per split.
 vim.opt.timeoutlen = 500 -- Instant response from things like which-key, completion, etc
 vim.opt.termguicolors = true -- Good colors
 vim.opt.cmdheight = 0
+vim.opt.scrolloff = 3

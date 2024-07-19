@@ -11,9 +11,6 @@ return {
 
             -- Useful status updates for LSP
             "fidget.nvim",
-
-            -- Additional lua configuration, makes nvim stuff amazing!
-            { "folke/neodev.nvim", config = true },
         },
         config = function()
             -- Add borders to the hover popup

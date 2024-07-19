@@ -10,33 +10,13 @@ parser_config.haxe = {
     },
 }
 
--- parser_config.odin = {
---     filetype = "odin",
---     install_info = {
---         url = "https://github.com/tree-sitter-grammars/tree-sitter-odin",
---         branch = "main",
---         files = { "src/parser.c" },
---     },
--- }
-
 return {
-    {
-        "nvim-treesitter/nvim-treesitter-context",
-        opts = {
-            enable = true,
-            mode = "topline",
-            multiline_threshold = 1, -- Maximum number of lines to show for a single context
-            trim_scope = "inner",
-            separator = "-",
-        },
-    },
     {
         -- Highlight, edit, and navigate code
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
             "nvim-treesitter/playground",
-            "nvim-treesitter/nvim-treesitter-context",
         },
         build = ":TSUpdate",
         opts = {
