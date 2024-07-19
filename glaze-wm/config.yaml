@@ -80,7 +80,7 @@ general:
   # *Strongly* recommended to set to 'false'. Whether to globally enable/disable
   # window transition animations (on minimize, close, etc). Set to 'unchanged'
   # to make no setting changes.
-  window_animations: "unchanged"
+  window_animations: "false"
 
 gaps:
   # Gap between adjacent windows.
@@ -204,13 +204,13 @@ window_rules:
   - command: "move to workspace 3"
     match_process_name: "Discord"
 
-  - command: "move to workspace 3"
+  - command: "move to workspace 4"
     match_process_name: "Ferdium"
 
-  - command: "move to workspace 3"
+  - command: "move to workspace 4"
     match_process_name: "Signal"
 
-  - command: "move to workspace 4"
+  - command: "move to workspace 5"
     match_process_name: "Spotify"
 
 binding_modes:
@@ -305,12 +305,6 @@ keybindings:
   # Focus the workspace that last had focus.
   - command: "focus workspace recent"
     binding: "Alt+Y"
-
-  # Focus the next/previous workspace defined in `workspaces` config.
-  - command: "focus workspace next"
-    binding: "Alt+T"
-  - command: "focus workspace prev"
-    binding: "Alt+Shift+T"
 
   # Change focus to a workspace defined in `workspaces` config.
   - command: "focus workspace 1"
