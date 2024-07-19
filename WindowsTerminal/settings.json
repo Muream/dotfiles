@@ -113,7 +113,7 @@
             "bellStyle": "none",
             "colorScheme": "Catppuccin Mocha",
             "font": {
-                "face": "CaskaydiaCove NF",
+                "face": "CaskaydiaCove Nerd Font",
                 "size": 13.0
             },
             "padding": "8, 8, 8, 8",
