@@ -1,6 +1,6 @@
-nvim/plugged/
-nvim/sessions/
-nvim/plugin/
+dotfiles/nvim/plugged/
+dotfiles/nvim/sessions/
+dotfiles/nvim/plugin/
+dotfiles/nushell/history.txt
 .netrwhist
 tags
-yasb/yasb.log

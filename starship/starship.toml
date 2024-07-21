@@ -1,9 +1,0 @@
-[os]
-disabled = false
-format = "$symbol "
-symbols.Ubuntu = "[](#fab387)"
-symbols.Windows = "[](blue)"
-symbols.Arch = "[󰣇](blue)"
-
-[container]
-disabled = true
