@@ -2,5 +2,7 @@ dotfiles/nvim/plugged/
 dotfiles/nvim/sessions/
 dotfiles/nvim/plugin/
 dotfiles/nushell/history.txt
+dotfiles/WindowsTerminal/elevated-state.json
+dotfiles/WindowsTerminal/state.json
 .netrwhist
 tags
