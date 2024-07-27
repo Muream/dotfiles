@@ -1,5 +1,13 @@
 return {
     {
+        "nvim-zh/colorful-winsep.nvim",
+        config = true,
+        event = { "WinLeave" },
+        opts = {
+            smooth = false,
+        }
+    },
+    {
         "f-person/auto-dark-mode.nvim",
         opts = {
             update_interval = 1000,
