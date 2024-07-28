@@ -1,26 +1,31 @@
 def sessionizer [] {
-    let folders = [~/projects ~/projects/proxy-ta-mere ~/projects/holistic-coders]
-        | each { $in | path expand }
-        | filter { $in | path exists }
-        | each { ls $in --long
-            | where type == dir
-            | get name
-        }
-        | reduce {|it, acc| $acc | append $it }
+    let home = "~/" | path expand
+
+    let folders = zoxide query -l
+        | lines
+        | each { $in | str replace $home "~" }
+        | each { $in | str replace "\\" "/" --all }
 
     let selected = $folders 
         | to text
         | fzf
+        | path expand
+        | each { $in | str replace "\\" "/" --all }
 
     if ($selected | str length) == 0 {
         return
     }
 
-    let tab_id = wezterm cli list --format json 
+    let tabs = wezterm cli list --format json 
         | from json
-        | where {|el| ($selected | str replace "\\" "/" --all)  in $el.cwd}
+
+    let matching_tabs = $tabs
+        | where {|el| $el.cwd | str ends-with $selected}
+
+    let tab_id = $matching_tabs
         | try {first} catch {{tab_id: null}}
         | get tab_id
+
 
     if $tab_id == null {
         # Switch to a new tab

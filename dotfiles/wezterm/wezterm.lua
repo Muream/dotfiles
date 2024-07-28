@@ -27,9 +27,12 @@ local function scheme_from_appearance(appearance)
     end
 end
 
+config.automatically_reload_config = true
+
 -- Set the theme based on the system theme
 config.color_scheme = scheme_from_appearance(get_appearance())
 
+config.front_end = "WebGpu"
 config.max_fps = 144
 config.font = wezterm.font("CaskaydiaCove Nerd Font")
 config.font_size = 14.0

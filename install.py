@@ -27,10 +27,13 @@ for dotfile, data in profile_data.items():
     if destination.exists():
         if destination.is_dir():
             if os.path.islink(destination):
+                print(f"Deleting link: {destination}")
                 destination.rmdir()
             else:
+                print(f"Deleting directory: {destination}")
                 shutil.rmtree(destination)
         else:
+            print(f"Deleting file: {destination}")
             destination.unlink()
 
     destination.parent.mkdir(parents=True, exist_ok=True)

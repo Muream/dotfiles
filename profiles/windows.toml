@@ -32,3 +32,8 @@ type = "hardlink"
 source = "nushell"
 target = "~/AppData/Roaming/nushell"
 type = "symlink"
+
+[zoxide]
+source = "zoxide/zoxide.nu"
+target = "~/.zoxide.nu"
+type = "hardlink"
