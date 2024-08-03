@@ -1,0 +1,18 @@
+{
+    "print": {
+        "prefix": "print",
+        "body": [
+            "fmt.println(\"$1\")",
+            "$0"
+        ],
+        "description": "print message"
+    },
+    "printf": {
+        "prefix": "printf",
+        "body": [
+            "fmt.printfln(\"$1\", $2)",
+            "$0"
+        ],
+        "description": "print message"
+    }
+}
