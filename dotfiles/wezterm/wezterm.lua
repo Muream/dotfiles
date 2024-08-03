@@ -63,10 +63,10 @@ config.keys = {
     { key = "x", mods = "LEADER",       action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
 
     -- Navigation
-    { key = "h", mods = "LEADER",       action = act.EmitEvent("ActivatePaneDirection-left") },
-    { key = "j", mods = "LEADER",       action = act.EmitEvent("ActivatePaneDirection-down") },
-    { key = "k", mods = "LEADER",       action = act.EmitEvent("ActivatePaneDirection-up") },
-    { key = "l", mods = "LEADER",       action = act.EmitEvent("ActivatePaneDirection-right") },
+    { key = "h", mods = "CTRL",         action = act.EmitEvent("ActivatePaneDirection-left") },
+    { key = "j", mods = "CTRL",         action = act.EmitEvent("ActivatePaneDirection-down") },
+    { key = "k", mods = "CTRL",         action = act.EmitEvent("ActivatePaneDirection-up") },
+    { key = "l", mods = "CTRL",         action = act.EmitEvent("ActivatePaneDirection-right") },
 
     -- Move Panes
     { key = "H", mods = "LEADER",       action = wezterm.action({ AdjustPaneSize = { "Left", 5 } }) },
