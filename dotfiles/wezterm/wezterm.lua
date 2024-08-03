@@ -50,7 +50,14 @@ config.show_new_tab_button_in_tab_bar = false
 config.leader = { key = "b", mods = "CTRL" }
 config.keys = {
     -- Pane Management
-    { key = "s", mods = "LEADER",       action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
+    {
+        key = "s",
+        mods = "LEADER",
+        action = wezterm.action.SplitPane({
+            direction = "Down",
+            size = { Percent = 30 },
+        })
+    },
     { key = "v", mods = "LEADER",       action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }), },
     { key = "z", mods = "LEADER",       action = "TogglePaneZoomState" },
     { key = "x", mods = "LEADER",       action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
