@@ -37,3 +37,8 @@ type = "symlink"
 source = "zoxide/zoxide.nu"
 target = "~/.zoxide.nu"
 type = "hardlink"
+
+[bat]
+source = "bat"
+target = "~/AppData/Roaming/bat"
+type = "symlink"
