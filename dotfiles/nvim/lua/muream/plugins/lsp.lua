@@ -46,6 +46,7 @@ return {
                 ruff_lsp = {},
                 rust_analyzer = {},
                 ols = {},
+                clangd = {},
 
                 lua_ls = {
                     Lua = {
