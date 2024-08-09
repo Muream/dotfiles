@@ -1,0 +1,6 @@
+[2m2024-08-09T20:41:34.941553Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m general.startup_commands: unexpected argument found
+ at line 33 column 21
+[2m2024-08-09T20:50:54.202172Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m general.startup_commands: unexpected argument found
+ at line 33 column 21
+[2m2024-08-09T20:51:49.515037Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m keybindings[24].commands: unexpected argument found
+ at line 240 column 15
