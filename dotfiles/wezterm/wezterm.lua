@@ -86,6 +86,9 @@ config.keys = {
     { key = "9", mods = "LEADER",       action = wezterm.action({ ActivateTab = 8 }) },
 
     -- Tab Management
+    { key = '{', mods = 'SHIFT|ALT',    action = act.MoveTabRelative(-1) },
+    { key = '}', mods = 'SHIFT|ALT',    action = act.MoveTabRelative(1) },
+
     { key = "c", mods = "LEADER",       action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
     { key = "&", mods = "LEADER|SHIFT", action = wezterm.action({ CloseCurrentTab = { confirm = true } }) },
     {
