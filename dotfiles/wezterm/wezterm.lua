@@ -50,14 +50,7 @@ config.show_new_tab_button_in_tab_bar = false
 config.leader = { key = "b", mods = "CTRL" }
 config.keys = {
     -- Pane Management
-    {
-        key = "s",
-        mods = "LEADER",
-        action = wezterm.action.SplitPane({
-            direction = "Down",
-            size = { Percent = 30 },
-        })
-    },
+    { key = "s", mods = "LEADER",       action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }), },
     { key = "v", mods = "LEADER",       action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }), },
     { key = "z", mods = "LEADER",       action = "TogglePaneZoomState" },
     { key = "x", mods = "LEADER",       action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
@@ -101,21 +94,34 @@ config.keys = {
             }
         }),
     },
+    {
+        key = "`",
+        mods = "CTRL",
+        action = wezterm.action_callback(function(_, pane)
+            local tab = pane:tab()
+            local panes = tab:panes_with_info()
+            if #panes == 1 then
+                pane:split({
+                    direction = "Bottom",
+                    size = 0.3,
+                })
+            elseif panes[1].is_zoomed then
+                tab:set_zoomed(false)
+                panes[2].pane:activate()
+            else
+                panes[1].pane:activate()
+                tab:set_zoomed(true)
+            end
+        end),
+    },
 }
 
--- Vim Navigation
-local function isViProcess(pane)
-    -- get_foreground_process_name On Linux, macOS and Windows,
-    -- the process can be queried to determine this path. Other operating systems
-    -- (notably, FreeBSD and other unix systems) are not currently supported
-    wezterm.log_info("Foreground Process: " .. pane:get_foreground_process_name())
-    wezterm.log_info(pane:get_tty_name())
-    return pane:get_foreground_process_name():find("n?vim") ~= nil
-    -- return pane:get_title():find("n?vim") ~= nil
+local function is_nvim(pane)
+    return pane:get_user_vars().IS_NVIM == "true" or pane:get_foreground_process_name():find("n?vim")
 end
 
 local function conditionalActivatePane(window, pane, pane_direction, vim_direction)
-    if isViProcess(pane) then
+    if is_nvim(pane) then
         window:perform_action(
         -- This should match the keybinds you set in Neovim.
             act.SendKey({ key = vim_direction, mods = "CTRL" }),
