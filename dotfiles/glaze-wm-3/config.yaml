@@ -234,10 +234,10 @@ keybindings:
   - commands: ['wm-redraw']
     bindings: ['alt+shift+w']
 
-  # Launch CMD terminal. Alternatively, use `shell-exec --command wt` or
-  # `shell-exec --command %ProgramFiles%/Git/git-bash.exe` to start Windows
+  # Launch CMD terminal. Alternatively, use `shell-exec wt` or
+  # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ['shell-exec cmd']
+  - commands: ['shell-exec wezterm-gui']
     bindings: ['alt+enter']
 
   # Focus the next/previous workspace defined in `workspaces` config.
