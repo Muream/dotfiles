@@ -4,9 +4,9 @@ target = "~/appdata/local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/Local
 type = "symlink"
 
 [wezterm]
-source = "wezterm/wezterm.lua"
-target = "~/.wezterm.lua"  
-type = "hardlink"
+source = "wezterm"
+target = "~/.config/wezterm"
+type = "symlink"
 
  
 [powershell]
