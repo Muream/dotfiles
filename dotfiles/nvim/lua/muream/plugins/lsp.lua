@@ -43,7 +43,7 @@ return {
 
             local servers = {
                 pyright = {},
-                ruff_lsp = {},
+                ruff = {},
                 rust_analyzer = {},
                 ols = {},
                 clangd = {},
