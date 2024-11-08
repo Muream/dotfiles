@@ -896,3 +896,10 @@ source completions/git-completions.nu
 source completions/uv-completions.nu
 
 source ~/.zoxide.nu
+
+# Load completions
+use completions/cargo-completions.nu *
+use completions/git-completions.nu *
+use completions/poetry-completions.nu *
+use completions/uv-completions.nu *
+use completions/winget-completions.nu *

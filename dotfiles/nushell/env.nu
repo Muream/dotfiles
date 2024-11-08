@@ -47,7 +47,9 @@ $env.ENV_CONVERSIONS = {
 # Directories to search for scripts when calling source or use
 # The default for this is $nu.default-config-dir/scripts
 $env.NU_LIB_DIRS = [
-    ($nu.default-config-dir | path join 'scripts') # add <nushell-config-dir>/scripts
+    ($nu.config-path | path dirname | path join 'scripts') # add <nushell-config-dir>/scripts
+    ($nu.config-path | path dirname | path join 'completions') 
+    ($nu.config-path | path dirname) 
 ]
 
 # Directories to search for plugin binaries when calling register
