@@ -891,4 +891,8 @@ $env.config = {
     ]
 }
 
+
+source completions/git-completions.nu
+source completions/uv-completions.nu
+
 source ~/.zoxide.nu
