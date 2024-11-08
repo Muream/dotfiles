@@ -22,13 +22,22 @@ local function toggle_term(pane)
 end
 
 -- Run a command in the Bottom Terminal Pane
-local function run_command(pane, command)
+local function run_command(window, pane, command)
     toggle_term(pane)
 
     local tab = pane:tab()
     local panes = tab:panes_with_info()
     tab:set_zoomed(false)
-    panes[2].pane:send_text(command .. "\r\n")
+
+    -- window:perform_action(act.SendKey { key = 'c', mods = 'CTRL' }, panes[2].pane)
+    window:perform_action(act.Multiple {
+            act.SendKey { key = 'u', mods = 'CTRL' },
+            act.ClearScrollback 'ScrollbackOnly',
+            act.SendKey { key = 'L', mods = 'CTRL' },
+        },
+        panes[2].pane
+    )
+    panes[2].pane:send_text(command .. "\r")
 end
 
 
@@ -94,23 +103,25 @@ function M.setup(config)
         {
             key = "b",
             mods = "LEADER",
-            action = wezterm.action_callback(function(_, pane)
-                run_command(pane, "task build")
+            action = wezterm.action_callback(function(window, pane)
+                run_command(window, pane, "task build")
             end),
+
         },
 
         {
             key = "r",
             mods = "LEADER",
-            action = wezterm.action_callback(function(_, pane)
-                run_command(pane, "task run")
+            action = wezterm.action_callback(function(window, pane)
+                run_command(window, pane, "task run")
             end),
+
         },
         {
             key = "t",
             mods = "LEADER",
-            action = wezterm.action_callback(function(_, pane)
-                run_command(pane, "task test")
+            action = wezterm.action_callback(function(window, pane)
+                run_command(window, pane, "task test")
             end),
         }
     }
