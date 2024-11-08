@@ -29,7 +29,6 @@ local function run_command(window, pane, command)
     local panes = tab:panes_with_info()
     tab:set_zoomed(false)
 
-    -- window:perform_action(act.SendKey { key = 'c', mods = 'CTRL' }, panes[2].pane)
     window:perform_action(act.Multiple {
             act.SendKey { key = 'u', mods = 'CTRL' },
             act.ClearScrollback 'ScrollbackOnly',
