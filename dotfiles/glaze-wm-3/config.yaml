@@ -28,9 +28,23 @@ crust: &crust "#11111b"
 
 
 general:
-  # Commands to run when the WM has started (e.g. to run a script or launch
-  # another application). Here we are running a batch script to start Zebar.
-  startup_commands: ['shell-exec %userprofile%/.glzr/zebar/start.bat']
+  # Commands to run when the WM has started. This is useful for running a
+  # script or launching another application.
+  # Example: The below command launches Zebar.
+  startup_commands: [
+    'shell-exec powershell -command "&{$p=''HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3'';$v=(Get-ItemProperty -Path $p).Settings;$v[8]=3;&Set-ItemProperty -Path $p -Name Settings -Value $v;&Stop-Process -f -ProcessName explorer}"',
+    'shell-exec zebar',
+  ]
+
+  # Commands to run just before the WM is shutdown.
+  # Example: The below command kills Zebar.
+  shutdown_commands: [
+    'shell-exec powershell -command "&{$p=''HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3'';$v=(Get-ItemProperty -Path $p).Settings;$v[8]=2;&Set-ItemProperty -Path $p -Name Settings -Value $v;&Stop-Process -f -ProcessName explorer}"',
+    'shell-exec taskkill /IM zebar.exe /F',
+  ]
+
+  # Commands to run after the WM config is reloaded.
+  config_reload_commands: []
 
   # Whether to automatically focus windows underneath the cursor.
   focus_follows_cursor: false
@@ -48,7 +62,22 @@ general:
     # - 'window_focus': Jump when focus changes between windows.
     trigger: 'monitor_focus'
 
+  # How windows should be hidden when switching workspaces.
+  # - 'cloak': Recommended. Hides windows with no animation.
+  # - 'hide': Legacy method (v3.5 and earlier) that has a brief animation,
+  # but has stability issues with some apps.
+  hide_method: 'cloak'
+
+  # Affects which windows get shown in the native Windows taskbar. Has no
+  # effect if `hide_method: 'hide'`.
+  # - 'true': Show all windows (regardless of workspace).
+  # - 'false': Only show windows from the currently shown workspaces.
+  show_all_in_taskbar: false
+
 gaps:
+  # Whether to scale the gaps with the DPI of the monitor.
+  scale_with_dpi: true
+
   # Gap between adjacent windows.
   inner_gap: '10px'
 
@@ -68,11 +97,28 @@ window_effects:
       enabled: true
       color: *blue
 
+    # Remove the title bar from the window's frame. Note that this can
+    # cause rendering issues for some applications.
+    hide_title_bar:
+      enabled: false
+
+    # Change the corner style of the window's frame.
+    # ** Exclusive to Windows 11 due to API limitations.
+    corner_style:
+      enabled: false
+      # Allowed values: 'square', 'rounded', 'small_rounded'.
+      style: 'square'
+
   # Visual effects to apply to non-focused windows.
   other_windows:
     border:
       enabled: true
       color: *surface0
+    hide_title_bar:
+      enabled: false
+    corner_style:
+      enabled: false
+      style: 'square'
 
 window_behavior:
   # New windows are created in this state whenever possible.
@@ -95,6 +141,9 @@ window_behavior:
       # maximize button, then it'll be fullscreen'ed normally instead.
       maximized: false
 
+      # Whether to show fullscreen windows as always on top.
+      shown_on_top: false
+
 workspaces:
   - name: '1'
   - name: '2'
@@ -114,7 +163,7 @@ window_rules:
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
-        window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
+        # window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
 
   - commands: ['move --workspace 3']
     match:
