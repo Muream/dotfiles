@@ -62,22 +62,6 @@ return {
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-            -- Windows fails to install the haxe language server properly
-            if vim.fn.has("Windows_NT") then
-                -- We manually configure it on windows, expecting it to be installed
-                -- manually installed
-                require("lspconfig").haxe_language_server.setup({
-                    cmd = { "node", "C:/Users/muream/tools/haxe-language-server/bin/server.js" },
-                    capabilities = capabilities,
-                    on_attach = on_attach,
-                })
-            else
-                -- otherwise just register it so that mason_lspconfig automatically installs it
-                servers.haxe_language_server = {}
-                -- while Ocaml isn't supported properly on windows, we just install it on linux
-                servers.ocamllsp = {}
-            end
-
             -- Ensure the servers above are installed
             local mason_lspconfig = require("mason-lspconfig")
             mason_lspconfig.setup({
@@ -173,7 +157,6 @@ return {
             },
             formatters_by_ft = {
                 lua = { "stylua" },
-                ocaml = { "ocamlformat" },
                 rust = { "rustfmt" },
                 python = { "ruff_fix", "ruff_format" },
             },
@@ -205,7 +188,6 @@ return {
         opts = {
             ensure_installed = {
                 "stylua",
-                "ocamlformat",
                 "rustfmt",
                 "ruff",
             },

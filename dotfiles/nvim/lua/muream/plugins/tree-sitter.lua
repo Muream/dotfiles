@@ -1,15 +1,3 @@
--- the Haxe parser isn't available to auto install
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-parser_config.haxe = {
-    filetype = "haxe",
-    install_info = {
-        url = "https://github.com/vantreeseba/tree-sitter-haxe",
-        branch = "main",
-        files = { "src/parser.c" },
-    },
-}
-
 return {
     {
         -- Highlight, edit, and navigate code
@@ -35,7 +23,6 @@ return {
                 "vim",
                 "vimdoc",
                 "ocaml",
-                "haxe",
             },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
