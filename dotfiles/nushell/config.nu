@@ -226,7 +226,7 @@ $env.config = {
     }
 
     color_config: $dark_theme # if you want a more interesting theme, you can replace the empty record with `$dark_theme`, `$light_theme` or another custom record
-    use_grid_icons: true
+    # use_grid_icons: true
     footer_mode: 25 # always, never, number_of_rows, auto
     float_precision: 2 # the precision for displaying floats in tables
     buffer_editor: null # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
@@ -257,7 +257,7 @@ $env.config = {
         # 633;E - NOT IMPLEMENTED - Explicitly set the command line with an optional nonce
         # 633;P;Cwd=<path> - Mark the current working directory and communicate it to the terminal
         # and also helps with the run recent menu in vscode
-        osc633: true
+        osc633: false
         # reset_application_mode is escape \x1b[?1l and was added to help ssh work better
         reset_application_mode: true
     }
@@ -900,6 +900,6 @@ source ~/.zoxide.nu
 # Load completions
 use completions/cargo-completions.nu *
 use completions/git-completions.nu *
-use completions/poetry-completions.nu *
+# use completions/poetry-completions.nu *
 use completions/uv-completions.nu *
 use completions/winget-completions.nu *
