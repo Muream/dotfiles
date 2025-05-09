@@ -165,18 +165,24 @@ window_rules:
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
         # window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
 
-  - commands: ['move --workspace 3']
+  - commands: ['move --workspace 1']
     match:
-      - window_process: {equals: "Discord"}
+      - window_process: {equals: "Zen"}
 
   - commands: ['move --workspace 4']
     match:
+      - window_process: {equals: "Discord"}
       - window_process: {equals: "Ferdium"}
       - window_process: {equals: "Signal"}
 
   - commands: ['move --workspace 5']
     match:
       - window_process: {equals: "Spotify"}
+
+  - commands: ['move --workspace 9']
+    match:
+      - window_process: {equals: "Steam"}
+
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
