@@ -8,6 +8,8 @@ require("keys").setup(config)
 -- Default shell
 config.default_prog = { "nu" }
 
+config.prefer_egl = true
+
 -- General Theme
 
 -- wezterm.gui is not available to the mux server, so take care to
