@@ -14,7 +14,7 @@ return {
                 diagnostics = "nvim_lsp",
                 offsets = {
                     {
-                        filetype = "neo-tree",
+                        filetype = "snacks_picker_list",
                         text = "Neo-tree",
                         highlight = "Directory",
                         text_align = "left",
@@ -23,5 +23,4 @@ return {
             },
         },
     },
-    { "stevearc/dressing.nvim", opts = {} },
 }

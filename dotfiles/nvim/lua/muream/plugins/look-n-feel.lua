@@ -32,29 +32,11 @@ return {
             vim.cmd.colorscheme("catppuccin")
         end,
     },
-
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        opts = {
-            scope = { enabled = false },
-        },
-    },
-
-    {
-        "lukas-reineke/virt-column.nvim",
-        config = function()
-            require("virt-column").setup({ char = "│" })
-            vim.cmd.highlight("VirtColumn guifg=#383838 gui=nocombine")
-        end,
-    },
-
     {
         "lewis6991/gitsigns.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = true,
     },
-
     {
         "norcalli/nvim-colorizer.lua",
         config = function()
