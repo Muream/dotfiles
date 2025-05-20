@@ -8,10 +8,9 @@ source = "wezterm"
 target = "~/.config/wezterm"
 type = "symlink"
 
- 
 [powershell]
 source = "Powershell/Microsoft.PowerShell_profile.ps1"
-target = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1" 
+target = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
 type = "hardlink"
 
 [nushell]
@@ -21,7 +20,7 @@ type = "symlink"
 
 [starship]
 source = "starship/starship.toml"
-target = "~/.config/starship.toml" 
+target = "~/.config/starship.toml"
 type = "hardlink"
 
 [zoxide]
@@ -51,16 +50,15 @@ type = "symlink"
 
 [glaze-wm-2]
 source = "glaze-wm-2"
-target = "~/.glaze-wm" 
+target = "~/.glaze-wm"
 type = "symlink"
 
 [glaze-wm-3]
 source = "glaze-wm-3"
-target = "~/.glzr/glazewm" 
+target = "~/.glzr/glazewm"
 type = "symlink"
 
 [zebar]
 source = "zebar"
-target = "~/.glzr/zebar" 
+target = "~/.glzr/zebar"
 type = "symlink"
-
