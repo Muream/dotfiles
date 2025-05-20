@@ -8,7 +8,6 @@ require("keys").setup(config)
 -- Default shell
 config.default_prog = { "nu" }
 
-config.prefer_egl = true
 
 -- General Theme
 
@@ -36,9 +35,10 @@ config.window_close_confirmation = "NeverPrompt"
 -- Set the theme based on the system theme
 config.color_scheme = scheme_from_appearance(get_appearance())
 
-config.front_end = "WebGpu"
+-- config.front_end = "WebGpu"
+config.prefer_egl = true
 config.max_fps = 144
-config.font = wezterm.font("CaskaydiaCove Nerd Font")
+-- config.font = wezterm.font("CaskaydiaCove Nerd Font")
 config.font_size = 14.0
 
 -- General Options
