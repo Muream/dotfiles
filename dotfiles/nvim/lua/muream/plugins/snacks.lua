@@ -32,9 +32,20 @@ return {
     },
 
     keys = {
-        { "<leader>ft", function() require("snacks").explorer.reveal() end, desc = "Explorer" },
-        { "<leader>ff", function() require("snacks").picker.files() end,    desc = "[F]ind [F]iles" },
-        { "<leader>fg", function() require("snacks").picker.grep() end,     "[F]ind [G]rep" },
-        { "<leader>fb", function() require("snacks").picker.buffers() end,  "[F]ind [B]uffers" },
+        {
+            "<leader>ft",
+            function()
+                require("snacks").explorer.reveal()
+                -- wincmd = doesn't work unless it's delayed after opening the explorer
+                vim.defer_fn(function()
+                    vim.cmd("wincmd =")
+                end, 0)
+            end,
+            desc = "Explorer"
+        },
+        { "<leader>ff", function() require("snacks").picker.files() end,   desc = "[F]ind [F]iles" },
+        { "<leader>fg", function() require("snacks").picker.grep() end,    "[F]ind [G]rep" },
+        { "<leader>fb", function() require("snacks").picker.buffers() end, "[F]ind [B]uffers" },
+        { "<leader>bd", function() require("snacks").bufdelete() end,      "[B]uffer [D]elete" },
     },
 }
