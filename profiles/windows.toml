@@ -39,6 +39,11 @@ source = "nvim"
 target = "~/appdata/local/nvim"
 type = "symlink"
 
+[vsvim]
+source = "visual-studio/.vsvimrc"
+target = "~/.vsvimrc"
+type = "hardlink"
+
 [zed]
 source = "zed"
 target = "~/appdata/roaming/Zed"

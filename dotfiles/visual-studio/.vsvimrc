@@ -1,0 +1,3 @@
+inoremap jk <esc>l
+nmap gcc :vsc Edit.ToggleLineComment<CR>
+vmap gc :vsc Edit.ToggleLineComment<CR><ESC>
