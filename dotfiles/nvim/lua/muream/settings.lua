@@ -52,3 +52,5 @@ vim.opt.scrolloff = 3
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
+
+vim.opt.winborder = "bold"

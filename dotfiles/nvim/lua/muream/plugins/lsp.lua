@@ -59,17 +59,25 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+          -- use grn instead
+          -- map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+
+          -- use gra instead
+          -- map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+
           map("gl", vim.diagnostic.open_float, 'Open Line Diagnostics', { 'n' })
           map('<leader>fm', vim.lsp.buf.format, '[F]or[M]at Document')
-          map('gr', function() Snacks.picker.lsp_references() end, '[G]oto [R]eferences')
-          map('gi', function() Snacks.picker.builtin.lsp_implementations() end, '[G]oto [I]mplementation')
-          map('gd', function() Snacks.picker.lsp_definitions() end, '[G]oto [D]efinition')
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+          -- use grr instead
+          -- map('gr', function() Snacks.picker.lsp_references() end, '[G]oto [R]eferences')
+
+          -- use gri instead
+          -- map('gi', function() Snacks.picker.builtin.lsp_implementations() end, '[G]oto [I]mplementation')
+          map('gd', function() vim.lsp.buf.definition() end, '[G]oto [D]efinition')
+          -- map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
           map('<leader>fs', function() Snacks.picker.lsp_symbols() end, 'Open Document Symbols')
           map('<leader>fS', function() Snacks.picker.lsp_workspace_symbols() end, 'Open Workspace Symbols')
-          map('gt', function() Snacks.picker.lsp_type_definitions() end, '[G]oto [T]ype Definition')
+          -- map('gt', function() Snacks.picker.lsp_type_definitions() end, '[G]oto [T]ype Definition')
 
           -- This function resolves a difference between neovim nightly (version 0;.11) and stable (version 0.10)
           ---@param client vim.lsp.Client

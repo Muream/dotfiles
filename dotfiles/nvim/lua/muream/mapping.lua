@@ -4,6 +4,7 @@ vim.g.mapleader = " "
 -- <esc>
 vim.keymap.set("i", "jk", "<Esc>l", { noremap = true })
 vim.keymap.set("n", "<esc>", "<cmd>nohls<CR>", { noremap = true })
+vim.keymap.set("n", "¬", "~", { noremap = true })
 
 -- Move selected lines around
 vim.keymap.set("v", "H", "<gv", { noremap = true })
