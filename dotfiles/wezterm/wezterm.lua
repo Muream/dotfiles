@@ -37,7 +37,7 @@ config.color_scheme = scheme_from_appearance(get_appearance())
 
 -- config.front_end = "WebGpu"
 config.prefer_egl = true
-config.max_fps = 144
+config.max_fps = 60
 -- config.font = wezterm.font("CaskaydiaCove Nerd Font")
 config.font_size = 14.0
 

@@ -103,7 +103,7 @@ function M.setup(config)
             key = "b",
             mods = "LEADER",
             action = wezterm.action_callback(function(window, pane)
-                run_command(window, pane, "task build")
+                run_command(window, pane, "just build")
             end),
 
         },
@@ -112,7 +112,7 @@ function M.setup(config)
             key = "r",
             mods = "LEADER",
             action = wezterm.action_callback(function(window, pane)
-                run_command(window, pane, "task run")
+                run_command(window, pane, "just run")
             end),
 
         },
@@ -120,7 +120,7 @@ function M.setup(config)
             key = "t",
             mods = "LEADER",
             action = wezterm.action_callback(function(window, pane)
-                run_command(window, pane, "task test")
+                run_command(window, pane, "just test")
             end),
         }
     }
