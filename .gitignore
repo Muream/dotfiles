@@ -3,6 +3,8 @@ dotfiles/nvim/sessions/
 dotfiles/nvim/plugin/
 dotfiles/glaze-wm-3/errors.log
 dotfiles/zebar/tmp-*
+dotfiles/zebar/errors.log
+dotfiles/zebar/.marketplace/*
 dotfiles/nushell/history.txt
 dotfiles/WindowsTerminal/elevated-state.json
 dotfiles/WindowsTerminal/state.json
