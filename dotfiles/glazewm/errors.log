@@ -1,0 +1,8 @@
+[2m2025-06-22T08:17:44.506073Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m general.startup_commands: unrecognized subcommand
+ at line 34 column 21
+[2m2025-06-22T08:18:14.743372Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m general.startup_commands: unrecognized subcommand
+ at line 34 column 21
+[2m2025-06-22T08:25:34.368256Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Failed to execute 'enable_taskbar_autohide.bat'.
+
+Error: The operation was canceled by the user. (0x800704C7)
+[2m2025-06-22T08:26:05.513089Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Program path is not valid for command '%userprofile%/projects/dotfiles/enable_taskbar_autohide.bat'.

@@ -48,13 +48,8 @@ source = "zed"
 target = "~/appdata/roaming/Zed"
 type = "symlink"
 
-[glaze-wm-2]
-source = "glaze-wm-2"
-target = "~/.glaze-wm"
-type = "symlink"
-
-[glaze-wm-3]
-source = "glaze-wm-3"
+[glaze-wm]
+source = "glazewm"
 target = "~/.glzr/glazewm"
 type = "symlink"
 
