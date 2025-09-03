@@ -6,12 +6,6 @@ vim.keymap.set("i", "jk", "<Esc>l", { noremap = true })
 vim.keymap.set("n", "<esc>", "<cmd>nohls<CR>", { noremap = true })
 vim.keymap.set("n", "¬", "~", { noremap = true })
 
--- Move selected lines around
-vim.keymap.set("v", "H", "<gv", { noremap = true })
-vim.keymap.set("v", "L", ">gv", { noremap = true })
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
 -- Wrapped Lines Navigation
 vim.keymap.set("n", "j", "gj", { noremap = true })
 vim.keymap.set("n", "k", "gk", { noremap = true })
