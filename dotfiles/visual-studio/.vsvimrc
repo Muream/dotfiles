@@ -1,3 +1,42 @@
+" behave mswin
+set visualbell
+
+set clipboard=unnamed            " Sets system synchronized clipboard register
+set ignorecase
+set smartcase
+set hlsearch
+
+let mapleader=" "
+
 inoremap jk <esc>l
+
 nmap gcc :vsc Edit.ToggleLineComment<CR>
-vmap gc :vsc Edit.ToggleLineComment<CR><ESC>
+vmap gc :vsc Edit.ToggleLineComment<CR><Esc>
+
+nnoremap K :vsc Edit.QuickInfo<CR>:vsc Edit.ParameterInfo<CR>:execute "normal! K"<CR>
+nmap gd :vsc Edit.GoToDefinition<CR>
+
+nmap <C-H> <C-W><C-H> 
+nmap <C-J> <C-W><C-J> 
+nmap <C-K> <C-W><C-K> 
+nmap <C-L> <C-W><C-L> 
+
+
+nnoremap <Esc> :nohl<CR>
+
+nmap <C-o> :vsc View.NavigateBackward<CR>
+nmap <C-i> :vsc View.NavigateForward<CR>
+
+nmap <C-b>b :vsc Build.BuildSolution<CR>
+nmap <C-b>r :vsc Debug.Start<CR>
+
+nmap <leader>so :so ~/.vsvimrc<CR>
+nmap <leader>ff :vsc Edit.GoToFile<CR>
+nmap <leader>fs :vsc Edit.GoToAll<CR>
+
+" nmap <C-N> :vsc Edit.LineDown<CR>
+" nmap <C-P> :vsc Edit.LineUp<CR>
+
+pnoremap ]d :vsc Edit.GoToNextIssueInFile<CR>
+nnoremap [d :vsc Edit.GoToPreviousIssueInFile<CR>
+
