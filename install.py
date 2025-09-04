@@ -1,10 +1,20 @@
-#!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.11"
+# dependencies = []
+# ///
 
+import logging
 import os
-import tomllib
+import shutil
 from pathlib import Path
 from typing import Literal, TypedDict, assert_never
-import shutil
+
+import tomllib
+
+logging.basicConfig()
+
+log = logging.getLogger("Install Dotfiles")
+log.setLevel(logging.DEBUG)
 
 
 class Data(TypedDict):
@@ -29,25 +39,28 @@ for dotfile, data in profile_data.items():
     if destination.exists():
         if destination.is_dir():
             if os.path.islink(destination):
-                print(f"Deleting link: {destination}")
+                log.info(f"Deleting link: {destination}")
                 destination.rmdir()
             else:
-                print(f"Deleting directory: {destination}")
+                log.info(f"Deleting directory: {destination}")
                 shutil.rmtree(destination)
         else:
-            print(f"Deleting file: {destination}")
+            log.info(f"Deleting file: {destination}")
             destination.unlink()
 
     destination.parent.mkdir(parents=True, exist_ok=True)
 
-    match deploy_type:
-        case "copy":
-            print(f"Copying {source} -> {destination}")
-        case "symlink":
-            print(f"Soft Linking {source} -> {destination}")
-            os.symlink(source, destination, is_dir)
-        case "hardlink":
-            print(f"Hard Linking {source} -> {destination}")
-            os.link(source, destination)
-        case _:
-            assert_never(deploy_type)
+    try:
+        match deploy_type:
+            case "copy":
+                log.info(f"Copying {source} -> {destination}")
+            case "symlink":
+                log.info(f"Soft Linking {source} -> {destination}")
+                os.symlink(source, destination, is_dir)
+            case "hardlink":
+                log.info(f"Hard Linking {source} -> {destination}")
+                os.link(source, destination)
+            case _:
+                assert_never(deploy_type)
+    except BaseException as err:
+        log.error(f"Failed because: {err}")
