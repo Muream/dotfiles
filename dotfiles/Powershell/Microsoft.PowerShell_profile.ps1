@@ -2,7 +2,7 @@ using namespace System.Management.Automation
 using namespace System.Management.Automation.Language
 
 Import-Module PSReadLine        # shell interactions
-Import-Module Terminal-Icons    # Add Icons to files and folders
+# Import-Module Terminal-Icons    # Add Icons to files and folders
 
 # -- PSReadLine ------------------------------------------------------------------------
 # --- Options --------------------------------------------------------------------------
