@@ -54,3 +54,4 @@ vim.opt.writebackup = false
 vim.opt.swapfile = false
 
 vim.opt.winborder = "bold"
+vim.opt.completeopt = {"menu", "menuone", "noinsert", "fuzzy", "popup"}

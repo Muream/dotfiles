@@ -25,3 +25,17 @@ vim.keymap.set("n", "<C-H>", "<C-W><C-H>", { noremap = true })
 vim.keymap.set("n", "<C-J>", "<C-W><C-J>", { noremap = true })
 vim.keymap.set("n", "<C-K>", "<C-W><C-K>", { noremap = true })
 vim.keymap.set("n", "<C-L>", "<C-W><C-L>", { noremap = true })
+
+
+
+
+-- LSP
+vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
+-- vim.keymap.set("i", "<C-Space>", "<C-x><C-o>") -- Ctrl Space to trigger autocomplete
+-- vim.keymap.set("i", "<Tab>", "<C-Y>")          -- Tab to confirm completion
+-- vim.keymap.set("n", 'gr', function() Snacks.picker.lsp_references() end)
+-- vim.keymap.set("n", 'gi', function() Snacks.picker.builtin.lsp_implementations() end)
+vim.keymap.set("n", "gl", vim.diagnostic.open_float)
+
+-- vim.keymap.set("n", '<leader>fs', function() Snacks.picker.lsp_symbols() end)
+-- vim.keymap.set("n", '<leader>fS', function() Snacks.picker.lsp_workspace_symbols() end)
