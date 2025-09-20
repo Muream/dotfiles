@@ -5,6 +5,7 @@ def sessionizer [] {
         | lines
         | each { $in | str replace $home "~" }
         | each { $in | str replace "\\" "/" --all }
+        | where { |el| $el | str contains "~/projects" }
 
     let selected = $folders 
         | to text

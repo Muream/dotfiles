@@ -9,8 +9,8 @@ local function toggle_term(pane)
     local panes = tab:panes_with_info()
     if #panes == 1 then
         pane:split({
-            direction = "Bottom",
-            size = 0.3,
+            direction = "Right",
+            size = 0.4,
         })
     elseif panes[1].is_zoomed or panes[1].is_active then
         tab:set_zoomed(false)
@@ -107,7 +107,6 @@ function M.setup(config)
             end),
 
         },
-
         {
             key = "r",
             mods = "LEADER",
@@ -122,6 +121,21 @@ function M.setup(config)
             action = wezterm.action_callback(function(window, pane)
                 run_command(window, pane, "just test")
             end),
+        },
+        {
+            key = "d",
+            mods = "LEADER",
+            action = wezterm.action_callback(function(window, pane)
+                run_command(window, pane, "just debug")
+            end),
+        },
+        {
+            key = ' ',
+            mods = 'CTRL',
+            action = act.SendKey {
+                key = ' ',
+                mods = 'CTRL',
+            },
         }
     }
 end
