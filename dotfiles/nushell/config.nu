@@ -887,8 +887,8 @@ $env.config = {
 }
 
 
-source completions/git-completions.nu
-source completions/uv-completions.nu
+# source completions/git-completions.nu
+# source completions/uv-completions.nu
 
 source ~/.zoxide.nu
 
@@ -898,3 +898,6 @@ use completions/git-completions.nu *
 # use completions/poetry-completions.nu *
 use completions/uv-completions.nu *
 use completions/winget-completions.nu *
+
+mkdir ($nu.data-dir | path join "vendor/autoload")
+starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
