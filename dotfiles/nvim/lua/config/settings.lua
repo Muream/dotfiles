@@ -54,4 +54,7 @@ vim.opt.writebackup = false
 vim.opt.swapfile = false
 
 vim.opt.winborder = "bold"
-vim.opt.completeopt = {"menu", "menuone", "noinsert", "fuzzy", "popup"}
+vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy", "popup" }
+
+vim.opt.textwidth = 88
+vim.opt.formatoptions = "cqjr1p"

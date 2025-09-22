@@ -1,6 +1,5 @@
 dotfiles/nvim/plugged/
 dotfiles/nvim/sessions/
-dotfiles/nvim/plugin/
 dotfiles/glaze-wm-3/errors.log
 dotfiles/zebar/tmp-*
 dotfiles/zebar/errors.log
