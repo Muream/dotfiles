@@ -23,9 +23,9 @@ end
 -- Return the relevant colorscheme based on the system theme
 local function scheme_from_appearance(appearance)
     if appearance:find("Dark") then
-        return "Catppuccin Mocha"
+        return "rose-pine"
     else
-        return "Catppuccin Latte"
+        return "rose-pine-dawn"
     end
 end
 

@@ -58,3 +58,20 @@ vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy", "popup" }
 
 vim.opt.textwidth = 88
 vim.opt.formatoptions = "cqjr1p"
+
+vim.g.have_nerd_font = true
+
+vim.diagnostic.config {
+    severity_sort = true,
+    underline = { severity = vim.diagnostic.severity.ERROR },
+    float = { source = true },
+    virtual_text = { source = false, spacing = 2 },
+    signs = vim.g.have_nerd_font and {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '󰅚',
+            [vim.diagnostic.severity.WARN]  = '󰀪',
+            [vim.diagnostic.severity.INFO]  = '󰋽',
+            [vim.diagnostic.severity.HINT]  = '󰌶',
+        },
+    } or {},
+}

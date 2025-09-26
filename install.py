@@ -6,10 +6,9 @@
 import logging
 import os
 import shutil
+import tomllib
 from pathlib import Path
 from typing import Literal, TypedDict, assert_never
-
-import tomllib
 
 logging.basicConfig()
 
@@ -21,6 +20,7 @@ class Data(TypedDict):
     source: str
     target: str
     type: Literal["copy", "symlink", "hardlink"]
+
 
 
 profile_path = Path(__file__).parent / "profiles"
