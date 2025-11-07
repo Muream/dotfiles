@@ -7,26 +7,45 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "ui_font_size": 16,
-  "buffer_font_family": "CaskaydiaCove Nerd Font",
-  "buffer_font_size": 16,
+  "disable_ai": true,
+  "icon_theme": "Colored Zed Icons Theme Dark",
+  "ui_font_weight": 410.0,
+  "ui_font_size": 16.0,
+  "buffer_font_size": 16.0,
   "buffer_font_features": {
     "calt": true
   },
+  // "buffer_font_family": "Cascadia Code NF",
+  "buffer_font_fallbacks": ["Cascadia Code NF"],
 
   "theme": {
     "mode": "system",
-    "light": "Catppuccin Latte - No Italics",
-    "dark": "Catppuccin Mocha - No Italics"
+    "light": "Ayu Light",
+    "dark": "Ayu Dark"
   },
   "vim_mode": true,
   "wrap_guides": [88],
 
   "relative_line_numbers": true,
   "collaboration_panel": { "button": false },
+
   "terminal": {
     "shell": {
       "program": "nu"
     }
-  }
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/.repo",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/__pycache__"
+  ],
+  "file_finder": {}
 }

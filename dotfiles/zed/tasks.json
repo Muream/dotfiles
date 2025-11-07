@@ -1,21 +1,21 @@
 [
   {
     "label": "Run",
-    "command": "task run",
+    "command": "just run",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"
   },
   {
     "label": "Build",
-    "command": "task build",
+    "command": "just build",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"
   },
   {
     "label": "Test",
-    "command": "task test",
+    "command": "just test",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"

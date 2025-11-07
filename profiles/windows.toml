@@ -1,17 +1,17 @@
-[windows-terminal]
-source = "WindowsTerminal"
-target = "~/appdata/local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState"
-type = "symlink"
+# [windows-terminal]
+# source = "WindowsTerminal"
+# target = "~/appdata/local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState"
+# type = "symlink"
 
 [wezterm]
 source = "wezterm"
 target = "~/.config/wezterm"
 type = "symlink"
 
-[powershell]
-source = "Powershell/Microsoft.PowerShell_profile.ps1"
-target = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
-type = "hardlink"
+# [powershell]
+# source = "Powershell/Microsoft.PowerShell_profile.ps1"
+# target = "~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
+# type = "hardlink"
 
 [nushell]
 source = "nushell"

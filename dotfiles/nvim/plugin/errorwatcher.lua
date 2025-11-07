@@ -9,7 +9,7 @@ local fs_event = uv.new_fs_event()
 local function reload_quickfix()
   vim.schedule(function()
     if vim.fn.filereadable(errorfile) == 1 then
-      vim.cmd("silent! cgetfile " .. errorfile)
+      vim.cmd("silent! cfile " .. errorfile)
       vim.notify("Quickfix reloaded from " .. errorfile, vim.log.levels.INFO, { title = "Quickfix Watcher" })
     end
   end)

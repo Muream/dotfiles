@@ -21,15 +21,13 @@ vim.keymap.set("n", "G", "Gzz")
 vim.keymap.set("n", "J", "mzJ`z")
 
 --  Split Navigation
-vim.keymap.set("n", "<C-H>", "<C-W><C-H>", { noremap = true })
-vim.keymap.set("n", "<C-J>", "<C-W><C-J>", { noremap = true })
-vim.keymap.set("n", "<C-K>", "<C-W><C-K>", { noremap = true })
-vim.keymap.set("n", "<C-L>", "<C-W><C-L>", { noremap = true })
-
-
-
+vim.keymap.set("n", "<C-h>", "<C-W><C-H>", { noremap = true })
+vim.keymap.set("n", "<C-j>", "<C-W><C-J>", { noremap = true })
+vim.keymap.set("n", "<C-k>", "<C-W><C-K>", { noremap = true })
+vim.keymap.set("n", "<C-l>", "<C-W><C-L>", { noremap = true })
 
 -- LSP
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
 -- vim.keymap.set("i", "<C-Space>", "<C-x><C-o>") -- Ctrl Space to trigger autocomplete
 -- vim.keymap.set("i", "<Tab>", "<C-Y>")          -- Tab to confirm completion

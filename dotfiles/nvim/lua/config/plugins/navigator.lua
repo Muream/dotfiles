@@ -39,8 +39,8 @@ set_user_var("IS_NVIM", true)
 -- pane is no longer a neovim pane
 vim.api.nvim_create_autocmd({ "ExitPre" }, { callback = function(ev) set_user_var("IS_NVIM", false) end })
 
-vim.keymap.set("n", "<C-h>", "<CMD>NavigatorLeft<CR>")
-vim.keymap.set("n", "<C-l>", "<CMD>NavigatorRight<CR>")
-vim.keymap.set("n", "<C-k>", "<CMD>NavigatorUp<CR>")
-vim.keymap.set("n", "<C-j>", "<CMD>NavigatorDown<CR>")
-vim.keymap.set("n", "<A-p>", "<CMD>NavigatorPrevious<CR>")
+-- vim.keymap.set("n", "<C-H>", "<CMD>NavigatorLeft<CR>")
+vim.keymap.set("n", "<C-L>", "<CMD>NavigatorRight<CR>")
+vim.keymap.set("n", "<C-K>", "<CMD>NavigatorUp<CR>")
+vim.keymap.set("n", "<C-J>", "<CMD>NavigatorDown<CR>")
+vim.keymap.set("n", "<A-P>", "<CMD>NavigatorPrevious<CR>")

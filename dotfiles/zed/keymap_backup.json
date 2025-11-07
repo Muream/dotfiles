@@ -9,10 +9,9 @@
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       "space f f": "file_finder::Toggle",
-      "space f s": "outline::Toggle",
-      "space f S": "project_symbols::Toggle",
       "space f t": "project_panel::ToggleFocus",
-      "space f m": "editor::Format"
+      "space f s": "outline::Toggle",
+      "space f S": "project_symbols::Toggle"
     }
   },
   {
@@ -24,10 +23,10 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
       "j": ["workspace::SendKeystrokes", "g j"],
       "k": ["workspace::SendKeystrokes", "g k"]
     }
@@ -35,16 +34,10 @@
   {
     "context": "Dock || Terminal",
     "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
-    }
-  },
-  {
-    "context": "FileFinder || (FileFinder > Picker > Editor)",
-    "bindings": {
-      "ctrl-p": "menu::SelectPrevious"
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"]
     }
   }
 ]

@@ -1,0 +1,14 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "version": "1.0.0 - 2.0.0"
+    },
+    "friendly-snippets": [],
+    "nvim-surround": [],
+    "nvim-treesitter": {
+      "version": "'master'"
+    },
+    "nvim-treesitter-textobjects": [],
+    "treesj": []
+  }
+}

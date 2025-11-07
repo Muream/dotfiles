@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local act = wezterm.action
 
 local config = wezterm.config_builder()
 
@@ -21,11 +20,12 @@ local function get_appearance()
 end
 
 -- Return the relevant colorscheme based on the system theme
-local function scheme_from_appearance(appearance)
+local function colors_from_appearance(appearance)
+    local theme = wezterm.plugin.require('https://github.com/neapsix/wezterm')
     if appearance:find("Dark") then
-        return "rose-pine"
+        return theme.main.colors()
     else
-        return "rose-pine-dawn"
+        return theme.dawn.colors()
     end
 end
 
@@ -33,13 +33,14 @@ config.automatically_reload_config = true
 config.window_close_confirmation = "NeverPrompt"
 
 -- Set the theme based on the system theme
-config.color_scheme = scheme_from_appearance(get_appearance())
+config.colors = colors_from_appearance(get_appearance())
 
--- config.front_end = "WebGpu"
-config.prefer_egl = true
+
+config.front_end = "WebGpu"
+-- config.prefer_egl = false
 config.max_fps = 60
-config.font = wezterm.font("Cascadia Code")
-config.font_size = 14.0
+-- config.font = wezterm.font("Cascadia Code")
+config.font_size = 12.0
 
 -- General Options
 config.adjust_window_size_when_changing_font_size = false

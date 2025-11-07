@@ -898,6 +898,7 @@ use completions/git-completions.nu *
 # use completions/poetry-completions.nu *
 use completions/uv-completions.nu *
 use completions/winget-completions.nu *
+# use completions/gh-completions.nu *
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")

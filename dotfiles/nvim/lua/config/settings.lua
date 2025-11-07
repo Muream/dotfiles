@@ -59,8 +59,9 @@ vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy", "popup" }
 vim.opt.textwidth = 88
 vim.opt.formatoptions = "cqjr1p"
 
-vim.g.have_nerd_font = true
+vim.g.have_nerd_font = true -- global variable to be used by different bits to know whether nerd fonts can be used
 
+-- Diagnostics UI config
 vim.diagnostic.config {
     severity_sort = true,
     underline = { severity = vim.diagnostic.severity.ERROR },
