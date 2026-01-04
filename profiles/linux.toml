@@ -1,0 +1,25 @@
+[neovim]
+source = "nvim"
+target = "~/.config/nvim"
+type = "symlink"
+
+[bash]
+source = "bash/bashrc"
+target = "~/.bashrc"
+type = "symlink"
+
+[tmux]
+source = "tmux/tmux.conf"
+target = "~/.tmux.conf"
+type = "symlink"
+
+[ghostty]
+source = "ghostty/config"
+target = "~/.config/ghostty/config"
+type = "symlink"
+
+[starship]
+source = "starship/starship.toml"
+target = "~/.config/starship.toml"
+type = "symlink"
+

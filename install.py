@@ -25,7 +25,7 @@ class Data(TypedDict):
 
 profile_path = Path(__file__).parent / "profiles"
 
-profile = profile_path / "windows.toml"
+profile = profile_path / "linux.toml"
 
 profile_data: dict[str, Data] = tomllib.loads(profile.read_text())
 
@@ -40,7 +40,8 @@ for dotfile, data in profile_data.items():
         if destination.is_dir():
             if os.path.islink(destination):
                 log.info(f"Deleting link: {destination}")
-                destination.rmdir()
+                destination.unlink()
+                # destination.rmdir()
             else:
                 log.info(f"Deleting directory: {destination}")
                 shutil.rmtree(destination)

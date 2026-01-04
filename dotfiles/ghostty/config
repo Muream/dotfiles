@@ -1,0 +1,9 @@
+window-decoration = none
+# window-theme = ghostty  # make the titlebar colour match the terminal theme
+
+theme = light:Rose Pine Dawn,dark:Rose Pine
+
+# disable annoying clipboard related popups and notifications
+clipboard-read = allow
+clipboard-write = allow
+app-notifications = no-clipboard-copy
