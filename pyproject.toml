@@ -5,3 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
+
+[tool.ruff]
+# Always sort imports when running 'ruff check'
+lint.extend-select = ["I"]
+
+# The presence of this header enables errors in editors
+[tool.pyrefly]

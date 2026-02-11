@@ -23,3 +23,7 @@ source = "starship/starship.toml"
 target = "~/.config/starship.toml"
 type = "symlink"
 
+[cosmic]
+source = "cosmic"
+target = "~/.config/cosmic"
+type = "symlink-children"
