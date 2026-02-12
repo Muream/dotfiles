@@ -37,3 +37,5 @@ vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 
 -- vim.keymap.set("n", '<leader>fs', function() Snacks.picker.lsp_symbols() end)
 -- vim.keymap.set("n", '<leader>fS', function() Snacks.picker.lsp_workspace_symbols() end)
+
+vim.keymap.set("n", "<leader>bb", ":make<CR>")

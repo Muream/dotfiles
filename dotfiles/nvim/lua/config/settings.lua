@@ -76,3 +76,5 @@ vim.diagnostic.config {
         },
     } or {},
 }
+
+vim.opt.makeprg = "just build"
