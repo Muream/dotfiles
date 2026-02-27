@@ -3,7 +3,8 @@ font-family = "JetBrains Mono"
 window-decoration = none
 # window-theme = ghostty  # make the titlebar colour match the terminal theme
 
-theme = light:Rose Pine Dawn,dark:Rose Pine
+# theme = light:Rose Pine Dawn,dark:Rose Pine
+theme = light:Rose Pine Dawn,dark:Vague
 
 # disable annoying clipboard related popups and notifications
 clipboard-read = allow

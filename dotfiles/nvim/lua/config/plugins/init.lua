@@ -16,6 +16,7 @@ require("config.plugins.misc")
 require("config.plugins.navigator")
 require("config.plugins.oil")
 require("config.plugins.tree-sitter")
+require("config.plugins.overseer")
 
 
 local packages_to_delete = {}

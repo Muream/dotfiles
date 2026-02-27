@@ -13,20 +13,20 @@
       "src": "https://github.com/f-person/auto-dark-mode.nvim"
     },
     "blink.cmp": {
-      "rev": "b19413d214068f316c78978b08264ed1c41830ec",
+      "rev": "4b18c32adef2898f95cdef6192cbd5796c1a332d",
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
     "clangd_extensions.nvim": {
-      "rev": "6fd7f12df71a04dd9ec398fc63aaa23fbe9f525f",
+      "rev": "e84eaea7ca79610d7047fb1c9d74f15bb1c9db34",
       "src": "https://github.com/p00f/clangd_extensions.nvim"
     },
     "friendly-snippets": {
-      "rev": "572f5660cf05f8cd8834e096d7b4c921ba18e175",
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "5813e4878748805f1518cee7abb50fd7205a3a48",
+      "rev": "9f3c6dd7868bcc116e9c1c1929ce063b978fa519",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "indent-blankline.nvim": {
@@ -42,15 +42,15 @@
       "src": "https://github.com/timmyjose-projects/lox.vim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "8f1a3e6eecb638817e8999aaa16ada27cd54d867",
+      "rev": "21c2a84ce368e99b18f52ab348c4c02c32c02fcf",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason.nvim": {
-      "rev": "57e5a8addb8c71fb063ee4acda466c7cf6ad2800",
+      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.extra": {
-      "rev": "31f82562238a4fadd30997757ead6c7f1770e7ea",
+      "rev": "570d18489cf82d435566dc9e94530b67939e95f4",
       "src": "https://github.com/nvim-mini/mini.extra"
     },
     "mini.hipatterns": {
@@ -58,7 +58,7 @@
       "src": "https://github.com/nvim-mini/mini.hipatterns"
     },
     "mini.icons": {
-      "rev": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428",
+      "rev": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.notify": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/nvim-mini/mini.notify"
     },
     "mini.pick": {
-      "rev": "c488bbaa74b4b9e9ba49ebaffdd9f19b15b64a4f",
+      "rev": "4ad37ade984e69c43227b82ccdca5a92a22886de",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "mini.statusline": {
@@ -75,14 +75,11 @@
     },
     "mini.tabline": {
       "rev": "caf23615b9b99bacc79ecd60f61c4e6a8ec18c84",
-      "src": "https://github.com/nvim-mini/mini.tabline"
-    },
-    "neovim": {
-      "rev": "cf2a288696b03d0934da713d66c6d71557b5c997",
-      "src": "https://github.com/rose-pine/neovim"
+      "src": "https://github.com/nvim-mini/mini.tabline",
+      "version": "'stable'"
     },
     "nvim-lspconfig": {
-      "rev": "d20d83b3f24f5884da73a9fc92fdc47e778b8d0d",
+      "rev": "44acfe887d4056f704ccc4f17513ed41c9e2b2e6",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nu": {
@@ -103,8 +100,12 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
     "oil.nvim": {
-      "rev": "756dec855b4811f2d27f067a3aca477f368d99f5",
+      "rev": "f55b25e493a7df76371cfadd0ded5004cb9cd48a",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "overseer.nvim": {
+      "rev": "392093e610333c0aea89bf43de7362e25783eada",
+      "src": "https://github.com/stevearc/overseer.nvim"
     },
     "plenary.nvim": {
       "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
@@ -113,6 +114,10 @@
     "treesj": {
       "rev": "186084dee5e9c8eec40f6e39481c723dd567cb05",
       "src": "https://github.com/Wansmer/treesj"
+    },
+    "vague.nvim": {
+      "rev": "e99a0380acc48665e77766d786155e7b126eb34a",
+      "src": "https://github.com/vague-theme/vague.nvim"
     },
     "vim-lark-syntax": {
       "rev": "e59976afd02b4c5ac36818ad0076c04c1584336a",

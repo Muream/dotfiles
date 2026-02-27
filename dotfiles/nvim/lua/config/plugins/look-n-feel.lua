@@ -1,17 +1,30 @@
 -- vim.pack.add({ "https://github.com/catppuccin/nvim" })
 -- require("catppuccin").setup({ flavour = "mocha", no_italic = true, no_bold = true, })
 -- vim.cmd.colorscheme("catppuccin")
+--
+-- vim.pack.add({ "https://github.com/rose-pine/neovim" })
+-- require("rose-pine").setup({
+--     variant = "auto", -- auto, main, moon, or dawn
+--     styles = {
+--         bold = false,
+--         italic = false,
+--         transparency = false,
+--     },
+-- })
+-- vim.cmd.colorscheme("rose-pine")
 
-vim.pack.add({ "https://github.com/rose-pine/neovim" })
-require("rose-pine").setup({
-    variant = "auto", -- auto, main, moon, or dawn
-    styles = {
-        bold = false,
-        italic = false,
-        transparency = false,
-    },
+
+vim.pack.add({
+    "https://github.com/vague-theme/vague.nvim",
 })
-vim.cmd.colorscheme("rose-pine")
+
+require("vague").setup({
+    bold = false,
+    italic = false,
+})
+
+vim.cmd("colorscheme vague")
+
 
 vim.pack.add({ "https://github.com/lukas-reineke/indent-blankline.nvim" })
 require("ibl").setup({
