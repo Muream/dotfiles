@@ -1,11 +1,81 @@
 {
     (
         modifiers: [
+            Ctrl,
+            Alt,
+        ],
+        key: "Right",
+    ): NextWorkspace,
+    (
+        modifiers: [
+            Ctrl,
+            Alt,
+            Shift,
+        ],
+        key: "Right",
+    ): MoveToNextWorkspace,
+    (
+        modifiers: [
             Super,
             Shift,
         ],
         key: "Left",
     ): Focus(Left),
+    (
+        modifiers: [
+            Ctrl,
+            Shift,
+        ],
+        key: "Escape",
+        description: Some("System Monitor"),
+    ): Spawn("gnome-sy"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Up",
+    ): Focus(Up),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Down",
+    ): Move(Down),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "e",
+    ): System(HomeFolder),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Down",
+    ): Focus(Down),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "d",
+        description: Some("Toggle Dark Theme"),
+    ): Spawn("~/projects/dotfiles/dotfiles/cosmic/toggle-dark-theme.sh"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "t",
+    ): ToggleSticky,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Left",
+    ): Move(Left),
     (
         modifiers: [
             Super,
@@ -17,49 +87,14 @@
         modifiers: [
             Super,
         ],
-        key: "Left",
-    ): Move(Left),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "Down",
-    ): Move(Down),
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
         key: "Up",
-    ): Focus(Up),
-    (
-        modifiers: [
-            Ctrl,
-            Alt,
-            Shift,
-        ],
-        key: "Right",
-    ): MoveToNextWorkspace,
-    (
-        modifiers: [
-            Ctrl,
-            Alt,
-        ],
-        key: "Right",
-    ): NextWorkspace,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "Down",
-    ): Focus(Down),
+    ): Move(Up),
     (
         modifiers: [
             Super,
         ],
-        key: "e",
-    ): System(HomeFolder),
+        key: "Right",
+    ): Move(Right),
     (
         modifiers: [
             Ctrl,
@@ -72,8 +107,8 @@
         modifiers: [
             Super,
         ],
-        key: "Right",
-    ): Move(Right),
+        key: "Return",
+    ): System(Terminal),
     (
         modifiers: [
             Ctrl,
@@ -81,31 +116,4 @@
         ],
         key: "Left",
     ): PreviousWorkspace,
-    (
-        modifiers: [
-            Ctrl,
-            Shift,
-        ],
-        key: "Escape",
-        description: Some("System Monitor"),
-    ): Spawn("gnome-sy"),
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "Return",
-    ): System(Terminal),
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "t",
-    ): ToggleSticky,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "Up",
-    ): Move(Up),
 }
