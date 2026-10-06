@@ -1,28 +1,24 @@
 vim.pack.add({
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
-    -- "https://github.com/nvim-treesitter/playground",
 })
 
-require("nvim-treesitter.configs").setup({
-    auto_install = true,
-    indent = { enable = true },
-    highlight = { enable = true },
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
-    textobjects = {
-        select = {
-            enable = true,
-            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-            keymaps = {
-                ["aa"] = "@parameter.outer",
-                ["ia"] = "@parameter.inner",
-                ["ac"] = "@class.outer",
-                ["ic"] = "@class.inner",
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-            },
-        },
-    },
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "*" },
+    callback = function()
+        local filetype = vim.bo.filetype
+        if filetype and filetype ~= "" then
+            local success = pcall(function()
+                vim.treesitter.start()
+            end)
+            if not success then
+                return
+            end
+        end
+    end,
 })
 
 vim.api.nvim_create_autocmd("PackChanged", {
